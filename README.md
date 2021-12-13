@@ -1,4 +1,4 @@
-# Panduan Penggunaan Git Cloudmicrosystem
+# Panduan Penggunaan Github Cloudmicrosystem
 
 * [Membuat Repository Baru](https://github.com/hartomycom/API-ERP-CMS/tree/master#membuat-repository-baru)
 * [Push Repository Yang sudah ada](https://github.com/hartomycom/API-ERP-CMS/tree/master#push-repository-yang-sudah-ada)
