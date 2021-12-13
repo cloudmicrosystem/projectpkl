@@ -12,3 +12,7 @@ use App\Http\Livewire\SuratMasukComponent;
 Route::get('/', HomeComponent::class);
 Route::get('/surat-masuk', SuratMasukComponent::class);
 Route::get('/surat-keluar', SuratKeluarComponent::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
