@@ -8,6 +8,8 @@ class SuratMasukComponent extends Component
 {
     public function render()
     {
-        return view('livewire.surat-masuk-component')->layout('layouts.base');
+        $view = "jfkdjkfjd";
+
+        return view('livewire.surat-masuk-component')->layout('layouts.base')->with(compact('view'));
     }
 }
