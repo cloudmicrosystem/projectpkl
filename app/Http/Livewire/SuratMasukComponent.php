@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Livewire;
-
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class SuratMasukComponent extends Component
 {
+
     public function render()
     {
-        $view = "jfkdjkfjd";
-
-        return view('livewire.surat-masuk-component')->layout('layouts.base')->with(compact('view'));
+        $arsip = DB::select('select * from arsip');
+        return view('livewire.surat-masuk-component')->layout('layouts.base')->with(compact('arsip'));
     }
 }
