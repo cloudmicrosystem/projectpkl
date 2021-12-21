@@ -17,20 +17,20 @@
 </tr>
 </thead>
 <body>
-@foreach($arsip as $arsips)
+@foreach($arsip as $arsp)
 <tr>
-    <td>{{$arsips->id}}</td>
-    <td>{{$arsips->id_kategori}}</td>
-    <td>{{$arsips->no_arsip}}</td>
-    <td> {{$arsips->nama_arsip}}</td>
-    <td> {{$arsips->deskripsi}}</td>
-    <td>{{$arsips->tanggal_upload}}</td>
-    <td>{{$arsips->tanggal_update}}</td>
-    <td>{{$arsips->file_arsip}}</td>
-    <td>{{$arsips->id_jabatan}}</td>
-    <td>{{$arsips->id_user}}</td>
-    <td>{{$arsips->created_at}}</td>
-    <td>{{$arsips->updated_at}}</td>
+    <td>{{$arsp->id}}</td>
+    <td>{{$arsp->id_kategori}}</td>
+    <td>{{$arsp->no_arsip}}</td>
+    <td>{{$arsp->nama_arsip}}</td>
+    <td>{{$arsp->deskripsi}}</td>
+    <td>{{$arsp->tanggal_upload}}</td>
+    <td>{{$arsp->tanggal_update}}</td>
+    <td>{{$arsp->file_arsip}}</td>
+    <td>{{$arsp->id_jabatan}}</td>
+    <td>{{$arsp->id_user}}</td>
+    <td>{{$arsp->created_at}}</td>
+    <td>{{$arsp->updated_at}}</td>
 </tr>
 @endforeach
 </body>

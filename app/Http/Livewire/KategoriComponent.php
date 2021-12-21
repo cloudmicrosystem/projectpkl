@@ -73,5 +73,3 @@ class KategoriComponent extends Component
         if ($id) {
             DB::delete("DELETE kategori WHERE id =".$id);
         }
-    }
-}
