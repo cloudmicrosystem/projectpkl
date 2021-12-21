@@ -416,6 +416,18 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
+
+    <!-- Script for Modal -->
+    <script>
+        function createKategoriFunction(){
+            var x = document.getElementById("createForm");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
     @livewireScripts()
 </body>
 

@@ -1,6 +1,10 @@
-@include('livewire.kategori-create')
-<div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Tambah Kategori</button>
+@if ($updateMode)
+    @include('livewire.kategori-update')
+@else
+    @include('livewire.kategori-create')
+@endif
+<div >
+    <button type="button" class="btn btn-primary" onclick="createKategoriFunction()">Tambah Kategori</button>
     <table>
         <thead>
             <tr>
@@ -13,6 +17,10 @@
             <tr>
                 <td>{{$kat->id}}</td>
                 <td>{{$kat->nama_kategori}}</td>
+                <td>
+                    <button wire:click="edit{{ $kat->id }}">Edit</button>
+                    <button wire:click="delete{{ $kat->id }}">Delete</button>
+                </td>
             </tr>
             @endforeach
         </tbody>
