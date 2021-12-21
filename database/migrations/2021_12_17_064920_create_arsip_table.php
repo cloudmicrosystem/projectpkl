@@ -21,6 +21,7 @@ class CreateArsipTable extends Migration
             $table->text('deskripsi');
             $table->date('tanggal_upload');
             $table->date('tanggal_update');
+            $table->string('file_arsip');
             $table->integer('id_jabatan');
             $table->integer('id_user');
             $table->timestamps();
