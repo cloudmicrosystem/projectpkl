@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArsipController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/kategori', KategoriController::class);
+Route::resource('/arsip', ArsipController::class);
+Route::resource('/jabatan', JabatanController::class);
