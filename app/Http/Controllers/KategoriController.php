@@ -16,8 +16,8 @@ class KategoriController extends Controller
     {
         // Untuk menampilkan index
         $kategori = DB::select('SELECT * from kategori');
-
-        return view()->with(compact('kategori'));
+        echo "<pre>"; print_r($kategori); die;
+        // return view()->with(compact('kategori'));
     }
 
     /**

@@ -15,8 +15,8 @@ class UserController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $user = DB::select('SELECT * from user');
-
+        $user = DB::select('SELECT * from users');
+        echo "<pre>"; print_r($user); die;
         return view()->with(compact('user'));
     }
 
@@ -54,7 +54,7 @@ class UserController extends Controller
     public function show($id)
     {
         // Untuk menampilkan data secara rinci
-        $user = DB::select('SELECT * FROM user WHERE id = ?', [$id]);
+        $user = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
 
         return view()->with(compact('user'));
     }
@@ -68,7 +68,7 @@ class UserController extends Controller
     public function edit($id)
     {
         // Untuk menampilkan value pada saat ingin mengedit data
-        $user = DB::select('SELECT * FROM user WHERE id = ?', [$id]);
+        $user = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
 
         return view()->with(compact('user'));
     }
