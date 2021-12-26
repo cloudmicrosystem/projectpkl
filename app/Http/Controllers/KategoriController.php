@@ -42,6 +42,9 @@ class KategoriController extends Controller
     {
         // Ini function buat insert data
 
+        $namaKategori = $request->namaKategori;
+        DB::insert('INSERT INTO kategori(nama_kategori) VALUES(?)', [$namaKategori]);
+
         return redirect()->route('kategori.index')->with('message', 'Kategori berhasil ditambahkan! ');
     }
 
@@ -83,6 +86,8 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         // Ini function buat updatenya
+        $namaKategori = $request->namaKategori;
+        DB::update('UPDATE kategori SET nama_kategori = ? WHERE ID = ?', [$namaKategori, $id]);
 
         return redirect()->route('kategori.index')->with('message', 'Kategori berhasil diubah!');
     }

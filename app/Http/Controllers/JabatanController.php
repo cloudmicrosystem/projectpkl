@@ -42,6 +42,8 @@ class JabatanController extends Controller
     public function store(Request $request)
     {
         // Ini function buat insert data
+        $namaJabatan = $request->namaJabatan;
+        DB::insert('INSERT INTO jabatan(nama_jabatan) VALUES(?)', [$namaJabatan]);
 
         return redirect()->route('jabatan.index')->with('message', 'Jabatan berhasil ditambahkan! ');
     }
@@ -84,6 +86,9 @@ class JabatanController extends Controller
     public function update(Request $request, $id)
     {
         // Ini function buat updatenya
+
+        $namaJabatan = $request->namaJabatan;
+        DB::update('UPDATE jabatan SET nama_jabatan = ? WHERE id = ?', [$namaJabatan, $id]);
 
         return redirect()->route('jabatan.index')->with('message', 'Jabatan berhasil diubah!');
     }
