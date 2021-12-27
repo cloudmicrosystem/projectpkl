@@ -2,7 +2,7 @@
 @section('konten')
 <div class="row">
     <table class="table table-responsive">
-        
+    
     <pre>
         {{print_r($arsip)}}
     </pre>
