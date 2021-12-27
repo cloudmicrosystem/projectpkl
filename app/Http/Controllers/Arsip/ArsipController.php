@@ -31,7 +31,7 @@ class ArsipController extends Controller
     {
         // Untuk redirect ke halaman create
 
-        return view();
+        return view('pages.arsipCreate');
     }
 
     /**
