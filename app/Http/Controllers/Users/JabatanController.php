@@ -19,7 +19,7 @@ class JabatanController extends Controller
         $jabatan = DB::select('SELECT * from jabatan');
         // echo "<pre>"; print_r($jabatan); die;
 
-        return view('content.users.jabatan')->with(compact('jabatan'));
+        return view('content.users.jabatanView')->with(compact('jabatan'));
     }
 
     /**
@@ -107,4 +107,3 @@ class JabatanController extends Controller
         return redirect()->route('jabatan.index')->with('message', 'Jabatan berhasil dihapus!');
     }
 }
-
