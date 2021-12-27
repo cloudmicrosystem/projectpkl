@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\ArsipController;
+use App\Http\Controllers\Arsip\ArsipController;
 use App\Http\Controllers\CheckTableController;
-use App\Http\Controllers\JabatanController;
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Users\JabatanController;
+use App\Http\Controllers\Kategori\KategoriController;
+use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
