@@ -16,9 +16,9 @@ class ArsipController extends Controller
     {
         // Untuk menampilkan index
         $arsip = DB::select('SELECT * from arsip');
-        echo "<pre>"; print_r($arsip); die;
+        // echo "<pre>"; print_r($arsip); die;
 
-        return view()->with(compact('arsip'));
+        return view('content.arsip.list')->with(compact('arsip'));
     }
 
     /**
