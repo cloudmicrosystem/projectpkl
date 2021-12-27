@@ -16,9 +16,9 @@ class JabatanController extends Controller
     {
         // Untuk menampilkan index
         $jabatan = DB::select('SELECT * from jabatan');
-        echo "<pre>"; print_r($jabatan); die;
+        //echo "<pre>"; print_r($jabatan); die;
 
-        return view()->with(compact('jabatan'));
+        return view('pages.jabatanView')->with(compact('jabatan'));
     }
 
     /**
