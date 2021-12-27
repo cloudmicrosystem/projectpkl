@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('content')
+@section('konten')
 <div class="row">
     <table table class="table table-striped">
         <thead>
@@ -27,10 +27,12 @@
                 <td>{{ $usr->level}}</td>
                 <td>{{ $usr->id_jabatan}}</td>
                 <td>
-                <button class="btn btn-primary " ><i class="fas fa-edit"></button>
-                <button class="btn btn-primary " ><i class="fas fa-trash"></button>
+                    <a class="nav-link" href="/">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash"></i>
+                     </a>
                 </td>
-                </tr>
+            </tr>
         @endforeach
         </tbody>
     </table>

@@ -17,7 +17,7 @@ class UserController extends Controller
         // Untuk menampilkan index
         $user = DB::select('SELECT * from users');
         // echo "<pre>"; print_r($user); die;
-        return view('content.users.user')->with(compact('user'));
+        return view('pages.userView')->with(compact('user'));
     }
 
     /**

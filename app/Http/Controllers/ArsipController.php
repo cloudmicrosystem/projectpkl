@@ -18,7 +18,7 @@ class ArsipController extends Controller
         $arsip = DB::select('SELECT * from arsip');
         // echo "<pre>"; print_r($arsip); die;
 
-        return view('content.arsip.list')->with(compact('arsip'));
+        return view('pages.arsipView')->with(compact('arsip'));
     }
 
     /**
