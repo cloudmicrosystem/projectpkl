@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArsipController;
+use App\Http\Controllers\CheckTableController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
@@ -32,3 +33,5 @@ Route::resource('/arsip', ArsipController::class);
 Route::resource('/jabatan', JabatanController::class);
 Route::resource('/user', UserController::class);
 // Route::resource('user', UserController::class);
+
+Route::get('/checkdb', CheckTableController::class);
