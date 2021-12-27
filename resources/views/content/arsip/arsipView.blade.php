@@ -1,19 +1,19 @@
 @extends('layouts.base')
 @section('konten')
 <div class="row">
-    <table table class="table table-striped">
+    <table table class="table table-striped table-responsive">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Id Kategori</th>
-                <th>Id Jabatan</th>
-                <th>Id User</th>
-                <th>No Arsip</th>
-                <th>Nama Arsip</th>
-                <th>Deskripsi</th>
-                <th>File Arsip</th>
-                <th>Tanggal Upload</th>
-                <th>Action</th>
+                <th  scope="col">Id</th>
+                <th  scope="col">Id Kategori</th>
+                <th  scope="col">Id Jabatan</th>
+                <th  scope="col">Id User</th>
+                <th  scope="col">No Arsip</th>
+                <th  scope="col">Nama Arsip</th>
+                <th  scope="col">Deskripsi</th>
+                <th  scope="col">File Arsip</th>
+                <th  scope="col">Tanggal Upload</th>
+                <th  scope="col">Action</th>
                 
             </tr>
         </thead>

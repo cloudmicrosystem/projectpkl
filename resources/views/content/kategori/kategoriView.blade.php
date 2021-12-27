@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <div class="row">
-    <table table class="table table-striped">
+    <table table class="table table-striped table-responsive">
         <thead>
             <tr>
                 <th>Id</th>
