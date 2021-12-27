@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -15,6 +16,10 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('content.dashboard.index');
+        $totalDataArsip = DB::select('SELECT COUNT(id) AS total FROM arsip');
+        // $totalDataArsip = (array) $totalDataArsip;
+        // echo "<pre>"; print_r($totalDataArsip); die;
+
+        return view('content.dashboard.index')->with(compact('totalDataArsip'));
     }
 }
