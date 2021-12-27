@@ -15,6 +15,8 @@ class CheckTableController extends Controller
      */
     public function __invoke(Request $request)
     {
-        DB::select('SHOW TABLES');
+        $checkdb = DB::select('SHOW TABLES');
+        // json_decode(json_encode($checkdb));
+        echo "<pre>"; print_r($checkdb); die;
     }
 }
