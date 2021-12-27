@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ArsipController;
+use App\Http\Controllers\Arsip\ArsipController;
 use App\Http\Controllers\CheckTableController;
-use App\Http\Controllers\JabatanController;
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Users\JabatanController;
+use App\Http\Controllers\Kategori\KategoriController;
+use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,15 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('content.dashboard.index');
-});
+// Route::get('/', function () {
+//     return view('content.dashboard.index');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+Route::get('/', DashboardController::class);
 
 Route::resource('/kategori', KategoriController::class);
 Route::resource('/arsip', ArsipController::class);

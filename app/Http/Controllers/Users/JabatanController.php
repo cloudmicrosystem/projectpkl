@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Users;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class JabatanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,10 @@ class UserController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $user = DB::select('SELECT * from users');
-        // echo "<pre>"; print_r($user); die;
-        return view('pages.userView')->with(compact('user'));
+        $jabatan = DB::select('SELECT * from jabatan');
+        // echo "<pre>"; print_r($jabatan); die;
+
+        return view('content.users.jabatan')->with(compact('jabatan'));
     }
 
     /**
@@ -41,8 +43,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         // Ini function buat insert data
+        $namaJabatan = $request->namaJabatan;
+        DB::insert('INSERT INTO jabatan(nama_jabatan) VALUES(?)', [$namaJabatan]);
 
-        return redirect()->route('user.index')->with('message', 'User berhasil ditambahkan! ');
+        return redirect()->route('jabatan.index')->with('message', 'Jabatan berhasil ditambahkan! ');
     }
 
     /**
@@ -54,9 +58,9 @@ class UserController extends Controller
     public function show($id)
     {
         // Untuk menampilkan data secara rinci
-        $user = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
+        $jabatan = DB::select('SELECT * FROM jabatan WHERE id = ?', [$id]);
 
-        return view()->with(compact('user'));
+        return view()->with(compact('jabatan'));
     }
 
     /**
@@ -68,9 +72,9 @@ class UserController extends Controller
     public function edit($id)
     {
         // Untuk menampilkan value pada saat ingin mengedit data
-        $user = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
+        $jabatan = DB::select('SELECT * FROM jabatan WHERE id = ?', [$id]);
 
-        return view()->with(compact('user'));
+        return view()->with(compact('jabatan'));
     }
 
     /**
@@ -84,7 +88,10 @@ class UserController extends Controller
     {
         // Ini function buat updatenya
 
-        return redirect()->route('user.index')->with('message', 'User berhasil diubah!');
+        $namaJabatan = $request->namaJabatan;
+        DB::update('UPDATE jabatan SET nama_jabatan = ? WHERE id = ?', [$namaJabatan, $id]);
+
+        return redirect()->route('jabatan.index')->with('message', 'Jabatan berhasil diubah!');
     }
 
     /**
@@ -96,7 +103,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         // Untuk menghapus data ~~
-        DB::delete('DELETE user WHERE id = ?', [$id]);
-        return redirect()->route('user.index')->with('message', 'User berhasil dihapus!');
+        DB::delete('DELETE jabatan WHERE id = ?', [$id]);
+        return redirect()->route('jabatan.index')->with('message', 'Jabatan berhasil dihapus!');
     }
 }
+

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Kategori;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ArsipController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +16,9 @@ class ArsipController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $arsip = DB::select('SELECT * from arsip');
-        // echo "<pre>"; print_r($arsip); die;
-
-        return view('pages.arsipView')->with(compact('arsip'));
+        $kategori = DB::select('SELECT * from kategori');
+        // echo "<pre>"; print_r($kategori); die;
+        return view('content.kategori.kategori')->with(compact('kategori'));
     }
 
     /**
@@ -43,7 +43,10 @@ class ArsipController extends Controller
     {
         // Ini function buat insert data
 
-        return redirect()->route('arsip.index')->with('message', 'Arsip berhasil ditambahkan! ');
+        $namaKategori = $request->namaKategori;
+        DB::insert('INSERT INTO kategori(nama_kategori) VALUES(?)', [$namaKategori]);
+
+        return redirect()->route('kategori.index')->with('message', 'Kategori berhasil ditambahkan! ');
     }
 
     /**
@@ -55,9 +58,9 @@ class ArsipController extends Controller
     public function show($id)
     {
         // Untuk menampilkan data secara rinci
-        $arsip = DB::select('SELECT * FROM arsip WHERE id = ?', [$id]);
+        $kategori = DB::select('SELECT * FROM kategori WHERE id = ?', [$id]);
 
-        return view()->with(compact('arsip'));
+        return view()->with(compact('kategori'));
     }
 
     /**
@@ -69,9 +72,9 @@ class ArsipController extends Controller
     public function edit($id)
     {
         // Untuk menampilkan value pada saat ingin mengedit data
-        $arsip = DB::select('SELECT * FROM arsip WHERE id = ?', [$id]);
+        $kategori = DB::select('SELECT * FROM kategori WHERE id = ?', [$id]);
 
-        return view()->with(compact('arsip'));
+        return view()->with(compact('kategori'));
     }
 
     /**
@@ -84,8 +87,10 @@ class ArsipController extends Controller
     public function update(Request $request, $id)
     {
         // Ini function buat updatenya
+        $namaKategori = $request->namaKategori;
+        DB::update('UPDATE kategori SET nama_kategori = ? WHERE ID = ?', [$namaKategori, $id]);
 
-        return redirect()->route('arsip.index')->with('message', 'Arsip berhasil diubah!');
+        return redirect()->route('kategori.index')->with('message', 'Kategori berhasil diubah!');
     }
 
     /**
@@ -97,7 +102,7 @@ class ArsipController extends Controller
     public function destroy($id)
     {
         // Untuk menghapus data ~~
-        DB::delete('DELETE arsip WHERE id = ?', [$id]);
-        return redirect()->route('arsip.index')->with('message', 'Arsip berhasil dihapus!');
+        DB::delete('DELETE kategori WHERE id = ?', [$id]);
+        return redirect()->route('kategori.index')->with('message', 'Kategori berhasil dihapus!');
     }
 }
