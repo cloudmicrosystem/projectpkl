@@ -1,6 +1,5 @@
 @extends('layouts.base')
 @section('konten')
-                <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -23,7 +22,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalDataArsip['0']->total }}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-archive fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -327,5 +326,4 @@
                         </div>
                     </div> --}}
 
-                </div>
 @endsection

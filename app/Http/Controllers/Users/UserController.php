@@ -18,7 +18,7 @@ class UserController extends Controller
         // Untuk menampilkan index
         $user = DB::select('SELECT * from users');
         // echo "<pre>"; print_r($user); die;
-        return view('pages.userView')->with(compact('user'));
+        return view('content.users.userView')->with(compact('user'));
     }
 
     /**
@@ -30,7 +30,7 @@ class UserController extends Controller
     {
         // Untuk redirect ke halaman create
 
-        return view();
+        return view('content.users.userCreate');
     }
 
     /**

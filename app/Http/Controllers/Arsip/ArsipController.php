@@ -19,7 +19,7 @@ class ArsipController extends Controller
         $arsip = DB::select('SELECT * from arsip');
         // echo "<pre>"; print_r($arsip); die;
 
-        return view('pages.arsipView')->with(compact('arsip'));
+        return view('content.arsip.arsipView')->with(compact('arsip'));
     }
 
     /**
@@ -31,7 +31,7 @@ class ArsipController extends Controller
     {
         // Untuk redirect ke halaman create
 
-        return view('pages.arsipCreate');
+        return view('content.arsip.arsipCreate');
     }
 
     /**

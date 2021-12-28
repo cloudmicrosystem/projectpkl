@@ -18,7 +18,7 @@ class JabatanController extends Controller
         $jabatan = DB::select('SELECT * from jabatan');
         //echo "<pre>"; print_r($jabatan); die;
 
-        return view('pages.jabatanView')->with(compact('jabatan'));
+        return view('content.jabatan.jabatanView')->with(compact('jabatan'));
     }
 
     /**
@@ -30,7 +30,7 @@ class JabatanController extends Controller
     {
         // Untuk redirect ke halaman create
 
-        return view();
+        return view('content.jabatan.jabatanCreate');
     }
 
     /**

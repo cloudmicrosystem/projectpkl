@@ -51,7 +51,10 @@
                     </div>
 
                     <!-- Section Content -->
+                    <div class="container-fluid">
                     @yield('konten')
+                    </div>
+                    
                 </div>
                 <!-- /.container-fluid -->
 
