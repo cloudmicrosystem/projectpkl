@@ -78,7 +78,7 @@ class UserController extends Controller
         // Untuk menampilkan value pada saat ingin mengedit data
         $user = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
 
-        return view()->with(compact('user'));
+        return view('content.users.userEdit')->with(compact('user'));
     }
 
     /**

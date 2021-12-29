@@ -2,6 +2,11 @@
 @section('konten')
 <div class="row">
     <table table class="table table-striped table-responsive">
+    <div>
+            <div class="pull-right">
+                <a href="{{ URL::to('jabatan/create') }}" class="btn btn-md btn-primary">Tambah Jabatan</a>
+            </div>
+        </div>
         <thead>
             <tr>
                 <th>Id</th>
@@ -20,10 +25,8 @@
                 <td>{{ $jbt->created_at }}</td>
                 <td>
                 <td>
-                    <a class="nav-link" href="/">
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-trash"></i>
-                     </a>
+                <a href="{{ URL::to('jabatan/'.$jbt->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
+                <a href="{{ URL::to('jabatan/'.$jbt->id) }}" class="nav-link"><i class="fas fa-trash"></i></a>
                 </td>
                 </td>
             </tr>
