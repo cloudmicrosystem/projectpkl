@@ -2,6 +2,11 @@
 @section('konten')
 <div class="row">
     <table table class="table table-striped table-responsive">
+    <div>
+            <div class="pull-right">
+                <a href="{{ URL::to('user/create') }}" class="btn btn-md btn-primary">Tambah User</a>
+            </div>
+        </div>
         <thead>
             <tr>
                 <th>Id</th>
@@ -27,10 +32,8 @@
                 <td>{{ $usr->level}}</td>
                 <td>{{ $usr->id_jabatan}}</td>
                 <td>
-                    <a class="nav-link" href="/">
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-trash"></i>
-                     </a>
+                    <a href="{{ URL::to('user/'.$usr->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
+                    <a href="{{ URL::to('user/'.$usr->id) }}" class="nav-link"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
         @endforeach

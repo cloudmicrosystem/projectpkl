@@ -74,7 +74,7 @@ class KategoriController extends Controller
         // Untuk menampilkan value pada saat ingin mengedit data
         $kategori = DB::select('SELECT * FROM kategori WHERE id = ?', [$id]);
 
-        return view()->with(compact('kategori'));
+        return view('content.kategori.kategoriEdit')->with(compact('kategori'));
     }
 
     /**

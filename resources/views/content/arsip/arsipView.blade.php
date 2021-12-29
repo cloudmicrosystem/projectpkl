@@ -4,7 +4,7 @@
     <table table class="table table-striped table-responsive">
         <div>
             <div class="pull-right">
-                <a href="#" class="btn btn-md btn-primary">Tambah Data</a>
+                <a href="{{ URL::to('arsip/create') }}" class="btn btn-md btn-primary">Tambah Data</a>
             </div>
         </div>
 
@@ -38,10 +38,8 @@
                 <td>{{ $arsp->tanggal_upload}}</td>
                 <td>
                 <td>
-                    <a class="nav-link" href="/">
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-trash"></i>
-                     </a>
+                    <a href="{{ URL::to('arsip/'.$arsp->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
+                    <a href="{{ URL::to('arsip/'.$arsp->id) }}" class="nav-link"><i class="fas fa-trash"></i></a>
                 </td>
                 </td>
             </tr>
