@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('konten')
-<form>
+<form action="{{ route('arsip.store') }}" method="POST">
+  @csrf
   <!-- <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Id Kategori</label>
     <div class="col-sm-10">
@@ -32,19 +33,9 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tanggal Update</label>
-    <div class="col-sm-10">
-      <input type="date" name="in_tanggal_update" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan tanggal update">
-    </div>
-  </div>
-  <form>
-  <div class="form-group row">
     <label for="exampleFormControlFile1" class="col-sm-2 col-form-label col-form-label-lg">File Arsip</label>
     <input type="file" class="form-control-file" id="exampleFormControlFile1">
   </div>
-</form>
-  </div>
-  <a href="#" class="btn btn-primary btn-lg" >Simpan</a>
-  <a href="#" class="btn btn-primary btn-lg">Cancel</a>
+  <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 @endsection
