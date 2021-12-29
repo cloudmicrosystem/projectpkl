@@ -1,11 +1,16 @@
 @extends('layouts.base')
 @section('konten')
+<<<<<<< HEAD
 <form action="{{ route('arsip.store') }}" method="POST">
   @csrf
   <!-- <div class="form-group row">
+=======
+<form>
+  <div class="form-group row">
+>>>>>>> 821f41d5df3001d35f163d43e1c87e04bde5119b
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Id Kategori</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan id kategori">
+      <input type="email" name="in_kategori" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan id kategori">
     </div>
   </div> -->
   <div class="form-group row">
