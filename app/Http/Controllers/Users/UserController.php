@@ -43,6 +43,13 @@ class UserController extends Controller
     {
         // Ini function buat insert data
 
+        $nama = $request->nama;
+        $password = md5($request->password);
+        $email = $request->email;
+
+        echo "<pre>"; print_r($request); die;
+
+
         return redirect()->route('user.index')->with('message', 'User berhasil ditambahkan! ');
     }
 

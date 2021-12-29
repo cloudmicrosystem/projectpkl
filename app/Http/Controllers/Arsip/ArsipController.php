@@ -30,7 +30,8 @@ class ArsipController extends Controller
     public function create()
     {
         // Untuk redirect ke halaman create
-
+        $query = DB::select("SELECT * FROM arsip");
+        echo "<pre>"; print_r($query); die;
         return view('content.arsip.arsipCreate');
     }
 
@@ -43,6 +44,12 @@ class ArsipController extends Controller
     public function store(Request $request)
     {
         // Ini function buat insert data
+        $noArsip = '';
+        $kategoriArsip = '';
+        $namaArsip = '';
+        $deskripsi = '';
+        $fileArsip = '';
+        $userId = '';
 
         return redirect()->route('arsip.index')->with('message', 'Arsip berhasil ditambahkan! ');
     }
