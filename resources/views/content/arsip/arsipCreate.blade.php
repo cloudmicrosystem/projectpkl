@@ -1,16 +1,10 @@
 @extends('layouts.base')
 @section('konten')
 <form>
-<div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Id</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan id">
-    </div>
-  </div>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Id Kategori</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan id kategori">
+      <input type="email" name="in_kategori" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan id kategori">
     </div>
   </div>
   <div class="form-group row">
