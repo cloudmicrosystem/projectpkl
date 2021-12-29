@@ -6,35 +6,35 @@
     <div class="col-sm-10">
       <input type="email" name="in_kategori" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan id kategori">
     </div>
-  </div>
-  <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Id Jabatan</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan id jabatan">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Id User</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan id user">
-    </div>
-  </div>
+  </div> -->
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">No Arsip</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan no arsip">
+      <input type="number" name="in_no_arsip" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan no arsip">
     </div>
   </div>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Nama Arsip</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan nama arsip">
+      <input type="text" name="in_nama_arsip"class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan nama arsip">
     </div>
   </div>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Deskripsi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan deskripsi">
+      <input type="text" name="deskripsi" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan deskripsi">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tanggal Upload</label>
+    <div class="col-sm-10">
+      <input type="date" name="in_tanggal_upload" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan tanggal upload">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tanggal Update</label>
+    <div class="col-sm-10">
+      <input type="date" name="in_tanggal_update" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan tanggal update">
     </div>
   </div>
   <form>
