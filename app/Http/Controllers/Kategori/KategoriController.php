@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Kategori;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -43,8 +44,11 @@ class KategoriController extends Controller
     {
         // Ini function buat insert data
 
+        // echo "<pre>"; print_r($request->namaKategori); die;
         $namaKategori = $request->namaKategori;
-        DB::insert('INSERT INTO kategori(nama_kategori) VALUES(?)', [$namaKategori]);
+        $timeNow = Carbon::now();
+        DB::insert('INSERT INTO kategori(nama_kategori, created_at, updated_at) VALUES(?, ?, ?)', [$namaKategori, $timeNow, $timeNow]);
+
 
         return redirect()->route('kategori.index')->with('message', 'Kategori berhasil ditambahkan! ');
     }
