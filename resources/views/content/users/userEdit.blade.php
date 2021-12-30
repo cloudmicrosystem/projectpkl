@@ -47,8 +47,6 @@
       </select>
     </div>
   </div>
-  </form>
-<form>
   <button class="btn btn-primary" type="submit">Simpan</button>
 </form>
 @endsection

@@ -34,8 +34,8 @@
                 <td>{{ $arsp->nama_user }}</td>
                 <td>
                 <td>
-                    <a href="{{ URL::to('arsip/'.$arsp->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
-                    <a href="{{ URL::to('arsip/'.$arsp->id) }}" class="nav-link"><i class="fas fa-trash"></i></a>
+                    <a href="{{ route('arsip.edit'.$arsp->id) }}" class="nav-link"><i class="fas fa-edit"></i></a>
+                    <a href="{{ route('arsip.destroy'.$arsp->id) }}" METHOD="PUSH"></i></a>
                 </td>
                 </td>
             </tr>

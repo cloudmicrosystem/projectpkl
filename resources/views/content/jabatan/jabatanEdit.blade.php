@@ -10,8 +10,6 @@
             <input type="text" name="namaJabatan" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit nama" value="{{ $jabatan['0']->nama_jabatan }}">
         </div>
     </div>
-</form>
-<form>
     <button class="btn btn-primary" type="submit">Simpan</button>
 </form>
 @endsection

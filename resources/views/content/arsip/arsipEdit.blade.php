@@ -30,8 +30,6 @@
             <input type="text" name="fileArsip" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit file arsip" value="{{ $arsip['0']->file_Arsip }}">
         </div>
     </div>
-</form>
-<form>
 <button class="btn btn-primary" type="submit">Simpan</button>
 </form>
 @endsection

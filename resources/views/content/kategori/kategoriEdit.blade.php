@@ -10,8 +10,6 @@
             <input type="text" name="namaKategori" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit nama" value="{{ $kategori['0']->nama_kategori }}">
         </div>
     </div>
-</form>
-<form>
     <button class="btn btn-primary" type="submit">Simpan</button>
 </form>
 @endsection
