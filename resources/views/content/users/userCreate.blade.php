@@ -27,7 +27,7 @@
   </div>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Jabatan</label>
-    <div class="col-sm-10" name="id_jabatan">
+    <div class="col-sm-10" name="idJabatan">
       <select class="form-control">
         <option>pilih jabatan</option>
         <option>Sekretaris</option> 
@@ -38,7 +38,8 @@
       </select>
     </div>
   </div>
-</div>
+  </form>
+<form>
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 @endsection

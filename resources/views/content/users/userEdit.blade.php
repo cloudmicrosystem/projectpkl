@@ -35,14 +35,8 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="comFormLabellg" class="col-sm-2 col-form-label-lg">Level</label>
-        <div class="col-sm-10">
-            <input type="text" name="level" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit level" value="{{ $user['0']->level }}">
-        </div>
-    </div>
-    <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Jabatan</label>
-    <div class="col-sm-10" name="id_jabatan" value="{{ $user['0']->id_jabatan }}">
+    <div class="col-sm-10" name="idJabatan" value="{{ $user['0']->id_jabatan }}">
       <select class="form-control">
         <option>pilih jabatan</option>
         <option>Sekretaris</option> 
@@ -53,6 +47,8 @@
       </select>
     </div>
   </div>
+  </form>
+<form>
   <button class="btn btn-primary" type="submit">Simpan</button>
 </form>
 @endsection

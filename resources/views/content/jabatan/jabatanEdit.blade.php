@@ -12,6 +12,6 @@
     </div>
 </form>
 <form>
-<button class="btn btn-primary" type="submit">Simpan</button>
+    <button class="btn btn-primary" type="submit">Simpan</button>
 </form>
 @endsection

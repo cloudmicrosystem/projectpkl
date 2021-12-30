@@ -8,6 +8,8 @@
       <input type="text" name="namaJabatan" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan nama">
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Submit</button>
-</form>
+  </form>
+  <form>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
 @endsection

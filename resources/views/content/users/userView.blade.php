@@ -14,9 +14,7 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Alamat</th>
-                <th>Level</th>
                 <th>ID Jabatan</th>
-                <th>Tanggal Buat</th>
                 <th>Action</th>
                 
             </tr>
@@ -30,9 +28,7 @@
                 <td>{{ $usr->username }}</td>
                 <td>{{ $usr->email }}</td>
                 <td>{{ $usr->alamat }}</td>
-                <td>{{ $usr->level}}</td>
                 <td>{{ $usr->id_jabatan}}</td>
-                <td>{{ $usr->created_at}}</td>
                 <td>
                     <a href="{{ URL::to('user/'.$usr->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
                     <a href="{{ URL::to('user/'.$usr->id) }}" class="nav-link"><i class="fas fa-trash"></i></a>
