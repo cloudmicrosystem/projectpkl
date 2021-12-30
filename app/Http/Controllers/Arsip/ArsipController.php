@@ -36,10 +36,11 @@ class ArsipController extends Controller
     public function create()
     {
         // Untuk redirect ke halaman create
-        $arsip = DB::select('SELECT id, nama_kategori FROM kategori');
+        $arsip = DB::select('SELECT * FROM arsip');
+        $kategori = DB::select('SELECT id, nama_kategori FROM kategori');
         // echo "<pre>"; print_r($kategori); die;
-        return view('formTest')->with(compact('arsip'));
-        // return view('content.arsip.arsipCreate')->with(compact('arsip', 'kategori'));
+        // return view('formTest')->with(compact('arsip'));
+        return view('content.arsip.arsipCreate')->with(compact('arsip', 'kategori'));
     }
 
     /**
