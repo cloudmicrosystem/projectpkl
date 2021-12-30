@@ -31,7 +31,7 @@ class ArsipController extends Controller
     {
         // Untuk redirect ke halaman create
         $query = DB::select("SELECT * FROM arsip");
-        echo "<pre>"; print_r($query); die;
+        // echo "<pre>"; print_r($query); die;
         return view('content.arsip.arsipCreate');
     }
 
