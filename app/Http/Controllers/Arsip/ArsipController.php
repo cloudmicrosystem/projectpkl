@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Arsip;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +17,13 @@ class ArsipController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $arsip = DB::select('SELECT * from arsip');
-        // echo "<pre>"; print_r($arsip); die;
+        // $arsip = DB::select('SELECT * from arsip');
+        $arsip = DB::select('SELECT a.id, (
+            SELECT nama_kategori FROM kategori WHERE id=a.id_kategori) AS nama_kategori,
+            a.no_arsip, a.nama_arsip, a.deskripsi, a.file_arsip,
+            (SELECT nama FROM users WHERE id=a.id_user) AS nama_user
+            FROM arsip_backup AS a');
+        echo "<pre>"; print_r($arsip); die;
 
         return view('content.arsip.arsipView')->with(compact('arsip'));
     }
@@ -30,9 +36,10 @@ class ArsipController extends Controller
     public function create()
     {
         // Untuk redirect ke halaman create
-        $query = DB::select("SELECT * FROM arsip");
-        echo "<pre>"; print_r($query); die;
-        return view('content.arsip.arsipCreate');
+        $arsip = DB::select('SELECT id, nama_kategori FROM kategori');
+        // echo "<pre>"; print_r($kategori); die;
+        return view('formTest')->with(compact('arsip'));
+        // return view('content.arsip.arsipCreate')->with(compact('arsip', 'kategori'));
     }
 
     /**
@@ -44,14 +51,21 @@ class ArsipController extends Controller
     public function store(Request $request)
     {
         // Ini function buat insert data
-        $noArsip = '';
-        $kategoriArsip = '';
-        $namaArsip = '';
-        $deskripsi = '';
-        $fileArsip = '';
-        $userId = '';
+        $kategoriId = $request->kategoriId;
+        $userId = 0;
+        $noArsip = $request->noArsip;
+        $namaArsip = $request->namaArsip;
+        $deskripsi = $request->deskripsi;
+        $fileArsip = null;
 
-        return redirect()->route('arsip.index')->with('message', 'Arsip berhasil ditambahkan! ');
+        $insertArsip = DB::insert("CALL sp_arsip('','$kategoriId','$noArsip','$namaArsip','$deskripsi','$fileArsip','$userId','post');");
+
+        if ($insertArsip) {
+            return redirect()->route('arsip.index')->with('message', 'Arsip berhasil ditambahkan! ');
+        } else {
+            echo "Arsip gagal"; die;
+            return redirect()->route('arsip.index')->with('message', 'Arsip gagal ditambahkan! ');
+        }
     }
 
     /**
@@ -64,7 +78,7 @@ class ArsipController extends Controller
     {
         // Untuk menampilkan data secara rinci
         $arsip = DB::select('SELECT * FROM arsip WHERE id = ?', [$id]);
-
+        die;
         return view()->with(compact('arsip'));
     }
 
@@ -77,10 +91,16 @@ class ArsipController extends Controller
     public function edit($id)
     {
         // Untuk menampilkan value pada saat ingin mengedit data
-        $arsip = DB::select('SELECT * FROM arsip WHERE id = ?', [$id]);
+        // $arsip = DB::select('SELECT * FROM arsip WHERE id = ?', [$id]);
+        $arsip = DB::select('SELECT a.id, (
+            SELECT nama_kategori FROM kategori WHERE id=a.id_kategori) AS nama_kategori,
+            a.no_arsip, a.nama_arsip, a.deskripsi,
+            (SELECT nama FROM users WHERE id=a.id_user) AS nama_user
+            FROM arsip_backup AS a WHERE id = ?', [$id]);
         echo "<pre>"; print_r($arsip); die;
+        $kategori = DB::select('SELECT id, nama_kategori FROM kategori');
 
-        return view('content.arsip.arsipEdit')->with(compact('arsip'));
+        return view('content.arsip.arsipEdit')->with(compact('arsip', 'kategori'));
     }
 
     /**
@@ -105,7 +125,12 @@ class ArsipController extends Controller
     public function destroy($id)
     {
         // Untuk menghapus data ~~
-        DB::delete('DELETE arsip WHERE id = ?', [$id]);
-        return redirect()->route('arsip.index')->with('message', 'Arsip berhasil dihapus!');
+        $deleteArsip = DB::delete('DELETE arsip WHERE id = ?', [$id]);
+        if ($deleteArsip) {
+            return redirect()->route('arsip.index')->with('message', 'Arsip berhasil dihapus!');
+        } else {
+            return redirect()->route('arsip.index')->with('message', 'Data gagal dihapus!');
+        }
+
     }
 }
