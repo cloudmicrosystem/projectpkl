@@ -33,14 +33,26 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="comFormLabellg" class="col-sm-2 col-form-label-lg">Jabatan</label>
-        <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
+        <label for="comFormLabellg" class="col-sm-2 col-form-label-lg">Level</label>
+        <div class="col-sm-10">
+            <input type="text" name="in_level" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit level">
         </div>
     </div>
+    <div class="form-group row">
+    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Jabatan</label>
+    <div class="col-sm-10">
+      <select class="form-control">
+        <option>pilih jabatan</option>
+        <option>Sekretaris</option> 
+        <option>Bendahara</option>
+        <option>Kemasyarakatan</option>
+        <option>Kesehatan</option>
+        <option>Ketua Bidang</option>  
+      </select>
+    </div>
+  </div>
+</form>
+<form>
 <a href="#" class="btn btn-primary btn-lg">Simpan</a>
 </form>
 @endsection
