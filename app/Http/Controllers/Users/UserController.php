@@ -43,9 +43,12 @@ class UserController extends Controller
     {
         // Ini function buat insert data
 
-        $nama = $request->nama;
+        $namaUser = $request->nama;
+        $username = $request->username;
         $password = md5($request->password);
         $email = $request->email;
+
+        DB::insert("CALL sp_users ('','$namaUser','$username','$email','in_email_verified_at','in_password','in_two_factor_secret','in_two_factor_recovery_codes','in_remember_token','in_current_team_id','$photoPath','$alamat','$jabatanId','post');");
 
         echo "<pre>"; print_r($request); die;
 
@@ -92,7 +95,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         // Ini function buat updatenya
-        
+
         return redirect()->route('user.index')->with('message', 'User berhasil diubah!');
     }
 
@@ -105,7 +108,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         // Untuk menghapus data ~~
-        DB::delete('DELETE user WHERE id = ?', [$id]);
+        DB::delete('DELETE FROM user WHERE id = ?', [$id]);
         return redirect()->route('user.index')->with('message', 'User berhasil dihapus!');
     }
 }

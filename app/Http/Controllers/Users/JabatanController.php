@@ -45,6 +45,7 @@ class JabatanController extends Controller
         // Ini function buat insert data
         $namaJabatan = $request->namaJabatan;
         DB::insert('INSERT INTO jabatan(nama_jabatan) VALUES(?)', [$namaJabatan]);
+        DB::insert("CALL sp_jabatan('','$namaJabatan','post');");
 
         return redirect()->route('jabatan.index')->with('message', 'Jabatan berhasil ditambahkan! ');
     }
@@ -91,7 +92,8 @@ class JabatanController extends Controller
         // Ini function buat updatenya
 
         $namaJabatan = $request->namaJabatan;
-        DB::update('UPDATE jabatan SET nama_jabatan = ? WHERE id = ?', [$namaJabatan, $id]);
+        // DB::update('UPDATE jabatan SET nama_jabatan = ? WHERE id = ?', [$namaJabatan, $id]);
+        DB::update("CALL sp_jabatan('$id','$namaJabatan','');");
 
         return redirect()->route('jabatan.index')->with('message', 'Jabatan berhasil diubah!');
     }
@@ -105,7 +107,7 @@ class JabatanController extends Controller
     public function destroy($id)
     {
         // Untuk menghapus data ~~
-        DB::delete('DELETE jabatan WHERE id = ?', [$id]);
+        DB::delete('DELETE FROM jabatan WHERE id = ?', [$id]);
         return redirect()->route('jabatan.index')->with('message', 'Jabatan berhasil dihapus!');
     }
 }

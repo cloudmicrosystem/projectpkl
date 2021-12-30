@@ -46,9 +46,7 @@ class KategoriController extends Controller
 
         // echo "<pre>"; print_r($request->namaKategori); die;
         $namaKategori = $request->namaKategori;
-        $timeNow = Carbon::now();
-        DB::insert('INSERT INTO kategori(nama_kategori, created_at, updated_at) VALUES(?, ?, ?)', [$namaKategori, $timeNow, $timeNow]);
-
+        // DB::insert('INSERT INTO kategori(nama_kategori, created_at, updated_at) VALUES(?, ?, ?)', [$namaKategori, $timeNow, $timeNow]);
 
         return redirect()->route('kategori.index')->with('message', 'Kategori berhasil ditambahkan! ');
     }
@@ -108,7 +106,7 @@ class KategoriController extends Controller
     public function destroy($id)
     {
         // Untuk menghapus data ~~
-        DB::delete('DELETE kategori WHERE id = ?', [$id]);
+        DB::delete('DELETE FROM kategori WHERE id = ?', [$id]);
         return redirect()->route('kategori.index')->with('message', 'Kategori berhasil dihapus!');
     }
 }
