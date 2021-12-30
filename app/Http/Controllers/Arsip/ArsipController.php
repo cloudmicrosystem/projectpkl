@@ -92,7 +92,6 @@ class ArsipController extends Controller
     public function update(Request $request, $id)
     {
         // Ini function buat updatenya
-
         return redirect()->route('arsip.index')->with('message', 'Arsip berhasil diubah!');
     }
 
