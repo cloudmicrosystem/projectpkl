@@ -21,10 +21,8 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="comFormLabellg" class="col-sm-2 col-form-label-lg">File Arsip</label>
-        <div class="col-sm-10">
-            <input type="text" name="in_file_arsip" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit file">
-        </div>
+        <label for="exampleFormControlFile1" class="col-sm-2 col-form-label col-form-label-lg">File Arsip</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
     </div>
 </form>
 <form>

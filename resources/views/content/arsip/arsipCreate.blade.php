@@ -1,13 +1,7 @@
 @extends('layouts.base')
 @section('konten')
-<<<<<<< HEAD
-<form action="{{ route('arsip.store') }}" method="POST">
-  @csrf
-  <!-- <div class="form-group row">
-=======
 <form>
   <div class="form-group row">
->>>>>>> 821f41d5df3001d35f163d43e1c87e04bde5119b
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Id Kategori</label>
     <div class="col-sm-10">
       <input type="email" name="in_kategori" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan id kategori">
@@ -39,7 +33,9 @@
   </div>
   <div class="form-group row">
     <label for="exampleFormControlFile1" class="col-sm-2 col-form-label col-form-label-lg">File Arsip</label>
+    <div class="col-sm-10">
     <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
   </div>
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>
