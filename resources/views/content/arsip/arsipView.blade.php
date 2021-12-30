@@ -33,9 +33,12 @@
                 <td>{{ $arsp->file_arsip }}</td>
                 <td>{{ $arsp->nama_user }}</td>
                 <td>
-                    <a href="{{ route('arsip.edit'.$arsp->id) }}" class="nav-link"><i class="fas fa-edit"></i></a>
-                    <a href="{{ route('arsip.destroy'.$arsp->id) }}" METHOD="PUSH"></i></a>
-                </td>
+                    <a href="{{ route('arsip.edit', $arsp->id) }}" class="nav-link"><i class="fas fa-edit"></i></a>
+                    <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn nav-link"><i class="fas fa-trash"></i></button>
+                    </form>
                 </td>
             </tr>
         @endforeach
