@@ -16,7 +16,7 @@ class JabatanController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $jabatan = DB::select('SELECT * from jabatan');
+        $jabatan = DB::select('SELECT * from jabatan ORDER BY created_at DESC');
         // echo "<pre>"; print_r($jabatan); die;
 
         return view('content.jabatan.jabatanView')->with(compact('jabatan'));
@@ -73,8 +73,10 @@ class JabatanController extends Controller
     {
         // Untuk menampilkan value pada saat ingin mengedit data
         $jabatan = DB::select('SELECT * FROM jabatan WHERE id = ?', [$id]);
+        // echo "<pre>"; print_r($jabatan); die;
 
-        return view('content.jabatan.jabatanEdit')->with(compact('jabatan'));
+        return view('formTest')->with(compact('jabatan'));
+        // return view('content.jabatan.jabatanEdit')->with(compact('jabatan'));
     }
 
     /**

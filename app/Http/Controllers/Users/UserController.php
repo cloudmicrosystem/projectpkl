@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $user = DB::select('SELECT * from users');
+        $user = DB::select('SELECT * from users ORDER BY created_at DESC');
         // echo "<pre>"; print_r($user); die;
         return view('content.users.userView')->with(compact('user'));
     }
@@ -77,6 +77,7 @@ class UserController extends Controller
     {
         // Untuk menampilkan value pada saat ingin mengedit data
         $user = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
+        echo "<pre>"; print_r($user); die;
 
         return view('content.users.userEdit')->with(compact('user'));
     }
@@ -91,7 +92,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         // Ini function buat updatenya
-
+        
         return redirect()->route('user.index')->with('message', 'User berhasil diubah!');
     }
 

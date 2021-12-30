@@ -17,7 +17,7 @@ class KategoriController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $kategori = DB::select('SELECT * from kategori');
+        $kategori = DB::select('SELECT * from kategori ORDER BY created_at DESC');
         // echo "<pre>"; print_r($kategori); die;
         return view('content.kategori.kategoriView')->with(compact('kategori'));
     }
@@ -77,8 +77,10 @@ class KategoriController extends Controller
     {
         // Untuk menampilkan value pada saat ingin mengedit data
         $kategori = DB::select('SELECT * FROM kategori WHERE id = ?', [$id]);
+        // echo "<pre>"; print_r($kategori); die;
 
-        return view('content.kategori.kategoriEdit')->with(compact('kategori'));
+        return view('formTest')->with(compact('kategori'));
+        // return view('content.kategori.kategoriEdit')->with(compact('kategori'));
     }
 
     /**

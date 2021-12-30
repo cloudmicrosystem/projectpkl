@@ -13,16 +13,15 @@ class CretaeArsipTable extends Migration
      */
     public function up()
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        Schema::create('arsip', function (Blueprint $table) {
             $table->id();
             $table->integer('id_kategori');
-            $table->integer('no_arsip');
+            $table->integer('no_arsip')->unique();
             $table->string('nama_arsip');
-            $table->string('deskripsi');
-            $table->string('file_arsip');
+            $table->string('deskripsi')->nullable();
+            $table->string('file_arsip')->nullable();
             $table->integer('id_user');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamps('update_at')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -33,6 +32,6 @@ class CretaeArsipTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('arsip');
     }
 }
