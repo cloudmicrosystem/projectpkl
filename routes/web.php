@@ -38,4 +38,5 @@ Route::resource('/user', UserController::class);
 // Route::resource('user', UserController::class);
 
 Route::get('/checkdb', CheckTableController::class);
+Route::get('/checkdbarsip', CheckTableController::class, 'checkArsip');
 

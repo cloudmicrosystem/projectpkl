@@ -19,4 +19,11 @@ class CheckTableController extends Controller
         // json_decode(json_encode($checkdb));
         echo "<pre>"; print_r($checkdb); die;
     }
+
+    public function checkArsip()
+    {
+        $checkArsip = DB::select('SELECT * FROM arsip');
+
+        echo "<pre>"; print_r($checkArsip); die;
+    }
 }
