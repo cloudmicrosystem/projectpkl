@@ -73,8 +73,10 @@ class JabatanController extends Controller
     {
         // Untuk menampilkan value pada saat ingin mengedit data
         $jabatan = DB::select('SELECT * FROM jabatan WHERE id = ?', [$id]);
+        // echo "<pre>"; print_r($jabatan); die;
 
-        return view('content.jabatan.jabatanEdit')->with(compact('jabatan'));
+        return view('formTest')->with(compact('jabatan'));
+        // return view('content.jabatan.jabatanEdit')->with(compact('jabatan'));
     }
 
     /**

@@ -78,6 +78,7 @@ class ArsipController extends Controller
     {
         // Untuk menampilkan value pada saat ingin mengedit data
         $arsip = DB::select('SELECT * FROM arsip WHERE id = ?', [$id]);
+        echo "<pre>"; print_r($arsip); die;
 
         return view('content.arsip.arsipEdit')->with(compact('arsip'));
     }
