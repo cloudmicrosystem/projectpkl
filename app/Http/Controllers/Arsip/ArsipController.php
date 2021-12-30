@@ -16,7 +16,7 @@ class ArsipController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $arsip = DB::select('SELECT * from arsip_backup ORDER BY tanggal_upload DESC');
+        $arsip = DB::select('SELECT * from arsip ORDER BY created_at DESC');
         // echo "<pre>"; print_r($arsip); die;
 
         return view('content.arsip.arsipView')->with(compact('arsip'));
