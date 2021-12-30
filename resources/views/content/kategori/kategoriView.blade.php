@@ -12,6 +12,7 @@
                 <th>Id</th>
                 <th>Nama</th>
                 <th>Tanggal Buat</th>
+                <th>Tanggal Update</th>
                 <th>Action</th>
                 
             </tr>
@@ -22,7 +23,8 @@
             <tr>
                 <td>{{ $ktg->id }}</td>
                 <td>{{ $ktg->nama_kategori }}</td>
-                <td>{{ $ktg->created_at}}</td>
+                <td>{{ $ktg->created_at }}</td>
+                <td>{{ $ktg->updated_at }}</td>
                 <td>
                 <td>
                     <a href="{{ URL::to('kategori/'.$ktg->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>

@@ -14,7 +14,6 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Alamat</th>
-                <th>Level</th>
                 <th>ID Jabatan</th>
                 <th>Action</th>
                 
@@ -29,7 +28,6 @@
                 <td>{{ $usr->username }}</td>
                 <td>{{ $usr->email }}</td>
                 <td>{{ $usr->alamat }}</td>
-                <td>{{ $usr->level}}</td>
                 <td>{{ $usr->id_jabatan}}</td>
                 <td>
                     <a href="{{ URL::to('user/'.$usr->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>

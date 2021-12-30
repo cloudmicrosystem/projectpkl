@@ -17,6 +17,7 @@ class ArsipController extends Controller
     public function index()
     {
         // Untuk menampilkan index
+<<<<<<< HEAD
         // $arsip = DB::select('SELECT * from arsip');
         $arsip = DB::select('SELECT a.id, (
             SELECT nama_kategori FROM kategori WHERE id=a.id_kategori) AS nama_kategori,
@@ -24,6 +25,10 @@ class ArsipController extends Controller
             (SELECT nama FROM users WHERE id=a.id_user) AS nama_user
             FROM arsip_backup AS a');
         echo "<pre>"; print_r($arsip); die;
+=======
+        $arsip = DB::select('SELECT * from arsip ORDER BY created_at DESC');
+        // echo "<pre>"; print_r($arsip); die;
+>>>>>>> 194cbeab9d9da4543ddec459c74427e776ca18bf
 
         return view('content.arsip.arsipView')->with(compact('arsip'));
     }

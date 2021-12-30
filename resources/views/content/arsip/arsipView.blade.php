@@ -10,16 +10,14 @@
 
         <thead>
             <tr>
-                <th  scope="col">Id</th>
-                <th  scope="col">Id Kategori</th>
-                <th  scope="col">Id Jabatan</th>
-                <th  scope="col">Id User</th>
-                <th  scope="col">No Arsip</th>
-                <th  scope="col">Nama Arsip</th>
-                <th  scope="col">Deskripsi</th>
-                <th  scope="col">File Arsip</th>
-                <th  scope="col">Tanggal Upload</th>
-                <th  scope="col">Action</th>
+                <th>Id</th>
+                <th>Kategori</th>
+                <th>No Arsip</th>
+                <th>Nama Arsip</th>
+                <th>Deskripsi</th>
+                <th>File Arsip</th>
+                <th>Diupload oleh</th>
+                <th>Action</th>
                 
             </tr>
         </thead>
@@ -28,14 +26,12 @@
         @foreach($arsip as $arsp)
             <tr>
                 <td>{{ $arsp->id }}</td>
-                <td>{{ $arsp->id_kategori }}</td>
-                <td>{{ $arsp->id_jabatan }}</td>
-                <td>{{ $arsp->id_user}}</td>
+                <td>{{ $arsp->nama_kategori }}</td>
                 <td>{{ $arsp->no_arsip }}</td>
                 <td>{{ $arsp->nama_arsip }}</td>
-                <td>{{ $arsp->deskripsi}}</td>
-                <td>{{ $arsp->file_arsip}}</td>
-                <td>{{ $arsp->tanggal_upload}}</td>
+                <td>{{ $arsp->deskripsi }}</td>
+                <td>{{ $arsp->file_arsip }}</td>
+                <td>{{ $arsp->nama_user }}</td>
                 <td>
                 <td>
                     <a href="{{ URL::to('arsip/'.$arsp->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
