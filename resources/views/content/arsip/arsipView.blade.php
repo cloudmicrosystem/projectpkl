@@ -4,7 +4,7 @@
     <table table class="table table-striped table-responsive">
         <div>
             <div class="pull-right">
-                <a href="{{ URL::to('arsip/create') }}" class="btn btn-md btn-primary">Tambah Data</a>
+                <a href="{{ route('arsip.create') }}" class="btn btn-md btn-primary">Tambah Data</a>
             </div>
         </div>
 
