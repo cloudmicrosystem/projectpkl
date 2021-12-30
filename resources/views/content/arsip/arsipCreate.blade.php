@@ -39,7 +39,9 @@
   </div>
   <div class="form-group row">
     <label for="exampleFormControlFile1" class="col-sm-2 col-form-label col-form-label-lg">File Arsip</label>
+    <div class="col-sm-10">
     <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
   </div>
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>
