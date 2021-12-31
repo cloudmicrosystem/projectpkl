@@ -30,12 +30,9 @@
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Jabatan</label>
     <div class="col-sm-10" name="idJabatan">
       <select class="form-control">
-        <option>pilih jabatan</option>
-        <option>Sekretaris</option> 
-        <option>Bendahara</option>
-        <option>Kemasyarakatan</option>
-        <option>Kesehatan</option>
-        <option>Ketua Bidang</option>  
+        @foreach($jabatan as $jbt)
+          <option value="{{ $jbt->id }}">{{ $jbt->nama_jabatan}}</option>
+       @endforeach
       </select>
     </div>
   </div>
