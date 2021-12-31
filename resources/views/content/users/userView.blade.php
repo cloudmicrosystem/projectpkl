@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('konten')
-<div class="row">
-    <table class="table table-striped">
+<div class="card-body table-responsive">
+    <table table class="table table-bordered">
     <div>
             <div class="pull-right">
                 <a href="{{ URL::to('user/create') }}" class="btn btn-md btn-primary">Tambah User</a>
@@ -31,7 +31,7 @@
                 <td>{{ $usr->id_jabatan}}</td>
                 <td>
                     <a href="{{ URL::to('user/'.$usr->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
-                    <a href="{{ URL::to('user/'.$usr->id) }}" class="nav-link"><i class="fas fa-trash"></i></a>
+                    <a href="{{ URL::to('user/'.$usr->id) }}" class="nav-link"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         @endforeach

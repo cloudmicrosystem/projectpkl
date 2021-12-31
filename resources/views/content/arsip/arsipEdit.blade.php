@@ -5,6 +5,7 @@
         @csrf
         @method('PUT')
         <div class="form-group row">
+<<<<<<< HEAD
             <label for="kategoriId" class="col-sm-2 col-form-label-lg font-weight-bold">Kategori</label>
             <select name="kategoriId" class="custom-select mr-sm-2">
                 @foreach ($kategori as $kat)
@@ -15,6 +16,20 @@
                     @endif
                 @endforeach
             </select>
+=======
+        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Kategori</label>
+            <div class="col-sm-10" name="idJabatan">
+                <select name="kategoriId" class="custom-select mr-sm-2">
+                    @foreach ($kategori as $kat)
+                        @if ($kat->id == $arsip['0']->id_kategori)
+                            <option value="{{ $kat->id }}" selected>{{ $kat->nama_kategori }}</option>
+                        @else
+                            <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>  
+>>>>>>> 37996783bfc57f774e7efd0357398b88ded23bf3
         </div>
         <div class="form-group row">
             <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">No Arsip</label>

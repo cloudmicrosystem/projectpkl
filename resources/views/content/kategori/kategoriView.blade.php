@@ -1,7 +1,7 @@
  @extends('layouts.base')
 @section('konten')
-<div class="row">
-    <table class="table table-striped">
+<div class="card-body table-responsive">
+    <table table class="table table-bordered">
     <div>
             <div class="pull-right">
                 <a href="{{ URL::to('kategori/create') }}" class="btn btn-md btn-primary">Tambah Kategori</a>
@@ -26,10 +26,11 @@
                 <td>{{ $ktg->created_at }}</td>
                 <td>{{ $ktg->updated_at }}</td>
                 <td>
-                <td>
                     <a href="{{ URL::to('kategori/'.$ktg->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
-                    <a href="{{ URL::to('kategori/'.$ktg->id) }}" class="nav-link"><i class="fas fa-trash"></i></a>
-                </td>
+                    <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn nav-link"><i class="fas fa-trash-alt"></i></button>
                 </td>
                 </tr>
         @endforeach
