@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('konten')
-<div class="row">
-    <table table class="table table-striped table-responsive">
+<div class="card-body table-responsive">
+    <table table class="table table-bordered">
         <div>
             <div class="pull-right">
                 <a href="{{ route('arsip.create') }}" class="btn btn-md btn-primary">Tambah Data</a>
@@ -37,7 +37,7 @@
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn nav-link"><i class="fas fa-trash"></i></button>
+                        <button type="submit" class="btn nav-link"><i class="fas fa-trash-alt"></i></button>
                     </form>
                 </td>
             </tr>
