@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <div class="row">
-    <table table class="table table-striped table-responsive">
+    <table class="table table-striped">
     <div>
             <div class="pull-right">
                 <a href="{{ URL::to('user/create') }}" class="btn btn-md btn-primary">Tambah User</a>
@@ -9,13 +9,13 @@
         </div>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nama</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Alamat</th>
-                <th>ID Jabatan</th>
-                <th>Action</th>
+                <th align="center">Id</th>
+                <th align="center">Nama</th>
+                <th align="center">Username</th>
+                <th align="center">Email</th>
+                <th align="center">Alamat</th>
+                <th align="center">ID Jabatan</th>
+                <th align="center">Action</th>
                 
             </tr>
         </thead>

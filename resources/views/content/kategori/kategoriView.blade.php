@@ -1,7 +1,7 @@
  @extends('layouts.base')
 @section('konten')
 <div class="row">
-    <table table class="table table-striped table-responsive">
+    <table class="table table-striped">
     <div>
             <div class="pull-right">
                 <a href="{{ URL::to('kategori/create') }}" class="btn btn-md btn-primary">Tambah Kategori</a>
@@ -9,11 +9,11 @@
         </div>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nama</th>
-                <th>Tanggal Buat</th>
-                <th>Tanggal Update</th>
-                <th>Action</th>
+                <th align="center">Id</th>
+                <th align="center">Nama</th>
+                <th align="center">Tanggal Buat</th>
+                <th align="center">Tanggal Update</th>
+                <th align="center">Action</th>
                 
             </tr>
         </thead>
