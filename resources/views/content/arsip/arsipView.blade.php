@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('konten')
-<div class="row">
-    <table table class="table table-striped table-responsive">
+<div class="card-body table-responsive">
+    <table table class="table table-bordered">
         <div>
             <div class="pull-right">
                 <a href="{{ route('arsip.create') }}" class="btn btn-md btn-primary">Tambah Data</a>
@@ -10,14 +10,14 @@
 
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Kategori</th>
-                <th>No Arsip</th>
-                <th>Nama Arsip</th>
-                <th>Deskripsi</th>
-                <th>File Arsip</th>
-                <th>Diupload oleh</th>
-                <th>Action</th>
+                <th align="center">Nomor</th>
+                <th align="center">Kategori</th>
+                <th align="center">No Arsip</th>
+                <th align="center">Nama Arsip</th>
+                <th align="center">Deskripsi</th>
+                <th align="center">File Arsip</th>
+                <th align="center">Diupload oleh</th>
+                <th align="center">Action</th>
 
             </tr>
         </thead>
@@ -25,7 +25,7 @@
 
         @foreach($arsip as $arsp)
             <tr>
-                <td>{{ $arsp->id }}</td>
+                <td></td>
                 <td>{{ $arsp->nama_kategori }}</td>
                 <td>{{ $arsp->no_arsip }}</td>
                 <td>{{ $arsp->nama_arsip }}</td>
@@ -37,7 +37,7 @@
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn nav-link"><i class="fas fa-trash"></i></button>
+                        <button type="submit" class="btn nav-link"><i class="fas fa-trash-alt"></i></button>
                     </form>
                 </td>
             </tr>

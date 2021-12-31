@@ -29,8 +29,8 @@ class UserController extends Controller
     public function create()
     {
         // Untuk redirect ke halaman create
-
-        return view('content.users.userCreate');
+        $jabatan = DB::select('SELECT * from jabatan ORDER BY nama_jabatan ASC');
+        return view('content.users.userCreate')->with(compact('jabatan'));
     }
 
     /**
