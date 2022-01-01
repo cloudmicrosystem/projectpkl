@@ -43,13 +43,13 @@ class UserController extends Controller
     {
         // Ini function buat insert data
 
-        $namaUser = $request->nama;
+        $namaUser = $request->namaUser;
         $username = $request->username;
         $password = md5($request->password);
         $email = $request->email;
         $jabatanId = $request->jabatanId;
 
-        DB::insert("CALL sp_users ('','$namaUser','$username','$email','','$password','','','','','','','$jabatanId','post');");
+        DB::insert("CALL sp_users ('','$namaUser','$username','$email','$password','','$jabatanId','post');");
 
         echo "<pre>"; print_r($request); die;
 
