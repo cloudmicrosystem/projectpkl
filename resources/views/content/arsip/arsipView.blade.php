@@ -25,7 +25,7 @@
 
         @foreach($arsip as $arsp)
             <tr>
-                <td>{{ $arsp->no }}</td>
+                <td>{{ $no }}</td>
                 <td>{{ $arsp->nama_kategori }}</td>
                 <td>{{ $arsp->no_arsip }}</td>
                 <td>{{ $arsp->nama_arsip }}</td>
@@ -33,7 +33,10 @@
                 <td>{{ $arsp->file_arsip }}</td>
                 <td>{{ $arsp->nama_user }}</td>
                 <td>
-                    <a href="{{ route('arsip.edit', $arsp->id) }}" class="nav-link"><i class="fas fa-edit"></i></a>
+                    <form action="{{ route('arsip.edit', $arsp->id) }}" method="POST">
+                        @method('PUT')
+                        <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
+                    </form>
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
@@ -44,4 +47,9 @@
         @endforeach
         </tbody>
     </table>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.data').DataTable();
+        });
+    </script>
 @endsection

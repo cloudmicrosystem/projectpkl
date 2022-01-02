@@ -18,16 +18,28 @@
         <tbody>
         @foreach($jabatan as $jbt)
             <tr>
-                <td>{{ $jbt->no }}</td>
+                <td>{{ $no }}</td>
                 <td>{{ $jbt->nama_jabatan }}</td>
                 <td>{{ $jbt->created_at }}</td>
                 <td>
-                <a href="{{ URL::to('jabatan/'.$jbt->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
-                <a href="{{ URL::to('jabatan/'.$jbt->id) }}" class="nav-link"><i class="fas fa-trash-alt"></i></a>
+                <form action="{{ route('jabatan.edit', $jbt->id) }}" method="POST">
+                        @method('PUT')
+                        <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
+                    </form>
+                    <form action="{{ route('jabatan.destroy', $jbt->id) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn nav-link"><i class="fas fa-trash-alt"></i></button>
+                    </form>
                 </td>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.data').DataTable();
+        });
+    </script>
 @endsection
