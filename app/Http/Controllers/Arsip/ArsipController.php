@@ -69,14 +69,12 @@ class ArsipController extends Controller
 
             $path = 'arsip';
 
-            // echo $fileArsip; die;
+            // File upload location
+            $location = 'storage/arsip';
 
-            Storage::disk('local')->put($path, $fileArsip);
-            // // File upload location
-            // $location = 'files';
-
-            // // Upload file
-            // $file->move($location,$fileArsip);
+            // Upload file
+            $file->move($location,$fileArsip);
+            die;
         }else{
             $fileArsip = null;
         }
