@@ -4,7 +4,11 @@
     <table table class="table table-bordered">
         <div>
             <div class="pull-right">
-                <a href="{{ route('arsip.create') }}" class="btn btn-md btn-primary">Tambah Data</a>
+            <form action="{{ route('kategori.create') }}" method="POST">
+                @method('PUT')
+                @csrf
+                <button type="submit" class="btn btn-md btn-primary">Tambah Arsip</button>
+            </form>
             </div>
         </div>
 
@@ -18,7 +22,6 @@
                 <th align="center">File Arsip</th>
                 <th align="center">Diupload oleh</th>
                 <th align="center">Action</th>
-
             </tr>
         </thead>
         <tbody>
@@ -35,6 +38,7 @@
                 <td>
                     <form action="{{ route('arsip.edit', $arsp->id) }}" method="POST">
                         @method('PUT')
+                        @csrf
                         <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
                     </form>
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
@@ -49,7 +53,15 @@
     </table>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.data').DataTable();
+            $('.data').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extends: 'print',
+                        messageTop: 'Data sukses!!!'
+                    }  
+                ]
+            } );
         });
     </script>
 @endsection

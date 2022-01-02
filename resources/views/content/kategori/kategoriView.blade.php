@@ -4,7 +4,11 @@
     <table table class="table table-bordered">
     <div>
             <div class="pull-right">
-                <a href="{{ URL::to('kategori/create') }}" class="btn btn-md btn-primary">Tambah Kategori</a>
+            <form action="{{ route('kategori.create') }}" method="POST">
+                @method('PUT')
+                @csrf
+                <button type="submit" class="btn btn-md btn-primary">Tambah Kategori</button>
+            </form>
             </div>
         </div>
         <thead>
@@ -28,6 +32,7 @@
                 <td>
                 <form action="{{ route('kategori.edit', $ktg->id) }}" method="POST">
                         @method('PUT')
+                        @csrf
                         <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
                     </form>
                     <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST">
@@ -42,7 +47,15 @@
     </table>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.data').DataTable();
+            $('.data').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extends: 'print',
+                        messageTop: 'Data sukses!!!'
+                    }  
+                ]
+            } );
         });
     </script>
 @endsection
