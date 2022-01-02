@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Arsip;
 
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ArsipController extends Controller
 {
@@ -57,16 +57,33 @@ class ArsipController extends Controller
         $noArsip = $request->noArsip;
         $namaArsip = $request->namaArsip;
         $deskripsi = $request->deskripsi;
-        $fileArsip = null;
+
+        // Validation
+        $request->validate([
+            'fileArsip' => 'required|mimes:png,jpg,jpeg,txt,pdf|max:6144    '
+        ]);
+
+        if($request->file('fileArsip')) {
+            $file = $request->file('fileArsip');
+            $fileArsip = time().'_'.$file->getClientOriginalName();
+
+            $path = 'arsip';
+
+            // echo $fileArsip; die;
+
+            Storage::disk('local')->put($path, $fileArsip);
+            // // File upload location
+            // $location = 'files';
+
+            // // Upload file
+            // $file->move($location,$fileArsip);
+        }else{
+            $fileArsip = null;
+        }
 
         DB::insert("CALL sp_arsip('','$kategoriId','$noArsip','$namaArsip','$deskripsi','$fileArsip','$userId','post');");
 
-        // if ($insertArsip) {
-            return redirect()->route('arsip.index')->with('message', 'Arsip berhasil ditambahkan! ');
-        // } else {
-            // echo "Arsip gagal"; die;
-            // return redirect()->route('arsip.index')->with('message', 'Arsip gagal ditambahkan! ');
-        // }
+        return redirect()->route('arsip.index')->with('message', 'Arsip berhasil ditambahkan! ');
     }
 
     /**
@@ -121,14 +138,28 @@ class ArsipController extends Controller
         $deskripsi = $request->deskripsi;
         $fileArsip = null;
 
-        $updateArsip = DB::update("CALL sp_arsip($id,'$kategoriId','$noArsip','$namaArsip','$deskripsi','$fileArsip','$userId', '');");
+        // Validation
+        $request->validate([
+            'file' => 'required|mimes:png,jpg,jpeg,csv,txt,pdf|max:2048'
+        ]);
 
-        if ($updateArsip) {
-            return redirect()->route('arsip.index')->with('message', 'Arsip berhasil diubah! ');
-        } else {
-            echo "Arsip gagal"; die;
-            return redirect()->route('arsip.index')->with('message', 'Arsip gagal diubah! ');
+        if($request->file('file')) {
+            $file = $request->file('file');
+            $fileArsip = time().'_'.$file->getClientOriginalName();
+
+            $path = 'arsip';
+
+            Storage::disk('local')->put($path, $fileArsip);
+            // // File upload location
+            // $location = 'files';
+
+            // // Upload file
+            // $file->move($location,$fileArsip);
+        }else{
+            $fileArsip = null;
         }
+
+        DB::update("CALL sp_arsip($id,'$kategoriId','$noArsip','$namaArsip','$deskripsi','$fileArsip','$userId', '');");
     }
 
     /**

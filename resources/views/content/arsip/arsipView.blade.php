@@ -25,7 +25,7 @@
 
         @foreach($arsip as $arsp)
             <tr>
-                <td>{{ $arsp->no }}</td>
+                {{-- <td>{{ $arsp->no }}</td> --}}
                 <td>{{ $arsp->nama_kategori }}</td>
                 <td>{{ $arsp->no_arsip }}</td>
                 <td>{{ $arsp->nama_arsip }}</td>
