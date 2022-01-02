@@ -9,7 +9,7 @@
         </div>
         <thead>
             <tr>
-                <th align="center">Id</th>
+                <th align="center">No</th>
                 <th align="center">Nama</th>
                 <th align="center">Tanggal Buat</th>
                 <th align="center">Tanggal Update</th>
@@ -21,7 +21,7 @@
         
         @foreach($kategori as $ktg)
             <tr>
-                <td>{{ $ktg->id }}</td>
+                <td>{{ $ktg->no }}</td>
                 <td>{{ $ktg->nama_kategori }}</td>
                 <td>{{ $ktg->created_at }}</td>
                 <td>{{ $ktg->updated_at }}</td>

@@ -9,7 +9,7 @@
         </div>
         <thead>
             <tr>
-                <th align="center">Id</th>
+                <th align="center">No</th>
                 <th align="center">Nama</th>
                 <th align="center">Username</th>
                 <th align="center">Email</th>
@@ -23,7 +23,7 @@
         
         @foreach($user as $usr)
             <tr>
-                <td>{{ $usr->id }}</td>
+                <td>{{ $usr->no }}</td>
                 <td>{{ $usr->nama }}</td>
                 <td>{{ $usr->username }}</td>
                 <td>{{ $usr->email }}</td>

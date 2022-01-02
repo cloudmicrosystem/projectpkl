@@ -10,7 +10,7 @@
 
         <thead>
             <tr>
-                <th align="center">Nomor</th>
+                <th align="center">No</th>
                 <th align="center">Kategori</th>
                 <th align="center">No Arsip</th>
                 <th align="center">Nama Arsip</th>
@@ -25,7 +25,7 @@
 
         @foreach($arsip as $arsp)
             <tr>
-                <td></td>
+                <td>{{ $arsp->no }}</td>
                 <td>{{ $arsp->nama_kategori }}</td>
                 <td>{{ $arsp->no_arsip }}</td>
                 <td>{{ $arsp->nama_arsip }}</td>

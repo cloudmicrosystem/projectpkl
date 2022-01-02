@@ -9,7 +9,7 @@
         </div>
         <thead>
             <tr>
-                <th align="center">Id</th>
+                <th align="center">No</th>
                 <th align="center">Nama</th>
                 <th align="center">Tanggal Buat</th>
                 <th align="center">Action</th>
@@ -18,7 +18,7 @@
         <tbody>
         @foreach($jabatan as $jbt)
             <tr>
-                <td>{{ $jbt->id }}</td>
+                <td>{{ $jbt->no }}</td>
                 <td>{{ $jbt->nama_jabatan }}</td>
                 <td>{{ $jbt->created_at }}</td>
                 <td>
