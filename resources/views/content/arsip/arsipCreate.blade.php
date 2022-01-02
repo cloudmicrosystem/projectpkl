@@ -36,7 +36,7 @@
             <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">File Arsip</label>
             <div class="col-sm-10">
                 <div class="input-group mb-3">
-                    <input type="file" name="fileArsip" class="form-control form-control-lg" id="inputGroupFile02" />
+                    <input type="file" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fileArsip" class="form-control form-control-lg" id="inputGroupFile02" />
                 </div>
             </div>
         </div>

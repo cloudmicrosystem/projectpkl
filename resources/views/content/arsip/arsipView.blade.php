@@ -21,6 +21,8 @@
                 <th align="center">Deskripsi</th>
                 <th align="center">File Arsip</th>
                 <th align="center">Diupload oleh</th>
+                <th align="center">Lihat</th>
+                <th align="center">Download</th>
                 <th align="center">Action</th>
             </tr>
         </thead>
@@ -34,6 +36,8 @@
                 <td>{{ $arsp->nama_arsip }}</td>
                 <td>{{ $arsp->deskripsi }}</td>
                 <td>{{ $arsp->file_arsip }}</td>
+                <td><a href="{{url('/view'), $arsp->view">lihat></a></td>
+                <td><a href="{{url('/download'), $arsp->fileArsip}}">download</a></td>
                 <td>{{ $arsp->nama_user }}</td>
                 <td>
                     <form action="{{ route('arsip.edit', $arsp->id) }}" method="POST">
