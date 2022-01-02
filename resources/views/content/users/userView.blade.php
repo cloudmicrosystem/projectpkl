@@ -4,7 +4,11 @@
     <table table class="table table-bordered">
     <div>
             <div class="pull-right">
-                <a href="{{ URL::to('user/create') }}" class="btn btn-md btn-primary">Tambah User</a>
+            <form action="{{ route('user.create') }}" method="POST">
+                @method('PUT')
+                @csrf
+                <button type="submit" class="btn btn-md btn-primary">Tambah User</button>
+            </form>
             </div>
         </div>
         <thead>
@@ -32,6 +36,7 @@
                 <td>
                 <form action="{{ route('user.edit', $usr->id) }}" method="POST">
                         @method('PUT')
+                        @csrf
                         <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
                     </form>
                     <form action="{{ route('user.destroy', $usr->id) }}" method="POST">
@@ -46,7 +51,15 @@
     </table>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.data').DataTable();
+            $('.data').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extends: 'print',
+                        messageTop: 'Data sukses!!!'
+                    }  
+                ]
+            } );
         });
     </script>
 @endsection
