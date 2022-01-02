@@ -6,7 +6,7 @@
         <div class="form-group row">
             <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Kategori</label>
             <div class="col-sm-10" name="kategoriId">
-                <select class="form-control form-control-lg">
+                <select name="kategoriId" class="form-control form-control-lg">
                     @foreach ($kategori as $kat)
                         <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option>
                     @endforeach

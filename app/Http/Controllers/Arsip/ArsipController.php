@@ -74,7 +74,7 @@ class ArsipController extends Controller
 
             // Upload file
             $file->move($location,$fileArsip);
-            die;
+            // die;
         }else{
             $fileArsip = null;
         }
