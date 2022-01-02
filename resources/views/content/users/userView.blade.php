@@ -23,18 +23,30 @@
         
         @foreach($user as $usr)
             <tr>
-                <td>{{ $usr->no }}</td>
+                <td>{{ $no }}</td>
                 <td>{{ $usr->nama }}</td>
                 <td>{{ $usr->username }}</td>
                 <td>{{ $usr->email }}</td>
                 <td>{{ $usr->alamat }}</td>
                 <td>{{ $usr->id_jabatan}}</td>
                 <td>
-                    <a href="{{ URL::to('user/'.$usr->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
-                    <a href="{{ URL::to('user/'.$usr->id) }}" class="nav-link"><i class="fas fa-trash-alt"></i></a>
+                <form action="{{ route('user.edit', $usr->id) }}" method="POST">
+                        @method('PUT')
+                        <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
+                    </form>
+                    <form action="{{ route('user.destroy', $usr->id) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn nav-link"><i class="fas fa-trash-alt"></i></button>
+                    </form>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.data').DataTable();
+        });
+    </script>
 @endsection

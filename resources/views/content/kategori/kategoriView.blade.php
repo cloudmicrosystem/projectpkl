@@ -21,19 +21,28 @@
         
         @foreach($kategori as $ktg)
             <tr>
-                <td>{{ $ktg->no }}</td>
+                <td>{{ $no }}</td>
                 <td>{{ $ktg->nama_kategori }}</td>
                 <td>{{ $ktg->created_at }}</td>
                 <td>{{ $ktg->updated_at }}</td>
                 <td>
-                    <a href="{{ URL::to('kategori/'.$ktg->id.'/edit') }}" class="nav-link"><i class="fas fa-edit"></i></a>
+                <form action="{{ route('kategori.edit', $ktg->id) }}" method="POST">
+                        @method('PUT')
+                        <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
+                    </form>
                     <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn nav-link"><i class="fas fa-trash-alt"></i></button>
+                    </form>
                 </td>
                 </tr>
         @endforeach
         </body>
     </table>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.data').DataTable();
+        });
+    </script>
 @endsection
