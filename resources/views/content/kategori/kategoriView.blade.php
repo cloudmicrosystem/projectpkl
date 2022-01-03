@@ -1,7 +1,7 @@
  @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
-    <table table class="table table-bordered">
+    <table id="viewTable">
     <div>
             <div class="pull-right">
             <form action="{{ route('kategori.create') }}" method="POST">
@@ -25,7 +25,7 @@
         
         @foreach($kategori as $ktg)
             <tr>
-                <td>{{ $no }}</td>
+                <td>{{ $loop->iteration}}</td>
                 <td>{{ $ktg->nama_kategori }}</td>
                 <td>{{ $ktg->created_at }}</td>
                 <td>{{ $ktg->updated_at }}</td>

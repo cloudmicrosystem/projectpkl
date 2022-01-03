@@ -2,6 +2,16 @@
 @section('konten')
 <div class="card-body table-responsive">
     <table id="viewTable">
+    <div>
+            <div class="pull-right">
+            <form action="{{ route('jabatan.create') }}" method="POST">
+                @method('PUT')
+                @csrf
+                <button type="submit" class="btn btn-md btn-primary">Tambah Arsip</button>
+            </form>
+            </div>
+        </div>
+        <thead>
         <thead>
             <tr>
                 <td>No</td>

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
-    <table table class="table table-bordered">
+    <table id="viewTable">
     <div>
             <div class="pull-right">
             <form action="{{ route('user.create') }}" method="POST">
@@ -27,7 +27,7 @@
         
         @foreach($user as $usr)
             <tr>
-                <td>{{ $no }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $usr->nama }}</td>
                 <td>{{ $usr->username }}</td>
                 <td>{{ $usr->email }}</td>

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
-    <table table class="table table-bordered">
+    <table id="viewTable">
     <div>
             <div class="pull-right">
             <form action="{{ route('jabatan.create') }}" method="POST">
@@ -22,7 +22,7 @@
         <tbody>
         @foreach($jabatan as $jbt)
             <tr>
-                <td>{{ $no }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $jbt->nama_jabatan }}</td>
                 <td>{{ $jbt->created_at }}</td>
                 <td>
@@ -42,17 +42,4 @@
         @endforeach
         </tbody>
     </table>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.data').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extends: 'print',
-                        messageTop: 'Data sukses!!!'
-                    }  
-                ]
-            } );
-        });
-    </script>
 @endsection
