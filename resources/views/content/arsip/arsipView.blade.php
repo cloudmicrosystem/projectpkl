@@ -24,7 +24,7 @@
                 <td>Kategori</td>
                 <td>Deskripsi</td>
                 <td>Lihat</td>
-                <td>Action</td>
+                <td><center>Action</center></td>
             </tr>
         </thead>
         <tbody>
