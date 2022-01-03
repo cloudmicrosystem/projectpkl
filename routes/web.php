@@ -44,4 +44,9 @@ Route::get('/checkdbarsip', CheckTableController::class, 'checkArsip');
 Route::get('/download/{file}', ArsipController::class, 'download');
 Route::get('/view/{id}', ArsipController::class, 'view');
 
+//view galeri
+Route::get('/galeri', function(){
+    return view('content.galeri.viewGaleri');
+});
+
 

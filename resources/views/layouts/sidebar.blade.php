@@ -65,6 +65,11 @@
             <span>Jabatan</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="/galeri">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Galeri</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
