@@ -25,8 +25,8 @@
                 <td>{{ $arsp->nama_arsip }}</td>
                 <td>{{ $arsp->deskripsi }}</td>
                 <td>{{ $arsp->file_arsip }}</td>
-                {{-- <td><a href="{{url('/view'), $arsp->view}}">lihat></a></td> --}}
-                {{-- <td><a href="{{url('/download'), $arsp->fileArsip}}">download</a></td> --}}
+                <td><a href="{{url('/view', $arsp->id)}}">lihat</a></td>
+                <td><a href="{{url('/download', $arsp->file_arsip)}}">download</a></td>
                 <td>{{ $arsp->nama_user }}</td>
                 <td>
                     <a href="{{ route('arsip.edit', $arsp->id)}}"><i class="fas fa-edit"></i></a>
