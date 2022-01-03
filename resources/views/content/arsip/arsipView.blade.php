@@ -7,7 +7,7 @@
             <a href="{{ route('arsip.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
             </div>
         </div>
-        <thead>\
+        <thead>
             <tr>
                 <td>No</td>
                 <td>Nomor Arsip</td>
