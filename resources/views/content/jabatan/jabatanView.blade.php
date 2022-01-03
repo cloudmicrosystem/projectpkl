@@ -1,17 +1,14 @@
 @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
-    <table table class="table table-bordered">
+    <table id="viewTable" class="table table-bordered" style="width:100%">
     <div>
             <div class="pull-right">
-            <form action="{{ route('jabatan.create') }}" method="POST">
-                @method('PUT')
-                @csrf
-                <button type="submit" class="btn btn-md btn-primary">Tambah Jabatan</button>
-            </form>
+            <a href="{{ route('jabatan.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
             </div>
         </div>
         <thead>
+        
             <tr>
                 <th align="center">No</th>
                 <th align="center">Nama</th>
@@ -22,15 +19,11 @@
         <tbody>
         @foreach($jabatan as $jbt)
             <tr>
-                <td>{{ $no }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $jbt->nama_jabatan }}</td>
                 <td>{{ $jbt->created_at }}</td>
                 <td>
-                <form action="{{ route('jabatan.edit', $jbt->id) }}" method="POST">
-                        @method('PUT')
-                        @csrf
-                        <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
-                    </form>
+                    <a href="{{ route('jabatan.edit', $jbt->id)}}"><i class="fas fa-edit"></i></a>
                     <form action="{{ route('jabatan.destroy', $jbt->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
@@ -42,17 +35,4 @@
         @endforeach
         </tbody>
     </table>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.data').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extends: 'print',
-                        messageTop: 'Data sukses!!!'
-                    }  
-                ]
-            } );
-        });
-    </script>
 @endsection

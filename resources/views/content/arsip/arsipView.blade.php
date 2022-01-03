@@ -1,8 +1,13 @@
 @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
-    <table id="viewTable">
-        <thead>
+    <table id="viewTable" class="table table-bordered" style="width:100%">
+    <div>
+            <div class="pull-right">
+            <a href="{{ route('arsip.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
+            </div>
+        </div>
+        <thead>\
             <tr>
                 <td>No</td>
                 <td>Nomor Arsip</td>
