@@ -185,7 +185,7 @@ class ArsipController extends Controller
 
     public function download(Request $request, $file)
     {
-        return response()->download(public_path('arsip/'.$file));
+        return response()->file('storage/arsip');
     }
 
     public function __invoke()

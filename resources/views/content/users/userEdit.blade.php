@@ -40,7 +40,7 @@
     <select class="form-control form-control-lg">
         @foreach($jabatan as $jbt)
           <option value="{{ $jbt->id }}">{{ $jbt->nama_jabatan}}</option>
-       @endforeach
+        @endforeach
       </select>
     </div>
   </div>
