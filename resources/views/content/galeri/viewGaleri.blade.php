@@ -12,7 +12,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ $ars->nama_arsip}}</h5>
         <p class="card-text">{{ $ars->file_arsip}}</p>
-        <a href="{{url('/storage/arsip/', $ars->file_arsip)}}" class="btn btn-primary">View</a>
+        <a href="{{url('/storage/arsip/', $ars->file_arsip)}}" class="btn btn-primary" target="_blank">View</a>
       </div>
     </div>
   </div>

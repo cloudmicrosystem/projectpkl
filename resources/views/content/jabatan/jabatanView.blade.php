@@ -18,16 +18,16 @@
         <thead>
 
             <tr>
-                <th align="center">No</th>
-                <th align="center">Nama</th>
-                <th align="center">Tanggal Buat</th>
-                <th align="center">Action</th>
+                <th><center>No</center></th>
+                <th><center>Nama</center></th>
+                <th><center>Tanggal Buat</center></th>
+                <th><center>Action</center></th>
             </tr>
         </thead>
         <tbody>
         @foreach($jabatan as $jbt)
             <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td><center>{{ $loop->iteration }}</center></td>
                 <td>{{ $jbt->nama_jabatan }}</td>
                 <td>{{ $jbt->created_at }}</td>
                 <td><div class="row">
