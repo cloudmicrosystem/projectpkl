@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $user = DB::select('SELECT * from users ORDER BY created_at DESC');
+        $user = DB::select('SELECT a.id,a.nama,a.username,a.email,a.alamat,(SELECT nama_jabatan FROM jabatan WHERE id=a.id_jabatan) AS nama_jabatan FROM users AS a');
         // echo "<pre>"; print_r($user); die;
         return view('content.users.userView')->with(compact('user'));
     }

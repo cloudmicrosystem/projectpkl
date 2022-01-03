@@ -7,7 +7,7 @@
             <a href="{{ route('arsip.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
             </div>
         </div>
-        <thead>\
+        <thead>
             <tr>
                 <td>No</td>
                 <td>Nomor Arsip</td>
@@ -16,8 +16,8 @@
                 <td>Deskripsi</td>
                 <td>File Arsip</td>
                 <td>Diupload Oleh</td>
-                {{-- <td>Lihat</td> --}}
-                {{-- <td>Download</td> --}}
+                <td>Lihat</td>
+                <td>Download</td>
                 <td>Action</td>
             </tr>
         </thead>
@@ -30,9 +30,9 @@
                 <td>{{ $arsp->nama_arsip }}</td>
                 <td>{{ $arsp->deskripsi }}</td>
                 <td>{{ $arsp->file_arsip }}</td>
+                <td>{{ $arsp->nama_user }}</td>
                 <td><a href="{{url('/view', $arsp->id)}}">lihat</a></td>
                 <td><a href="{{url('/download', $arsp->file_arsip)}}">download</a></td>
-                <td>{{ $arsp->nama_user }}</td>
                 <td>
                     <a href="{{ route('arsip.edit', $arsp->id)}}"><i class="fas fa-edit"></i></a>
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
