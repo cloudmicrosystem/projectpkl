@@ -8,6 +8,7 @@
             </div>
         </div>
         <thead>
+        
             <tr>
                 <th align="center">No</th>
                 <th align="center">Nama</th>
