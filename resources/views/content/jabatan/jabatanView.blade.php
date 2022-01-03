@@ -8,7 +8,7 @@
             </div>
         </div>
         <thead>
-        
+
             <tr>
                 <th align="center">No</th>
                 <th align="center">Nama</th>
@@ -23,7 +23,7 @@
                 <td>{{ $jbt->nama_jabatan }}</td>
                 <td>{{ $jbt->created_at }}</td>
                 <td>
-                    <a href="{{ route('jabatan.edit', $jbt->id)}}"><i class="fas fa-edit"></i></a>
+                    <button class="btn nav-link"><a href="{{ route('jabatan.edit', $jbt->id)}}"><i class="fas fa-edit"></i></a></button>
                     <form action="{{ route('jabatan.destroy', $jbt->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
