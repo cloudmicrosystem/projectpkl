@@ -19,6 +19,13 @@
                 <x-input id="name" class="" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
+            <!-- Username -->
+            <div class="mt-4">
+                <x-label for="email" :value="__('Username')" />
+
+                <x-input id="username" class="" type="text" name="username" :value="old('username')" required />
+            </div>
+
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
