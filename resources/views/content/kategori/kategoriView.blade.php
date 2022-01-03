@@ -1,14 +1,10 @@
  @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
-    <table id="viewTable">
+    <table id="viewTable" class="table table-bordered" style="width:100%">
     <div>
             <div class="pull-right">
-            <form action="{{ route('kategori.create') }}" method="POST">
-                @method('PUT')
-                @csrf
-                <button type="submit" class="btn btn-md btn-primary">Tambah Kategori</button>
-            </form>
+            <a href="{{ route('kategori.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
             </div>
         </div>
         <thead>
@@ -30,11 +26,7 @@
                 <td>{{ $ktg->created_at }}</td>
                 <td>{{ $ktg->updated_at }}</td>
                 <td>
-                <form action="{{ route('kategori.edit', $ktg->id) }}" method="POST">
-                        @method('PUT')
-                        @csrf
-                        <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
-                    </form>
+                    <a href="{{ route('kategori.edit', $ktg->id)}}"><i class="fas fa-edit"></i></a>
                     <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
@@ -45,17 +37,4 @@
         @endforeach
         </body>
     </table>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.data').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extends: 'print',
-                        messageTop: 'Data sukses!!!'
-                    }  
-                ]
-            } );
-        });
-    </script>
 @endsection

@@ -1,14 +1,10 @@
 @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
-    <table id="viewTable">
+    <table id="viewTable" class="table table-bordered" style="width:100%">
     <div>
             <div class="pull-right">
-            <form action="{{ route('jabatan.create') }}" method="POST">
-                @method('PUT')
-                @csrf
-                <button type="submit" class="btn btn-md btn-primary">Tambah Arsip</button>
-            </form>
+            <a href="{{ route('arsip.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
             </div>
         </div>
         <thead>
@@ -35,7 +31,7 @@
                 <td>{{ $arsp->nama_arsip }}</td>
                 <td>{{ $arsp->deskripsi }}</td>
                 <td>{{ $arsp->file_arsip }}</td>
-                {{-- <td><a href="{{url('/view'), $arsp->view}}">lihat></a></td> --}}
+                {{-- <td><a href="{{url('/view'), $arsp->id}}">lihat></a></td> --}}
                 {{-- <td><a href="{{url('/download'), $arsp->fileArsip}}">download</a></td> --}}
                 <td>{{ $arsp->nama_user }}</td>
                 <td>
