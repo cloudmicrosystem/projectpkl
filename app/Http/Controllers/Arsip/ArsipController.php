@@ -138,26 +138,28 @@ class ArsipController extends Controller
 
         // Validation
         $request->validate([
-            'file' => 'required|mimes:png,jpg,jpeg,csv,txt,pdf|max:2048'
+            'fileArsip' => 'required|mimes:png,jpg,jpeg,txt,pdf|max:6144    '
         ]);
 
-        if($request->file('file')) {
-            $file = $request->file('file');
+        if($request->file('fileArsip')) {
+            $file = $request->file('fileArsip');
             $fileArsip = time().'_'.$file->getClientOriginalName();
 
             $path = 'arsip';
 
-            Storage::disk('local')->put($path, $fileArsip);
-            // // File upload location
-            // $location = 'files';
+            // File upload location
+            $location = 'storage/arsip';
 
-            // // Upload file
-            // $file->move($location,$fileArsip);
+            // Upload file
+            $file->move($location,$fileArsip);
+            // die;
         }else{
             $fileArsip = null;
         }
 
         DB::update("CALL sp_arsip($id,'$kategoriId','$noArsip','$namaArsip','$deskripsi','$fileArsip','$userId', '');");
+
+        return redirect()->route('arsip.index')->with('message', 'Arsip berhasil diubah!');
     }
 
     /**

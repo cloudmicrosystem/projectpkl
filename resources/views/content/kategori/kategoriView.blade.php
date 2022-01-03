@@ -26,7 +26,7 @@
                 <td>{{ $ktg->created_at }}</td>
                 <td>{{ $ktg->updated_at }}</td>
                 <td>
-                    <a href="{{ route('kategori.edit', $ktg->id)}}"><i class="fas fa-edit"></i></a>
+                    <button class="btn nav-link"><a href="{{ route('kategori.edit', $ktg->id)}}"><i class="fas fa-edit"></i></a></button>
                     <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST">
                         @method('DELETE')
                         @csrf

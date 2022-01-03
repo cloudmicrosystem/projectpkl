@@ -28,7 +28,7 @@
                 <td>{{ $arsp->deskripsi }}</td>
                 <td><a href="{{url('/download', $arsp->file_arsip)}}" target="_blank">lihat</a></td>
                 <td>
-                    <a href="{{ route('arsip.edit', $arsp->id)}}"><i class="fas fa-edit"></i></a>
+                    <button class="btn nav-link"><a href="{{ route('arsip.edit', $arsp->id)}}"><i class="fas fa-edit"></i></a></button>
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
