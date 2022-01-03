@@ -29,13 +29,14 @@
                 <td>{{ $usr->email }}</td>
                 <td>{{ $usr->alamat }}</td>
                 <td>{{ $usr->nama_jabatan}}</td>
-                <td>
-                    <button class="btn nav-link"><a href="{{ route('user.edit', $usr->id)}}"><i class="fas fa-edit"></i></a></button>
+                <td><div class="row">
+                    <button class="btn nav-link col-sm-4"><a href="{{ route('user.edit', $usr->id)}}"><i class="fas fa-edit"></i></a></button>
                     <form action="{{ route('user.destroy', $usr->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn nav-link"><i class="fas fa-trash-alt"></i></button>
+                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt"></i></button>
                     </form>
+                    </div>
                 </td>
             </tr>
         @endforeach

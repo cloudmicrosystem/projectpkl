@@ -22,13 +22,14 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $jbt->nama_jabatan }}</td>
                 <td>{{ $jbt->created_at }}</td>
-                <td>
-                    <button class="btn nav-link"><a href="{{ route('jabatan.edit', $jbt->id)}}"><i class="fas fa-edit"></i></a></button>
+                <td><div class="row">
+                    <button class="btn nav-link col-sm-4"><a href="{{ route('jabatan.edit', $jbt->id)}}"><i class="fas fa-edit"></i></a></button>
                     <form action="{{ route('jabatan.destroy', $jbt->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn nav-link"><i class="fas fa-trash-alt"></i></button>
+                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt"></i></button>
                     </form>
+                    </div>
                 </td>
                 </td>
             </tr>
