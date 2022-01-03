@@ -173,4 +173,21 @@ class ArsipController extends Controller
         $deleteArsip = DB::delete('DELETE FROM arsip WHERE id = ?', [$id]);
         return redirect()->route('arsip.index')->with('message', 'Arsip berhasil dihapus!');
     }
+
+    public function view($id)
+    {
+        $data = DB::select('SELECT * FROM arsip WHERE id = ?', $id);
+
+        return view('content.arsip.viewFile')->with(compact($data));
+    }
+
+    public function download(Request $request, $file)
+    {
+        return response()->download(public_path('arsip/'.$file));
+    }
+
+    public function __invoke()
+    {
+        # code...
+    }
 }
