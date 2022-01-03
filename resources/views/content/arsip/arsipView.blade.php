@@ -1,50 +1,35 @@
 @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
-    <table table class="table table-bordered">
-        <div>
-            <div class="pull-right">
-            <form action="{{ route('kategori.create') }}" method="POST">
-                @method('PUT')
-                @csrf
-                <button type="submit" class="btn btn-md btn-primary">Tambah Arsip</button>
-            </form>
-            </div>
-        </div>
-
+    <table id="viewTable">
         <thead>
             <tr>
-                <th align="center">No</th>
-                <th align="center">Kategori</th>
-                <th align="center">No Arsip</th>
-                <th align="center">Nama Arsip</th>
-                <th align="center">Deskripsi</th>
-                <th align="center">File Arsip</th>
-                <th align="center">Diupload oleh</th>
-                <th align="center">Lihat</th>
-                <th align="center">Download</th>
-                <th align="center">Action</th>
+                <td>No</td>
+                <td>Nomor Arsip</td>
+                <td>Nama Arsip</td>
+                <td>Kategori</td>
+                <td>Deskripsi</td>
+                <td>File Arsip</td>
+                <td>Diupload Oleh</td>
+                {{-- <td>Lihat</td> --}}
+                {{-- <td>Download</td> --}}
+                <td>Action</td>
             </tr>
         </thead>
         <tbody>
-
-        @foreach($arsip as $arsp)
+            @foreach($arsip as $arsp)
             <tr>
-                {{-- <td>{{ $arsp->no }}</td> --}}
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $arsp->nama_kategori }}</td>
                 <td>{{ $arsp->no_arsip }}</td>
                 <td>{{ $arsp->nama_arsip }}</td>
                 <td>{{ $arsp->deskripsi }}</td>
                 <td>{{ $arsp->file_arsip }}</td>
-                <td><a href="{{url('/view'), $arsp->view">lihat></a></td>
-                <td><a href="{{url('/download'), $arsp->fileArsip}}">download</a></td>
+                {{-- <td><a href="{{url('/view'), $arsp->view}}">lihat></a></td> --}}
+                {{-- <td><a href="{{url('/download'), $arsp->fileArsip}}">download</a></td> --}}
                 <td>{{ $arsp->nama_user }}</td>
                 <td>
-                    <form action="{{ route('arsip.edit', $arsp->id) }}" method="POST">
-                        @method('PUT')
-                        @csrf
-                        <button type="submit" class="btn nav-link"><i class="fas fa-edit"></i></button>
-                    </form>
+                    <a href="{{ route('arsip.edit', $arsp->id)}}"><i class="fas fa-edit"></i></a>
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
@@ -55,17 +40,5 @@
         @endforeach
         </tbody>
     </table>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.data').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extends: 'print',
-                        messageTop: 'Data sukses!!!'
-                    }  
-                ]
-            } );
-        });
-    </script>
+</div>
 @endsection

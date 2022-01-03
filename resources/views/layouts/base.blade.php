@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,6 +19,8 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <!-- Data Table -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
 </head>
 
 <body id="page-top">
@@ -54,7 +55,7 @@
                     <div class="container-fluid">
                     @yield('konten')
                     </div>
-                    
+
                 </div>
                 <!-- /.container-fluid -->
 
@@ -113,12 +114,21 @@
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
 
+    <!-- Data Table -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
     <script type="text/javascript">
-      var today = new Date();
+        var today = new Date();
         var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var dateTime = date+' / '+time;
         document.getElementById("tanggalJamSekarang").innerHTML = dateTime;
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('#viewTable').DataTable();
+        });
     </script>
 
 </body>
