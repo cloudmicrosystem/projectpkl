@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Users\JabatanController;
 use App\Http\Controllers\Kategori\KategoriController;
 use App\Http\Controllers\Users\UserController;
+use App\Http\Controllers\galeryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,8 +46,6 @@ Route::get('/download/{file}', ArsipController::class, 'download');
 Route::get('/view/{id}', ArsipController::class, 'view');
 
 //view galeri
-Route::get('/galeri', function(){
-    return view('content.galeri.viewGaleri');
-});
+Route::resource('/galeri', galeryController::class);
 
 

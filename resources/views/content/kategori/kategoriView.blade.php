@@ -1,6 +1,14 @@
- @extends('layouts.base')
+@extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
+    @if (session('error'))
+     <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ session('error') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+         </button>
+    </div>
+@endif
     <table id="viewTable" class="table table-bordered" style="width:100%">
     <div>
             <div class="pull-right">
@@ -25,13 +33,14 @@
                 <td>{{ $ktg->nama_kategori }}</td>
                 <td>{{ $ktg->created_at }}</td>
                 <td>{{ $ktg->updated_at }}</td>
-                <td>
-                    <button class="btn nav-link"><a href="{{ route('kategori.edit', $ktg->id)}}"><i class="fas fa-edit"></i></a></button>
+                <td><div class="row">
+                    <button class="btn nav-link col-sm-4"><a href="{{ route('kategori.edit', $ktg->id)}}"><i class="fas fa-edit"></i></a></button>
                     <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn nav-link"><i class="fas fa-trash-alt"></i></button>
+                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt"></i></button>
                     </form>
+                    </div>
                 </td>
                 </tr>
         @endforeach
