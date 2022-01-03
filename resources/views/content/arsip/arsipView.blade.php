@@ -24,7 +24,11 @@
                 <td>Kategori</td>
                 <td>Deskripsi</td>
                 <td>Lihat</td>
+<<<<<<< HEAD
                 <td colspan="2">Action</td>
+=======
+                <td><center>Action</center></td>
+>>>>>>> 84c72ec6ad832b7e0a5a38b3a718052033031229
             </tr>
         </thead>
         <tbody>
