@@ -15,7 +15,7 @@
                 <td>Kategori</td>
                 <td>Deskripsi</td>
                 <td>Lihat</td>
-                <td>Action</td>
+                <td colspan="2">Action</td>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +29,8 @@
                 <td><a href="{{url('/download', $arsp->file_arsip)}}" target="_blank">lihat</a></td>
                 <td>
                     <button class="btn nav-link"><a href="{{ route('arsip.edit', $arsp->id)}}"><i class="fas fa-edit"></i></a></button>
+                </td>
+                <td>
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
