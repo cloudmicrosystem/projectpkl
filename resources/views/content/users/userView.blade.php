@@ -17,7 +17,7 @@
     <table id="viewTable" class="table table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th><center>No</center></th>
+                <th>No</th>
                 <th><center>Nama</center></th>
                 <th><center>Username</center></th>
                 <th><center>Email</center></th>
