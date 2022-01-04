@@ -6,9 +6,9 @@
   <div class="col-sm-4">
     <div class="card" style="width: 18rem;">
       @if ($ars->file_arsip == $arsip['0']->file_arsip)
-      <embed class="card-img-top" src="{{url('/storage/arsip/', $ars->file_arsip)}}" width="700" height="300" >
+      <embed class="card-img-top" src="{{url('/storage/arsip/', $ars->file_arsip)}}" width="500" height="400">
       @else
-      <embed class="fas fa-file-pdf" src="{{url('/storage/arsip/', $ars->file_arsip)}}" width="300" height="300" >
+      <embed class="fas fa-file-pdf" src="{{url('/storage/arsip/', $ars->file_arsip)}}" width="360" height="400" >
       @endif
      
       <div class="card-body">
