@@ -67,7 +67,7 @@ class ArsipController extends Controller
             $file = $request->file('fileArsip');
             $fileArsip = time().'_'.$file->getClientOriginalName();
             $fileExtension = $file->getClientOriginalExtension();
-            echo $fileArsip; die;
+            // echo $fileArsip; die;
 
             // File upload location
             $location = 'storage/arsip';
@@ -138,7 +138,7 @@ class ArsipController extends Controller
 
         // Validation
         $request->validate([
-            'fileArsip' => 'required|mimes:png,jpg,jpeg,txt,pdf|max:6144    '
+            'fileArsip' => 'mimes:png,jpg,jpeg,txt,pdf|max:6144    '
         ]);
 
         if($request->file('fileArsip')) {
@@ -173,23 +173,11 @@ class ArsipController extends Controller
         // Untuk menghapus data ~~
         // echo "Ini id".$id;
         $deleteArsip = DB::delete('DELETE FROM arsip WHERE id = ?', [$id]);
-        return redirect()->route('arsip.index')->with('message', 'Arsip berhasil dihapus!');
-    }
+        if ($deleteArsip) {
+            return redirect()->route('arsip.index')->with('message', 'Arsip berhasil dihapus!');
+        } else {
+            return redirect()->route('arsip.index')->with('message', 'Arsip gagal dihapus!');
+        }
 
-    public function view($id)
-    {
-        $data = DB::select('SELECT * FROM arsip WHERE id = ?', $id);
-
-        return view('content.arsip.viewFile')->with(compact($data));
-    }
-
-    public function download(Request $request, $file)
-    {
-        return response()->file('storage/arsip');
-    }
-
-    public function __invoke()
-    {
-        # code...
     }
 }

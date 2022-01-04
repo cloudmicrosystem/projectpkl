@@ -78,8 +78,8 @@ class KategoriController extends Controller
         $kategori = DB::select('SELECT * FROM kategori WHERE id = ?', [$id]);
         // echo "<pre>"; print_r($kategori); die;
 
-        return view('formTest')->with(compact('kategori'));
-        // return view('content.kategori.kategoriEdit')->with(compact('kategori'));  
+        // return view('formTest')->with(compact('kategori'));
+        return view('content.kategori.kategoriEdit')->with(compact('kategori'));
     }
 
     /**
