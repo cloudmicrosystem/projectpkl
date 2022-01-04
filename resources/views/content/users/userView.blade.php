@@ -23,7 +23,7 @@
                 <th><center>Email</center></th>
                 <th><center>Alamat</center></th>
                 <th><center>Jabatan</center></th>
-                <th>Action</th>
+                <th><center>Action</center></th>
 
             </tr>
         </thead>

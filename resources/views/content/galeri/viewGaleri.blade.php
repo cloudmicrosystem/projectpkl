@@ -5,10 +5,11 @@
 
   <div class="col-sm-4">
     <div class="card" style="width: 18rem;">
-      @if ($ars->file_arsip == $arsip['0']->file_arsip)
-      <img class="card-img-top" src="" alt="Card image cap">
-      @else 
-      @endif
+      {{-- @if ($ars->file_arsip == $arsip['0']->image) --}}
+      <img class="card-img-top" src="{{url('/storage/arsip/', $ars->file_arsip)}}" alt="Card image cap">
+      {{-- @elseif ($ars->file_arsip == $ars['0']->icon)
+      
+      @endif --}}
       <div class="card-body">
         <h5 class="card-title">{{ $ars->nama_arsip}}</h5>
         <p class="card-text">{{ $ars->file_arsip}}</p>
