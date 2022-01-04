@@ -7,7 +7,7 @@
     <div class="card" style="width: 18rem;">
       @if ($ars->file_arsip == $arsip['0']->file_arsip)
       <img class="card-img-top" src="" alt="Card image cap">
-      @else if
+      @else 
       @endif
       <div class="card-body">
         <h5 class="card-title">{{ $ars->nama_arsip}}</h5>
