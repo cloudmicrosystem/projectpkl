@@ -79,7 +79,7 @@ class KategoriController extends Controller
         // echo "<pre>"; print_r($kategori); die;
 
         return view('formTest')->with(compact('kategori'));
-        // return view('content.kategori.kategoriEdit')->with(compact('kategori'));
+        // return view('content.kategori.kategoriEdit')->with(compact('kategori'));  
     }
 
     /**

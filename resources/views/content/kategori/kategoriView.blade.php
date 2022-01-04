@@ -1,6 +1,14 @@
- @extends('layouts.base')
+@extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
+    @if (session('error'))
+     <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ session('error') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+         </button>
+    </div>
+@endif
     <table id="viewTable" class="table table-bordered" style="width:100%">
     <div>
             <div class="pull-right">
@@ -9,11 +17,11 @@
         </div>
         <thead>
             <tr>
-                <th align="center">No</th>
-                <th align="center">Nama</th>
-                <th align="center">Tanggal Buat</th>
-                <th align="center">Tanggal Update</th>
-                <th align="center">Action</th>
+                <th><center>No</center></th>
+                <th><center>Nama</center></th>
+                <th><center>Tanggal Buat</center></th>
+                <th><center>Tanggal Update</center></th>
+                <th><center>Action</center></th>
                 
             </tr>
         </thead>
@@ -21,7 +29,7 @@
         
         @foreach($kategori as $ktg)
             <tr>
-                <td>{{ $loop->iteration}}</td>
+                <td><center>{{ $loop->iteration}}</center></td>
                 <td>{{ $ktg->nama_kategori }}</td>
                 <td>{{ $ktg->created_at }}</td>
                 <td>{{ $ktg->updated_at }}</td>

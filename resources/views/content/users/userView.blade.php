@@ -1,6 +1,14 @@
 @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
+    @if (session('message'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+         {{ session('message') }}
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+   </div>
+@endif
     <div class="row">
         <div class="pull-right">
             <a href="{{ route('user.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
@@ -9,13 +17,13 @@
     <table id="viewTable" class="table table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th align="center">No</th>
-                <th align="center">Nama</th>
-                <th align="center">Username</th>
-                <th align="center">Email</th>
-                <th align="center">Alamat</th>
-                <th align="center">Jabatan</th>
-                <th align="center">Action</th>
+                <th>No</th>
+                <th><center>Nama</center></th>
+                <th><center>Username</center></th>
+                <th><center>Email</center></th>
+                <th><center>Alamat</center></th>
+                <th><center>Jabatan</center></th>
+                <th>Action</th>
 
             </tr>
         </thead>
@@ -23,7 +31,7 @@
 
         @foreach($user as $usr)
             <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td><center>{{ $loop->iteration }}</center></td>
                 <td>{{ $usr->nama }}</td>
                 <td>{{ $usr->username }}</td>
                 <td>{{ $usr->email }}</td>
