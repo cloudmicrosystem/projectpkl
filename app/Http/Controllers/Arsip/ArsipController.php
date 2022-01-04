@@ -66,8 +66,8 @@ class ArsipController extends Controller
         if($request->file('fileArsip')) {
             $file = $request->file('fileArsip');
             $fileArsip = time().'_'.$file->getClientOriginalName();
-
-            $path = 'arsip';
+            $fileExtension = $file->getClientOriginalExtension();
+            echo $fileArsip; die;
 
             // File upload location
             $location = 'storage/arsip';
