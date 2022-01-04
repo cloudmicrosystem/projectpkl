@@ -45,11 +45,7 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="pull-right">
-            @foreach ($arsip as $ars)
-            <a href="{{ route('arsip.edit', $ars->id) }}"><button type="submit" class="btn btn-primary">Submit</button></a>
-        @endforeach
-        </div> --}}
+        
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
