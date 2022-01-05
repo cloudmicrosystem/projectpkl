@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         $totalDataArsip = DB::select('SELECT COUNT(id) AS total FROM arsip');
         // $totalDataArsip = (array) $totalDataArsip;
         // echo "<pre>"; print_r($totalDataArsip); die;
+        // echo Auth::user();
 
         return view('content.dashboard.index')->with(compact('totalDataArsip'));
     }

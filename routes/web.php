@@ -20,28 +20,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('content.dashboard.index');
-// });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 require __DIR__ . '/auth.php';
-
-Route::get('/', DashboardController::class);
-
-Route::resource('/kategori', KategoriController::class);
-Route::resource('/arsip', ArsipController::class);
-Route::resource('/jabatan', JabatanController::class);
-Route::resource('/user', UserController::class);
 // Route::resource('user', UserController::class);
 
 Route::get('/checkdb', CheckTableController::class);
 Route::get('/checkdbarsip', CheckTableController::class, 'checkArsip');
 
-//view galeri
-Route::resource('/galeri', galeryController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', DashboardController::class);
 
+    // CRUD untuk fungsi utama
+    Route::resource('/kategori', KategoriController::class);
+    Route::resource('/arsip', ArsipController::class);
+    Route::resource('/jabatan', JabatanController::class);
+    Route::resource('/user', UserController::class);
 
+    // Galeri untuk file
+    Route::resource('/galeri', galeryController::class);
+});
