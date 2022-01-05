@@ -27,7 +27,7 @@ Route::get('/checkdb', CheckTableController::class);
 Route::get('/checkdbarsip', CheckTableController::class, 'checkArsip');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', DashboardController::class);
+    Route::get('/', [DashboardController::class, 'index']);
 
     // CRUD untuk fungsi utama
     Route::resource('/kategori', KategoriController::class);
@@ -38,3 +38,5 @@ Route::middleware(['auth'])->group(function () {
     // Galeri untuk file
     Route::resource('/galeri', galeryController::class);
 });
+
+Route::get('/check', [DashboardController::class, 'arsipChart']);

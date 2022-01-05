@@ -22,11 +22,11 @@
                 <th><center>Tanggal Buat</center></th>
                 <th><center>Tanggal Update</center></th>
                 <th><center>Action</center></th>
-                
+
             </tr>
         </thead>
         <tbody>
-        
+
         @foreach($kategori as $ktg)
             <tr>
                 <td><center>{{ $loop->iteration}}</center></td>
