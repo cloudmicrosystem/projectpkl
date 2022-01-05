@@ -117,6 +117,9 @@
     <!-- Data Table -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
+    <!-- Canvas JS -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
     <script type="text/javascript">
         var today = new Date();
         var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
@@ -129,6 +132,26 @@
         $(document).ready(function(){
             $('#viewTable').DataTable();
         });
+    </script>
+
+    <script>
+        window.onload = function() {
+
+            var chart = new CanvasJS.Chart("arsipMasukChart", {
+                animationEnabled: true,
+                theme: "light2",
+                title:{
+                    text: "Arsip Masuk"
+                },
+                data: [{
+                    type: "column",
+                    yValueFormatString: "#,##0.## Surat",
+                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                }]
+            });
+            chart.render();
+
+        }
     </script>
 
 </body>
