@@ -138,14 +138,12 @@ class ArsipController extends Controller
 
         // Validation
         $request->validate([
-            'fileArsip' => 'mimes:png,jpg,jpeg,txt,pdf|max:6144    '
+            'fileArsip' => 'mimes:png,jpg,jpeg,txt,pdf,doc,docx|max:6144    '
         ]);
 
         if($request->file('fileArsip')) {
             $file = $request->file('fileArsip');
             $fileArsip = time().'_'.$file->getClientOriginalName();
-
-            $path = 'arsip';
 
             // File upload location
             $location = 'storage/arsip';
