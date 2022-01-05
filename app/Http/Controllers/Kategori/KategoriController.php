@@ -49,7 +49,7 @@ class KategoriController extends Controller
         // DB::insert('INSERT INTO kategori(nama_kategori, created_at, updated_at) VALUES(?, ?, ?)', [$namaKategori, $timeNow, $timeNow]);
         DB::insert("CALL sp_kategori ('','$namaKategori','post');");
 
-        return redirect()->route('kategori.index')->with('message', 'Kategori berhasil ditambahkan! ');
+        return redirect()->route('kategori.index')->with('success', 'Kategori Berhasil Ditambah!');
     }
 
     /**
@@ -96,7 +96,7 @@ class KategoriController extends Controller
         // DB::update('UPDATE kategori SET nama_kategori = ? WHERE ID = ?', [$namaKategori, $id]);
         DB::update("CALL sp_kategori ('$id','$namaKategori','');");
 
-        return redirect()->route('kategori.index')->with('message', 'Kategori berhasil diubah!');
+        return redirect()->route('kategori.index')->with('success', 'Kategori Berhasil Diubah!');
     }
 
     /**
@@ -109,6 +109,6 @@ class KategoriController extends Controller
     {
         // Untuk menghapus data ~~
         DB::delete('DELETE FROM kategori WHERE id = ?', [$id]);
-        return redirect()->route('kategori.index')->with('message', 'Kategori berhasil dihapus!');
+        return redirect()->route('kategori.index')->with('success', 'Kategori Berhasil Dihapus!');
     }
 }

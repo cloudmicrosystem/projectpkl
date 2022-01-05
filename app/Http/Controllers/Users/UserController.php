@@ -54,7 +54,7 @@ class UserController extends Controller
         // echo "<pre>"; print_r($request); die;
 
 
-        return redirect()->back()->with('message', 'User berhasil ditambahkan! ');
+        return redirect()->back()->with('success', 'User Berhasil Ditambah!');
     }
 
     /**
@@ -105,7 +105,7 @@ class UserController extends Controller
 
         DB::update("CALL sp_users ('$id','$namaUser','$username','$email','','$password','','','','','','','$jabatanId','');");
 
-        return redirect()->route('user.index')->with('message', 'User berhasil diubah!');
+        return redirect()->route('user.index')->with('success', 'User Berhasil Diubah!');
     }
 
     /**
@@ -118,6 +118,6 @@ class UserController extends Controller
     {
         // Untuk menghapus data ~~
         DB::delete('DELETE FROM user WHERE id = ?', [$id]);
-        return redirect()->route('user.index')->with('message', 'User berhasil dihapus!');
+        return redirect()->route('user.index')->with('success', 'User Berhasil Dihapus!');
     }
 }
