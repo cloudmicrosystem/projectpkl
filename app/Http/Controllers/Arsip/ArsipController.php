@@ -158,7 +158,7 @@ class ArsipController extends Controller
         DB::update("CALL sp_arsip($id,'$kategoriId','$noArsip','$namaArsip','$deskripsi','$fileArsip','$userId', '');");
 
         return redirect()->route('arsip.index')->with('success', 'Arsip Berhasil Diubah!');
-        
+
     }
 
     /**
@@ -173,9 +173,9 @@ class ArsipController extends Controller
         // echo "Ini id".$id;
         $deleteArsip = DB::delete('DELETE FROM arsip WHERE id = ?', [$id]);
         if ($deleteArsip) {
-            return redirect()->route('arsip.index')->with('success', 'Jabatan Berhasil Dihapus!');
+            return redirect()->route('arsip.index')->with('success', 'Arsip Berhasil Dihapus!');
         } else {
-            return redirect()->route('arsip.index')->with('error', 'Jabatan Gagal Dihapus!');
+            return redirect()->route('arsip.index')->with('error', 'Arsip Gagal Dihapus!');
         }
 
     }
