@@ -41,10 +41,6 @@ Route::resource('/user', UserController::class);
 Route::get('/checkdb', CheckTableController::class);
 Route::get('/checkdbarsip', CheckTableController::class, 'checkArsip');
 
-// Download and view arsip
-Route::get('/download/{file}', ArsipController::class, 'download');
-Route::get('/view/{id}', ArsipController::class, 'view');
-
 //view galeri
 Route::resource('/galeri', galeryController::class);
 

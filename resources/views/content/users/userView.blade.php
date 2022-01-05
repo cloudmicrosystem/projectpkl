@@ -17,13 +17,13 @@
     <table id="viewTable" class="table table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th align="center">No</th>
-                <th align="center">Nama</th>
-                <th align="center">Username</th>
-                <th align="center">Email</th>
-                <th align="center">Alamat</th>
-                <th align="center">Jabatan</th>
-                <th align="center">Action</th>
+                <th>No</th>
+                <th><center>Nama</center></th>
+                <th><center>Username</center></th>
+                <th><center>Email</center></th>
+                <th><center>Alamat</center></th>
+                <th><center>Jabatan</center></th>
+                <th><center>Action</center></th>
 
             </tr>
         </thead>
@@ -31,7 +31,7 @@
 
         @foreach($user as $usr)
             <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td><center>{{ $loop->iteration }}</center></td>
                 <td>{{ $usr->nama }}</td>
                 <td>{{ $usr->username }}</td>
                 <td>{{ $usr->email }}</td>

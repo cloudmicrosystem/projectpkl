@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $user = DB::select('SELECT a.id,a.nama,a.username,a.email,a.alamat,(SELECT nama_jabatan FROM jabatan WHERE id=a.id_jabatan) AS nama_jabatan FROM users AS a');
+        $user = DB::select('SELECT a.id,a.nama,a.username,a.email,a.alamat,(SELECT nama_jabatan FROM jabatan WHERE id=a.id_jabatan) AS nama_jabatan FROM users AS a ORDER BY created_at DESC');
         // echo "<pre>"; print_r($user); die;
         return view('content.users.userView')->with(compact('user'));
     }
@@ -51,10 +51,10 @@ class UserController extends Controller
 
         DB::insert("CALL sp_users ('','$namaUser','$username','$email','$password','','$jabatanId','post');");
 
-        echo "<pre>"; print_r($request); die;
+        // echo "<pre>"; print_r($request); die;
 
 
-        return redirect()->route('user.index')->with('message', 'User berhasil ditambahkan! ');
+        return redirect()->back()->with('message', 'User berhasil ditambahkan! ');
     }
 
     /**
@@ -81,7 +81,7 @@ class UserController extends Controller
     {
         // Untuk menampilkan value pada saat ingin mengedit data
         $user = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
-        echo "<pre>"; print_r($user); die;
+        // echo "<pre>"; print_r($user); die;
 
         return view('content.users.userEdit')->with(compact('user'));
     }
