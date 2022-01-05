@@ -81,9 +81,10 @@ class UserController extends Controller
     {
         // Untuk menampilkan value pada saat ingin mengedit data
         $user = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
+        $jabatan = DB::select('SELECT * FROM jabatan');
         // echo "<pre>"; print_r($user); die;
 
-        return view('content.users.userEdit')->with(compact('user'));
+        return view('content.users.userEdit')->with(compact('user', 'jabatan'));
     }
 
     /**
