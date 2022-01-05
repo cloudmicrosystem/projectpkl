@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <h3><p class="font-weight-bold">Edit Jabatan</p></h3><br>
-<form action="{{ route('jabatan.edit', [$jabatan['0']->id]) }}" method="POST">
+<form action="{{ route('jabatan.update', [$jabatan['0']->id]) }}" method="POST">
   @csrf
   @method('PUT')
     <div class="form-group row">
