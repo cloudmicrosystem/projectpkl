@@ -15,9 +15,10 @@
         <span class="badge badge-info">{{ $ars->nama_kategori}}</span>
         <h6 class="card-title"><b>{{ $ars->nama_arsip}}</b></h6>
         <p class="card-text">{{ $ars->deskripsi}}</p>
-        <a href="{{url('/storage/arsip/', $ars->file_arsip)}}" class="btn btn-primary" target="_blank">Lihat</a>
+        <a href="{{url('/storage/arsip/', $ars->file_arsip)}}" class="btn btn-primary" target="_blank">View</a>
       </div>
     </div>
-@endsection
+  </div>
+@endforeach
 </div>
 @endsection
