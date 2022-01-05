@@ -35,15 +35,7 @@
                 <td>{{ $arsp->no_arsip }}</td>
                 <td>{{ $arsp->nama_arsip }}</td>
                 <td>{{ $arsp->deskripsi }}</td>
-<<<<<<< HEAD
-                <td><a href="{{url('/storage/arsip/', $arsp->file_arsip)}}" target="_blank">lihat</a></td>
-                <td>
-                    <button class="btn nav-link"><a href="{{ route('arsip.edit', $arsp->id)}}"><i class="fas fa-edit"></i></a></button>
-                </td>
-                <td>
-=======
                 <td><a href="{{url('/storage/arsip/', $arsp->file_arsip)}}" target="_blank"><center>lihat</center></a></td>
->>>>>>> 8e71b4cca543c7b1308ff35c377b651e6a0ff7ae
                 <td><div class="row">
                     <button class="btn nav-link col-sm-4"><a href="{{ route('arsip.edit', $arsp->id)}}"><i class="fas fa-edit"></i></a></button>
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">

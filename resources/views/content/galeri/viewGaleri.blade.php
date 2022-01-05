@@ -3,18 +3,19 @@
 <div class="row">
 
 @foreach($arsip as $ars)
-  <div class="col-sm-4">
-    <div class="card" style="width: 18rem;">
+  <div class="col-sm-4 mb-5">
+    <div class="card" >
       @if ($ars->file_arsip == $arsip['0']->file_arsip)
-      <embed class="card-img-top" src="{{url('/storage/arsip/', $ars->file_arsip)}}" width="500" height="400">
+      <embed class="card-img-top" src="{{url('/storage/arsip/', $ars->file_arsip)}}" width="360" height="400">
       @else
-      <embed class="fas fa-file-pdf" src="{{url('/storage/arsip/', $ars->file_arsip)}}" width="360" height="400" >
+      <embed class="fas fa-file-pdf embed-responsive" src="{{url('/storage/arsip/', $ars->file_arsip)}}" width="360" height="400" >
       @endif
      
       <div class="card-body">
-        <h5 class="card-title">{{ $ars->nama_arsip}}</h5>
-        <p class="card-text">{{ $ars->file_arsip}}</p>
-        <a href="{{url('/storage/arsip/', $ars->file_arsip)}}" class="btn btn-primary" target="_blank">View</a>
+        <span class="badge badge-info">{{ $ars->nama_kategori}}</span>
+        <h6 class="card-title"><b>{{ $ars->nama_arsip}}</b></h6>
+        <p class="card-text">{{ $ars->deskripsi}}</p>
+        <a href="{{url('/storage/arsip/', $ars->file_arsip)}}" class="btn btn-primary" target="_blank">Lihat</a>
       </div>
     </div>
   </div>
