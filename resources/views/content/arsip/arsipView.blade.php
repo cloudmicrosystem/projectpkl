@@ -47,6 +47,7 @@
                 </td>
             </tr>
         @endforeach
+        @include('sweetalert::alert')
         </tbody>
     </table>
 </div>
