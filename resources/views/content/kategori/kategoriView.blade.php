@@ -1,14 +1,6 @@
 @extends('layouts.base')
 @section('konten')
 <div class="card-body table-responsive">
-    @if (session('message'))
-     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          {{ session('message') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-         </button>
-    </div>
-@endif
     <table id="viewTable" class="table table-bordered" style="width:100%">
     <div>
             <div class="pull-right">
@@ -22,11 +14,11 @@
                 <th><center>Tanggal Buat</center></th>
                 <th><center>Tanggal Update</center></th>
                 <th><center>Action</center></th>
-                
+
             </tr>
         </thead>
         <tbody>
-        
+
         @foreach($kategori as $ktg)
             <tr>
                 <td><center>{{ $loop->iteration}}</center></td>
@@ -44,6 +36,7 @@
                 </td>
                 </tr>
         @endforeach
+        @include('sweetalert::alert')
         </body>
     </table>
 @endsection
