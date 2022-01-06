@@ -21,7 +21,9 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-
+<x-guest-layout>
+                <x-slot name="logo">
+                </x-slot>
 <body class="bg-gradient-primary">
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -35,12 +37,9 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                     </div>
                                     <!-- Session Status -->
                                     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -109,6 +108,7 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 </form>
+</x-guest-layout>
 </body>
 
 </html>

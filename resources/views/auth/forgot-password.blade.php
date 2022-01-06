@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Forgot Password</title>
+    <title> Forgot Password</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,7 +22,6 @@
 
 </head>
 <x-guest-layout>
-<x-auth-card>
             <x-slot name="logo">
             </x-slot>
 <body class="bg-gradient-primary">
@@ -40,7 +39,7 @@
                         <div style="text-align: center" class="small-4 medium-4 large-4 columns">
                             <i class="fas fa-folder-open " style="font-size:60px;color:rgb(223, 206, 76);text-shadow:2px 2px 4px #000000;"></i>
                         </div>
-                                
+
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-2">Lupa Password?</h1>
@@ -68,7 +67,7 @@
                                     <div class="text-center">
                                         <a class="small">Already have an account? {{ __('Log in') }}</a>
                                     </div>
-                               
+
                         </div>
                     </div>
                 </div>
@@ -88,48 +87,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-</x-auth-card>
 </x-guest-layout>
 </body>
 
 </html>
 
 
-
-
-{{-- <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/" class="d-flex justify-content-center mb-4">
-                <x-application-logo width=64 height=64 />
-            </a>
-        </x-slot>
-
-        <div class="mb-4 text-muted">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="d-flex justify-content-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout> --}}
