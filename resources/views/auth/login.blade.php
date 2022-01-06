@@ -57,14 +57,6 @@
                                             <input type="password" name="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password" :value="__('Password')">
                                         </div>
-                                        {{-- <div class="mt-4">
-                                        <x-label for="password" :value="__('Password')" />
-
-                                        <x-input id="password" class=""
-                                        type="password"
-                                        name="password"
-                                        required autocomplete="current-password" />
-                                        </div> --}}
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
@@ -79,13 +71,6 @@
                                         <hr>
                                     </form>
                                     <hr>
-                                    <div class="text-center">
-                                        @if (Route::has('password.request'))
-                                        <a class="small" href="{{ route('password.request') }}" style="margin-right: 15px; margin-top: 15px;">
-                                        {{ __('Forgot your password?') }}
-                                        </a>
-                                        @endif
-                                    </div>
                                 </div>
                             </div>
                         </div>
