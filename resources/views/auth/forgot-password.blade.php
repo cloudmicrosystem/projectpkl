@@ -21,7 +21,10 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-
+<x-guest-layout>
+<x-auth-card>
+            <x-slot name="logo">
+            </x-slot>
 <body class="bg-gradient-primary">
 
     <div class="container">
@@ -34,9 +37,10 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
-                            <div class="col-lg-6">
+                        <div style="text-align: center" class="small-4 medium-4 large-4 columns">
+                            <i class="fas fa-folder-open " style="font-size:60px;color:rgb(223, 206, 76);text-shadow:2px 2px 4px #000000;"></i>
+                        </div>
+                                
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-2">Lupa Password?</h1>
@@ -64,8 +68,7 @@
                                     <div class="text-center">
                                         <a class="small">Already have an account? {{ __('Log in') }}</a>
                                     </div>
-                                </div>
-                            </div>
+                               
                         </div>
                     </div>
                 </div>
@@ -85,10 +88,15 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
+</x-auth-card>
+</x-guest-layout>
 </body>
 
 </html>
+
+
+
+
 {{-- <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
