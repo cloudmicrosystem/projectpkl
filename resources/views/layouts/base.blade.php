@@ -146,7 +146,9 @@
                 data: [{
                     type: "column",
                     yValueFormatString: "#,##0.## Surat",
-                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                    dataPoints: <?php if (isset($dataPoints)) {
+                        echo json_encode($dataPoints, JSON_NUMERIC_CHECK);
+                    } ?>
                 }]
             });
             chart.render();
