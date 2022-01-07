@@ -1,29 +1,15 @@
 @extends('layouts.base')
 @section('konten')
 <?php
-    // for ($i=0; $i < 12; $i++) {
-    //     if (isset($dpValue[$i])) {
-    //         continue;
-    //     } else {
-    //         $dpValue[$i]->jumlah = 0;
-    //         $dpValue[$i]->bulan = null;
-    //     }
-    // }
     $dataPoints = array(
-        array("y" => $dpValue[0]->jumlah, "label" => "Januari" ),
-        array("y" => $dpValue[1]->jumlah, "label" => "Februari" ),
-        array("y" => 0, "label" => "Maret" ),
-        array("y" => 0, "label" => "April" ),
-        array("y" => 0, "label" => "Mei" ),
-        array("y" => 0, "label" => "Juni" ),
-        array("y" => 0, "label" => "Juli" ),
-        array("y" => 0, "label" => "Agustus" ),
-        array("y" => 0, "label" => "September" ),
-        array("y" => 0, "label" => "Oktober" ),
-        array("y" => 0, "label" => "November" ),
-        array("y" => 0, "label" => "Desember" ),
 
     );
+    foreach ($dpValue as $key => $value) {
+        $dataPoints[] = array(
+            "y" => $value->jumlah,
+            "label" => $value->bulan,
+        );
+    }
 ?>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
