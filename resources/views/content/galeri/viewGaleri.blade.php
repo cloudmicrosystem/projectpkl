@@ -1,7 +1,14 @@
 @extends('layouts.base')
 @section('konten')
-<div class="row">
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand"></a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
 
+<div class="row">
 @foreach($arsip as $ars)
   <div class="col-sm-4 mb-5">
     <div class="card" >
