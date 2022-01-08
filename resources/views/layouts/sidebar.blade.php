@@ -36,6 +36,11 @@
             <span>Arsip</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="/disposisi">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Disposisi Surat</span></a>
+    </li>
 
     <li class="nav-item">
         <a class="nav-link" href="/kategori">

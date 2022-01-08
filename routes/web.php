@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Users\JabatanController;
 use App\Http\Controllers\Kategori\KategoriController;
 use App\Http\Controllers\Users\UserController;
+use App\Http\Controllers\Disposisi\DisposisiController;
 use App\Http\Controllers\galeryController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/arsip', ArsipController::class);
     Route::resource('/jabatan', JabatanController::class);
     Route::resource('/user', UserController::class);
+    Route::resource('/disposisi', DisposisiController::class);
 
     // Galeri untuk file
     Route::resource('/galeri', galeryController::class);
