@@ -107,9 +107,9 @@ class DisposisiController extends Controller
     {
         $deleteDisposisi = DB::delete('DELETE FROM disposisi WHERE id = ?', [$id]);
         if ($deleteDisposisi) {
-            return redirect()->route('disposisi.index')->with('success', 'Arsip Berhasil Dihapus!');
+            return redirect()->route('disposisi.index')->with('success', 'Disposisi Berhasil Dihapus!');
         } else {
-            return redirect()->route('disposisi.index')->with('error', 'Arsip Gagal Dihapus!');
+            return redirect()->route('disposisi.index')->with('error', 'Disposisi Gagal Dihapus!');
         }
 
     }

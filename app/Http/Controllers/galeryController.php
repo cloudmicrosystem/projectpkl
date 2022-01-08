@@ -27,11 +27,12 @@ class galeryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function search(Request $request)
+    public function search(Request  $request)
     {
         // echo "<pre>"; print_r($arsip); die;
-        $keyword = $request->search;
-        $arsip = DB::select('SELECT * FROM arsip WHERE nama_arsip LIKE '%surat%' OR no_arsip LIKE '%surat%' LIMIT 0,10')->paginate(5);
-        return view('content.galeri.viewGaleri', compact('arsip'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $search = $request->search;
+        $arsip = DB::select('SELECT * FROM arsip WHERE nama_arsip LIKE '%$request->search%' OR no_arsip LIKE '%$request->search%' LIMIT 0,10');
+        return view('content.galeri.viewGaleri', compact('arsip'));
     }
 }
+

@@ -24,7 +24,7 @@
             <tr>
                 <td><center>{{ $loop->iteration }}</center></td>
                 <td>{{ $dsp->nama_surat }}</td>
-                <td>{{ $dsp->no_surat }}</td>
+                <td><center>{{ $dsp->no_surat }}</center></td>
                 <td>{{ $dsp->asal_surat }}</td>
                 <td>{{ $dsp->diteruskan }}</td>
                 <td></td>

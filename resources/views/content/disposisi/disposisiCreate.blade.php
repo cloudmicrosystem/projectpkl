@@ -1,10 +1,10 @@
 @extends('layouts.base')
 @section('konten')
-<h3><p class="font-weight-bold">Tambah User</p></h3><br>
+<h3><p class="font-weight-bold">Tambah Disposisi</p></h3><br>
 <form action="{{ route('disposisi.store') }}" method="POST" enctype="multipart/form-data">
   @csrf
   <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama Arsip Surat</label>
+    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama Arsip</label>
     <div class="col-sm-10" >
       <select class="form-control form-control-lg" name="arsipId">
         @foreach($arsip as $arp)
