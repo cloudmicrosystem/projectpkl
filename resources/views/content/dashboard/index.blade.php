@@ -4,11 +4,29 @@
     $dataPoints = array(
 
     );
-    foreach ($dpValue as $key => $value) {
-        $dataPoints[] = array(
-            "y" => $value->jumlah,
-            "label" => $value->bulan,
-        );
+    for ($i=0; $i < 12; $i++) {
+        if (isset($dpValue[$i])) {
+            if ($i != 0) {
+                $time->addMonths(1);
+            }
+            if ($dpValue[$i]->bulan == $time->format('n')) {
+                $dataPoints[$i] = array(
+                    "y" => $dpValue[$i]->jumlah,
+                    "label" => $time->format('M')
+                );
+            } else {
+                $dataPoints[$i] = array(
+                    "y" => 0,
+                    "label" => $time->format('M'),
+                );
+            }
+        } else {
+            $dataPoints[$i] = array(
+                "y" => 0,
+                "label" => $time->addMonths(1)->format('M'),
+            );
+        }
+
     }
 ?>
 <!-- Page Heading -->

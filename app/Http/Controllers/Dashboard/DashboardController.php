@@ -26,8 +26,10 @@ class DashboardController extends Controller
         // echo Auth::user();
 
         $dpValue = $this->arsipChart();
+        $time = Carbon::now();
+        // echo $time->format('n'); die;
 
-        return view('content.dashboard.index')->with(compact('totalDataArsip', 'dpValue'));
+        return view('content.dashboard.index')->with(compact('totalDataArsip', 'dpValue', 'time'));
     }
 
     public function arsipChart()
@@ -35,17 +37,17 @@ class DashboardController extends Controller
         $yearNow = Carbon::now()->year;
         $dpValue = DB::select(
             "SELECT
-                IF(a.bulan RLIKE '12', 'DESEMBER',
-                IF(a.bulan RLIKE '2', 'FEBRUARY',
-                IF(a.bulan RLIKE '3', 'MARET',
-                IF(a.bulan RLIKE '4', 'APRIL',
-                IF(a.bulan RLIKE '5', 'MEI',
-                IF(a.bulan RLIKE '6', 'JUNI',
-                IF(a.bulan RLIKE '7', 'JULI',
-                IF(a.bulan RLIKE '8', 'AGUSTUS',
-                IF(a.bulan RLIKE '9', 'SEPTEMBER',
-                IF(a.bulan RLIKE '10', 'OKTOBER',
-                IF(a.bulan RLIKE '11', 'NOVEMBER','JANUARI'
+                IF(a.bulan LIKE '12', '12',
+                IF(a.bulan LIKE '2', '2',
+                IF(a.bulan LIKE '3', '3',
+                IF(a.bulan LIKE '4', '4',
+                IF(a.bulan LIKE '5', '5',
+                IF(a.bulan LIKE '6', '6',
+                IF(a.bulan LIKE '7', '7',
+                IF(a.bulan LIKE '8', '8',
+                IF(a.bulan LIKE '9', '9',
+                IF(a.bulan LIKE '10', '10',
+                IF(a.bulan LIKE '11', '11','1'
                 ))))))))))) AS bulan,
             (SELECT COUNT(created_at) AS jumlah FROM arsip WHERE MONTH(created_at) = MONTH(a.created_at)) AS jumlah
             FROM (
