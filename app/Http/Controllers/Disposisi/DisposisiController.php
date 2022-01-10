@@ -41,16 +41,18 @@ class DisposisiController extends Controller
     public function store(Request $request)
     {
         $arsipId = $request->arsipId;
+        $namaSurat= $request->namaSurat;
         $noSurat = $request->noSurat;
         $asalSurat = $request->asalSurat;
-        $ditujukan = $request->ditujukan;
+        $diteruskan = $request->jabatanId;
+        $status =$request->status;
 
-        DB::insert("CALL sp_disposisi('','$arsipId','$noSurat','$asalSurat','$ditujukan','post');");
+        DB::insert("CALL sp_disposisi('','','nama','','asal_surat','diteruskan','0','post');");
 
         //echo "<pre>"; print_r($request); die;
 
 
-        return redirect()->route('disposisi.index')->with('success', 'User Berhasil Ditambah!');
+        return redirect()->route('disposisi.index')->with('success', 'Disposisi Berhasil Ditambah!');
     }
 
     /**
@@ -72,9 +74,11 @@ class DisposisiController extends Controller
      */
     public function edit($id)
     {
-        $disposisi = DB::select('SELECT * FROM arsip WHERE id = ?',[$id]);
-
-        return view('content.disposisi.disposisiEdit')->with(compact('disposisi'));
+        $disposisi = DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.id,a.no_surat,a.asal_surat,a.diteruskan FROM disposisi AS a WHERE id = ?', [$id]);
+        $arsip= DB::select('SELECT * FROM arsip');
+        $jabatan =DB::select('SELECT * FROM jabatan');
+        //echo "<pre>"; print_r($disposisi);die;
+        return view('content.disposisi.disposisiEdit')->with(compact('disposisi','arsip','jabatan'));
     }
 
     /**
@@ -88,12 +92,15 @@ class DisposisiController extends Controller
     {
         // Ini function buat updatenya
         $arsipId = $request->arsipId;
+        $namaSurat = $request->namaSurat;
         $noSurat = $request->noSurat;
         $asalSurat = $request->asalSurat;
-        $ditujukan = $request->ditujukan;
+        $diteruskan = $request->jabatanId;
+        $status =$request->status;
 
-        DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$ditujukan','');");
 
+        DB::update("CALL sp_disposisi($id,'$arsipId','$namaSurat','$noSurat','$asalSurat','$diteruskan','$status','');");
+        // echo "<pre>"; print_r($request);die;
         return redirect()->route('disposisi.index')->with('success','Disposisi Berhasil Diubah!');
     }
 
@@ -107,9 +114,9 @@ class DisposisiController extends Controller
     {
         $deleteDisposisi = DB::delete('DELETE FROM disposisi WHERE id = ?', [$id]);
         if ($deleteDisposisi) {
-            return redirect()->route('disposisi.index')->with('success', 'Arsip Berhasil Dihapus!');
+            return redirect()->route('disposisi.index')->with('success', 'Disposisi Berhasil Dihapus!');
         } else {
-            return redirect()->route('disposisi.index')->with('error', 'Arsip Gagal Dihapus!');
+            return redirect()->route('disposisi.index')->with('error', 'Disposisi Gagal Dihapus!');
         }
 
     }
