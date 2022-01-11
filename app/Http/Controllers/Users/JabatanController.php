@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\JabatanRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -40,7 +41,7 @@ class JabatanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JabatanRequest $request)
     {
         // Ini function buat insert data
         $namaJabatan = $request->namaJabatan;
@@ -87,10 +88,9 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(JabatanRequest $request, $id)
     {
         // Ini function buat updatenya
-
         $namaJabatan = $request->namaJabatan;
         // DB::update('UPDATE jabatan SET nama_jabatan = ? WHERE id = ?', [$namaJabatan, $id]);
         DB::update("CALL sp_jabatan('$id','$namaJabatan','');");

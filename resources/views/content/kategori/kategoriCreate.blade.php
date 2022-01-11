@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <h3><p class="font-weight-bold">Tambah Kategori</p></h3><br>
+@include('layouts.errorField')
 <form action="{{ route('kategori.store') }}" method="POST">
     @csrf
     <div class="form-group row">

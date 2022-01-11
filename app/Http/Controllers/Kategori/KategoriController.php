@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Kategori;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\KategoriRequest;
+use App\Http\Requests\StoreKategoriRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,16 +42,17 @@ class KategoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KategoriRequest $request)
     {
         // Ini function buat insert data
+        try {
+            $namaKategori = $request->namaKategori;
+            $insertKategori = DB::insert("CALL sp_kategori ('','$namaKategori','post');");
 
-        // echo "<pre>"; print_r($request->namaKategori); die;
-        $namaKategori = $request->namaKategori;
-        // DB::insert('INSERT INTO kategori(nama_kategori, created_at, updated_at) VALUES(?, ?, ?)', [$namaKategori, $timeNow, $timeNow]);
-        DB::insert("CALL sp_kategori ('','$namaKategori','post');");
-
-        return redirect()->route('kategori.index')->with('success', 'Kategori Berhasil Ditambah!');
+            return redirect()->route('kategori.index')->with('success', 'Kategori Berhasil Ditambah!');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -76,9 +79,7 @@ class KategoriController extends Controller
     {
         // Untuk menampilkan value pada saat ingin mengedit data
         $kategori = DB::select('SELECT * FROM kategori WHERE id = ?', [$id]);
-        // echo "<pre>"; print_r($kategori); die;
 
-        // return view('formTest')->with(compact('kategori'));
         return view('content.kategori.kategoriEdit')->with(compact('kategori'));
     }
 
@@ -89,14 +90,18 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(KategoriRequest $request, $id)
     {
         // Ini function buat updatenya
-        $namaKategori = $request->namaKategori;
-        // DB::update('UPDATE kategori SET nama_kategori = ? WHERE ID = ?', [$namaKategori, $id]);
-        DB::update("CALL sp_kategori ('$id','$namaKategori','');");
+        try {
+            $namaKategori = $request->namaKategori;
+            // DB::update('UPDATE kategori SET nama_kategori = ? WHERE ID = ?', [$namaKategori, $id]);
+            DB::update("CALL sp_kategori ('$id','$namaKategori','');");
 
-        return redirect()->route('kategori.index')->with('success', 'Kategori Berhasil Diubah!');
+            return redirect()->route('kategori.index')->with('success', 'Kategori Berhasil Diubah!');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**

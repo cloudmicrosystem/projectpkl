@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <h3><p class="font-weight-bold">Tambah Arsip</p></h3><br>
+@include('layouts.errorField')
     <form action="{{ route('arsip.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group row">

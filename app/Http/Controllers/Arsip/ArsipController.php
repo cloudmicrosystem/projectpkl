@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Arsip;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ArsipRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -49,19 +51,14 @@ class ArsipController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArsipRequest $request)
     {
         // Ini function buat insert data
         $kategoriId = $request->kategoriId;
-        $userId = 0; //! Nanti Diupdate
+        $userId = Auth::user()->id;
         $noArsip = $request->noArsip;
         $namaArsip = $request->namaArsip;
         $deskripsi = $request->deskripsi;
-
-        // Validation
-        $request->validate([
-            'fileArsip' => 'required|mimes:png,jpg,jpeg,txt,pdf|max:6144    '
-        ]);
 
         if($request->file('fileArsip')) {
             $file = $request->file('fileArsip');
@@ -126,20 +123,15 @@ class ArsipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ArsipRequest $request, $id)
     {
         // Ini function buat updatenya
         $kategoriId = $request->kategoriId;
-        $userId = 0; //! Diupdate. Masih Sementara iki
+        $userId = Auth::user()->id;
         $noArsip = $request->noArsip;
         $namaArsip = $request->namaArsip;
         $deskripsi = $request->deskripsi;
         $fileArsip = null;
-
-        // Validation
-        $request->validate([
-            'fileArsip' => 'mimes:png,jpg,jpeg,txt,pdf,doc,docx|max:6144    '
-        ]);
 
         if($request->file('fileArsip')) {
             $file = $request->file('fileArsip');

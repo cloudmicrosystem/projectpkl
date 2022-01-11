@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <h3><p class="font-weight-bold">Edit Kategori</p></h3><br>
+@include('layouts.errorField')
 <form action="{{ route('kategori.update', [$kategori['0']->id]) }}" method="POST">
     @csrf
     @method('PUT')

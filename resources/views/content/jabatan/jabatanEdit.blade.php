@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <h3><p class="font-weight-bold">Edit Jabatan</p></h3><br>
+@include('layouts.errorField')
 <form action="{{ route('jabatan.update', [$jabatan['0']->id]) }}" method="POST">
   @csrf
   @method('PUT')
