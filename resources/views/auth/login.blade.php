@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-.
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +22,8 @@
 <x-guest-layout>
                 <x-slot name="logo">
                 </x-slot>
-<body class="bg-gradient-primary">
+<body class="bg-image img-responsive" alt="Responsive image"
+style="background-image: url('img/bg.jpeg');" width;"100">
     <form method="POST" action="{{ route('login') }}">
         @csrf
     <div class="container">
@@ -38,14 +37,16 @@
                     <div class="card-body p-0">
 
                         <!-- Nested Row within Card Body -->
-                                <div class="p-5">
+                                <div class="p-4">
                                     <div class="avatar" style="text-align: center">
                                         <img src="{{ asset('img/icon.png') }}" alt="Avatar" width="150">
                                     </div>
                                     <br>
+                                    
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                     </div>
+                                    
                                     <!-- Session Status -->
                                     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -71,7 +72,7 @@
                                         </div>
                                     </div>
                                         <button class="btn btn-primary btn-user btn-block">
-                                            {{ __('Log in') }}
+                                            <div class="text-white">{{ __('Log in') }}</div>
                                         </button>
                                     </form>
                                 </div>
