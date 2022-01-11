@@ -15,8 +15,12 @@ class DisposisiController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $disposisi = DB::select('SELECT * from disposisi ORDER BY created_at DESC');
-        // echo "<pre>"; print_r($kategori); die;
+        $disposisi = DB::select('
+        SELECT id,no_surat,asal_surat,status,
+        (SELECT nama_arsip FROM arsip WHERE id = disposisi.id_arsip)AS nama_surat ,
+        (SELECT nama_jabatan FROM jabatan WHERE id=disposisi.diteruskan) AS diteruskan
+        FROM disposisi ORDER BY created_at DESC;');
+        // echo "<pre>"; print_r($disposisi); die;
         return view('content.disposisi.disposisiView')->with(compact('disposisi'));
     }
 
@@ -28,8 +32,11 @@ class DisposisiController extends Controller
     public function create()
     {
         // Untuk redirect ke halaman create
+        $disposisi=DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.no_surat,a.asal_surat,a.diteruskan FROM disposisi AS a ');
         $arsip= DB::select('SELECT * from arsip ORDER BY nama_arsip ASC');
-        return view('content.disposisi.disposisiCreate')->with(compact('arsip'));
+        $jabatan=DB::select('SELECT id,nama_jabatan FROM jabatan');
+        // echo "<pre>";print_r($disposisi);die;
+        return view('content.disposisi.disposisiCreate')->with(compact('jabatan','arsip','disposisi'));
     }
 
     /**
@@ -41,15 +48,14 @@ class DisposisiController extends Controller
     public function store(Request $request)
     {
         $arsipId = $request->arsipId;
-        $namaSurat= $request->namaSurat;
+        $namaSurat= $request->namaArsip;
         $noSurat = $request->noSurat;
         $asalSurat = $request->asalSurat;
         $diteruskan = $request->jabatanId;
         $status =$request->status;
 
-        DB::insert("CALL sp_disposisi('','','nama','','asal_surat','diteruskan','0','post');");
-
-        //echo "<pre>"; print_r($request); die;
+        DB::insert("CALL sp_disposisi('','$arsipId','$namaSurat','$noSurat','$asalSurat','$diteruskan','$status','post');");
+        // echo "<pre>"; print_r($request); die;
 
 
         return redirect()->route('disposisi.index')->with('success', 'Disposisi Berhasil Ditambah!');
@@ -92,7 +98,7 @@ class DisposisiController extends Controller
     {
         // Ini function buat updatenya
         $arsipId = $request->arsipId;
-        $namaSurat = $request->namaSurat;
+        $namaSurat = $request->namaArsip;
         $noSurat = $request->noSurat;
         $asalSurat = $request->asalSurat;
         $diteruskan = $request->jabatanId;
