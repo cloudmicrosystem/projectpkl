@@ -16,13 +16,13 @@
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">No Surat</label>
     <div class="col-sm-10">
-      <input type="text" name="noSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan no surat">
+      <input type="text" name="noSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="No Surat">
     </div>
   </div>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Asal Surat</label>
     <div class="col-sm-10">
-      <input type="text" name="asalSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan asal surat">
+      <input type="text" name="asalSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Asal Surat">
     </div>
   </div>
 <div class="form-group row">

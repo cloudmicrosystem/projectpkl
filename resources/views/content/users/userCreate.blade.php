@@ -6,25 +6,25 @@
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama</label>
     <div class="col-sm-10">
-      <input type="text" name="namaUser" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan nama">
+      <input type="text" name="namaUser" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Nama">
     </div>
   </div>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Username</label>
     <div class="col-sm-10">
-      <input type="text" name="username" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan username">
+      <input type="text" name="username" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Username">
     </div>
   </div>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Password</label>
     <div class="col-sm-10">
-      <input type="password" name="password" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan password">
+      <input type="password" name="password" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Password">
     </div>
 </div>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Email</label>
     <div class="col-sm-10">
-      <input type="email" name="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan email">
+      <input type="email" name="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Email">
     </div>
   </div>
   <div class="form-group row">

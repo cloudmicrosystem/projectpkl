@@ -7,7 +7,7 @@
         <div class="form-group row">
         <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Kategori</label>
             <div class="col-sm-10" name="idJabatan">
-                <select name="kategoriId" class="custom-select mr-sm-2">
+                <select name="kategoriId" class="form-control form-control-lg">
                     @foreach ($kategori as $kat)
                         @if ($kat->id == $arsip['0']->id_kategori)
                             <option value="{{ $kat->id }}" selected>{{ $kat->nama_kategori }}</option>

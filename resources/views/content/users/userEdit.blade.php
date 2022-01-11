@@ -7,31 +7,31 @@
     <div class="form-group row">
         <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">Nama</label>
         <div class="col-sm-10">
-            <input type="text" name="namaUser" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit nama" value="{{ $user['0']->nama }}">
+            <input type="text" name="namaUser" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="Nama" value="{{ $user['0']->nama }}">
         </div>
     </div>
     <div class="form-group row">
         <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">Username</label>
         <div class="col-sm-10">
-            <input type="text" name="username" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit username" value="{{ $user['0']->username }}">
+            <input type="text" name="username" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="Username" value="{{ $user['0']->username }}">
         </div>
     </div>
     <div class="form-group row">
         <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">Password</label>
         <div class="col-sm-10">
-            <input type="password" name="password" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit password">
+            <input type="password" name="password" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="Password">
         </div>
     </div>
     <div class="form-group row">
         <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">Email</label>
         <div class="col-sm-10">
-            <input type="email" name="email" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit email" value="{{ $user['0']->email }}">
+            <input type="email" name="email" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="Email" value="{{ $user['0']->email }}">
         </div>
     </div>
     <div class="form-group row">
         <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">Alamat</label>
         <div class="col-sm-10">
-            <input type="text" name="alamatUser" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit alamat" value="{{ $user['0']->alamat }}">
+            <input type="text" name="alamatUser" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="Alamat" value="{{ $user['0']->alamat }}">
         </div>
     </div>
     <div class="form-group row">

@@ -7,7 +7,7 @@
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama</label>
     <div class="col-sm-10">
-      <input type="text" name="namaJabatan" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan nama">
+      <input type="text" name="namaJabatan" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Nama">
     </div>
   </div>
     <button class="btn btn-primary" type="submit">Simpan</button>

@@ -5,9 +5,9 @@
         @csrf
         @method('PUT')
         <div class="form-group row">
-        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama Arsip Surat</label>
+        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama Arsip</label>
         <div class="col-sm-10" name="arsipId">
-        <select name="arsipId" class="custom-select mr-sm-2">
+        <select name="arsipId" class="form-control form-control-lg">
             @foreach ($arsip as $asp)
                 @if($asp->id == $disposisi['0']->id)
                     <option value="{{ $asp->id }}" selected>{{$asp->nama_arsip}}</option>
@@ -21,19 +21,19 @@
     <div class="form-group row">
         <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">No Surat</label>
         <div class="col-sm-10">
-        <input type="text" name="noSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan no surat" value="{{ $disposisi['0']->no_surat}}">
+        <input type="text" name="noSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="No Surat" value="{{ $disposisi['0']->no_surat}}">
         </div>
     </div>
     <div class="form-group row">
         <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Asal Surat</label>
         <div class="col-sm-10">
-        <input type="text" name="asalSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="masukkan asal surat" value="{{ $disposisi['0']->asal_surat}}">
+        <input type="text" name="asalSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Asal Surat" value="{{ $disposisi['0']->asal_surat}}">
         </div>
     </div>
     <div class="form-group row">
         <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Diteruskan</label>
         <div class="col-sm-10" name="jabatanId">
-        <select name="jabatanId" class="custom-select mr-sm-2">
+        <select name="jabatanId" class="form-control form-control-lg">
             @foreach ($jabatan as $jbt)
                 @if($jbt->id == $jabatan['0']->nama_jabatan)
                     <option value="{{ $jbt->nama_jabatan }}" selected>{{$jbt->nama_jabatan}}</option>

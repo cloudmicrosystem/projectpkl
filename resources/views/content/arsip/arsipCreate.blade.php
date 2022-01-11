@@ -17,20 +17,20 @@
         <div class="form-group row">
             <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">No Arsip</label>
             <div class="col-sm-10">
-                <input type="text" name="noArsip" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit no arsip">
+                <input type="text" name="noArsip" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="No Arsip">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">Nama</label>
             <div class="col-sm-10">
-                <input type="text" name="namaArsip" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="edit nama">
+                <input type="text" name="namaArsip" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="Nama">
             </div>
         </div>
         <div class="form-group row">
             <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Deskripsi</label>
             <div class="col-sm-10">
-                <textarea name="deskripsi" class="form-control form-control-lg" id="colFormLabelLg" placeholder="edit deskripsi"></textarea>
+                <textarea name="deskripsi" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Deskripsi"></textarea>
             </div>
         </div>
         <div class="form-group row">
