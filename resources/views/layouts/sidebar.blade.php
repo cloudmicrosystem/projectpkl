@@ -32,21 +32,23 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link" href="/arsip">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-archive"></i>
             <span>Arsip</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="/disposisi">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-envelope"></i>
             <span>Disposisi Surat</span></a>
     </li>
 
+
     <li class="nav-item">
         <a class="nav-link" href="/kategori">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-envelope"></i>
             <span>Kategori</span></a>
     </li>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -59,14 +61,14 @@
 
     <li class="nav-item">
         <a class="nav-link" href="/user">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-user"></i>
             <span>List user</span></a>
     </li>
 
 
     <li class="nav-item">
         <a class="nav-link" href="/jabatan">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-user-tie"></i>
             <span>Jabatan</span></a>
     </li>
 
