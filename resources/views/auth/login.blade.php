@@ -19,85 +19,82 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-<x-guest-layout>
-                <x-slot name="logo">
-                </x-slot>
-<body class="bg-image img-responsive" alt="Responsive image"
-style="background-image: url('img/bg.jpeg');" width;"100">
+
+<body style="background-image: url('img/bg.jpeg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
     <form method="POST" action="{{ route('login') }}">
         @csrf
-    <div class="container">
+        <div class="container" style="z-index: 1">
 
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
+            <!-- Outer Row -->
+            <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="col-xl-5 col-lg-6 col-md-7">
 
-                <div class="card o-hidden border-0 shadow-lg my-5 ">
-                    <div class="card-body p-0">
+                    <div class="card o-hidden border-0 shadow-lg my-5 ">
+                        <div class="card-body p-0">
 
-                        <!-- Nested Row within Card Body -->
-                                <div class="p-4">
-                                    <div class="avatar" style="text-align: center">
-                                        <img src="{{ asset('img/icon.png') }}" alt="Avatar" width="150">
-                                    </div>
-                                    <br>
-                                    
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Login</h1>
-                                    </div>
-                                    
-                                    <!-- Session Status -->
-                                    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-                                    <!-- Validation Errors -->
-                                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-                                    <form class="user">
-                                        <div class="form-group" :value="__('Email')">
-                                            <input type="email" name="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email" :value="old('email')" required autofocus>
+                            <!-- Nested Row within Card Body -->
+                                    <div class="p-4">
+                                        <div class="avatar" style="text-align: center">
+                                            <img src="{{ asset('img/icon.png') }}" alt="Avatar" width="150">
                                         </div>
-                                        <div class="form-group" :value="__('Password')">
-                                            <input type="password" name="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" :value="__('Password')">
+                                        <br>
+
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
-                                                <label class="custom-control-label" for="customCheck">
-                                                {{ __('Remember me') }}
-                                            </label>
+
+                                        <!-- Session Status -->
+                                        <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                                        <!-- Validation Errors -->
+                                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+                                        <form class="user">
+                                            <div class="form-group" :value="__('Email')">
+                                                <input type="email" name="email" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                                    placeholder="Enter Email" :value="old('email')" required autofocus>
+                                            </div>
+                                            <div class="form-group" :value="__('Password')">
+                                                <input type="password" name="password" class="form-control form-control-user"
+                                                    id="exampleInputPassword" placeholder="Password" :value="__('Password')">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
+                                                    <label class="custom-control-label" for="customCheck">
+                                                    {{ __('Remember me') }}
+                                                </label>
+                                            </div>
                                         </div>
+                                            <button class="btn btn-primary btn-user btn-block">
+                                                <div class="text-white">{{ __('Log in') }}</div>
+                                            </button>
+                                        </form>
                                     </div>
-                                        <button class="btn btn-primary btn-user btn-block">
-                                            <div class="text-white">{{ __('Log in') }}</div>
-                                        </button>
-                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+    </form>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-</form>
-</x-guest-layout>
 </body>
 
 </html>
