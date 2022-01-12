@@ -20,7 +20,7 @@
 
 </head>
 
-<body style="background-image: url('img/bg.jpeg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
+<body style="background-image: url('img/baground.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="container" style="z-index: 1">

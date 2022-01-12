@@ -6,7 +6,9 @@
             <div class="pull-right">
             <a href="{{ route('disposisi.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
             </div>
-        </div>
+    </div>
+
+
 
         <thead>
             <tr>
