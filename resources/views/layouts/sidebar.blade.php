@@ -17,7 +17,7 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="/">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-home"></i>
             <span>Dashboard</span></a>
     </li>
 
@@ -45,7 +45,7 @@
 
     <li class="nav-item">
         <a class="nav-link" href="/kategori">
-            <i class="fas fa-fw fa-envelope"></i>
+            <i class="fas fa-fw fa-mail-bulk"></i>
             <span>Kategori</span></a>
     </li>
 
