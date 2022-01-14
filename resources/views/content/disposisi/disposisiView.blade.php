@@ -29,7 +29,17 @@
                 <td><center>{{ $dsp->no_surat }}</center></td>
                 <td>{{ $dsp->asal_surat }}</td>
                 <td>{{ $dsp->diteruskan }}</td>
-                <td><label class="label label-success">{{ ($dsp->status == '1') ? 'Diterima' : 'Belum Diterima'}}</label></td>
+                <td>
+                    @if($dsp->status == '0')
+                    Belum di proses
+                    @elseif($dsp->status == 'proses')
+                        Sedang di proses
+                    @elseif($dsp->status == 'diterima')
+                        Diterima
+                    @else
+                        Ditolak
+                    @endif
+            </td>
                 <td><div class="row">
                     <button class="btn nav-link col-sm-4"><a href="{{ route('disposisi.edit', $dsp->id)}}"><i class="fas fa-edit"></i></a></button>
                     <form action="{{ route('disposisi.destroy', $dsp->id) }}" method="POST">

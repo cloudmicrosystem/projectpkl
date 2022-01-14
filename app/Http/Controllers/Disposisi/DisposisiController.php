@@ -32,7 +32,7 @@ class DisposisiController extends Controller
     public function create()
     {
         // Untuk redirect ke halaman create
-        $disposisi=DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.no_surat,a.asal_surat,a.diteruskan FROM disposisi AS a ');
+        $disposisi=DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.no_surat,a.asal_surat,a.diteruskan,a.status FROM disposisi AS a ');
         $arsip= DB::select('SELECT * from arsip ORDER BY nama_arsip ASC');
         $jabatan=DB::select('SELECT id,nama_jabatan FROM jabatan');
         // echo "<pre>";print_r($disposisi);die;
@@ -80,7 +80,7 @@ class DisposisiController extends Controller
      */
     public function edit($id)
     {
-        $disposisi = DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.id,a.no_surat,a.asal_surat,a.diteruskan FROM disposisi AS a WHERE id = ?', [$id]);
+        $disposisi = DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.id,a.no_surat,a.asal_surat,a.diteruskan,a.status FROM disposisi AS a WHERE id = ?', [$id]);
         $arsip= DB::select('SELECT * FROM arsip');
         $jabatan =DB::select('SELECT * FROM jabatan');
         //echo "<pre>"; print_r($disposisi);die;
