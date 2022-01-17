@@ -26,7 +26,8 @@
         <div class="container" style="z-index: 1">
 
             <!-- Outer Row -->
-            <div class="row justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center mt-5">
 
                 <div class="col-xl-5 col-lg-6 col-md-7">
 
@@ -81,7 +82,7 @@
                 </div>
 
             </div>
-
+            </div>
         </div>
 
         <!-- Bootstrap core JavaScript-->
