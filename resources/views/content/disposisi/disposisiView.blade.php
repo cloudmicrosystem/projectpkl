@@ -1,15 +1,10 @@
 @extends('layouts.base')
 @section('konten')
+<div class="pull-right">
+    <a href="{{ route('disposisi.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
+</div>
 <div class="card-body table-responsive">
     <table id="viewTable" class="table table-bordered" style="width:100%">
-    <div>
-            <div class="pull-right">
-            <a href="{{ route('disposisi.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
-            </div>
-    </div>
-
-
-
         <thead>
             <tr>
                 <td><center>No</center></td>
