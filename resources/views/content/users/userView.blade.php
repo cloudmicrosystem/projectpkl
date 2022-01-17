@@ -1,11 +1,10 @@
 @extends('layouts.base')
 @section('konten')
-<div class="card-body table-responsive">
     <div class="row">
-        <div class="pull-right">
-            <a href="{{ route('user.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
-        </div>
-    </div>
+<div class="pull-right">
+    <a href="{{ route('user.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
+</div>
+<div class="card-body table-responsive">
     <table id="viewTable" class="table table-bordered" style="width:100%">
         <thead>
             <tr>

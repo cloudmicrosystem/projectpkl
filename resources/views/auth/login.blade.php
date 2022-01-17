@@ -20,13 +20,14 @@
 
 </head>
 
-<body style="background-image: url('img/bg.jpeg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
+<body style="background-image: url('img/baground.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="container" style="z-index: 1">
 
             <!-- Outer Row -->
-            <div class="row justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center mt-5">
 
                 <div class="col-xl-5 col-lg-6 col-md-7">
 
@@ -81,7 +82,7 @@
                 </div>
 
             </div>
-
+            </div>
         </div>
 
         <!-- Bootstrap core JavaScript-->
