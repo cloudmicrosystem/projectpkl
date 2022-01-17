@@ -28,7 +28,7 @@
                     <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt"></i></button>
+                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt" style="color:rgb(223, 64, 64)"></i></button>
                     </form>
                     </div>
                 </td>

@@ -1,8 +1,8 @@
 @extends('layouts.base')
 @section('konten')
+
 <div class="card-body table-responsive">
     <table id="viewTable" class="table table-bordered" style="width:100%">
-
         <thead>
             <tr>
                 <td><center>No</center></td>
@@ -23,7 +23,17 @@
                 <td><center>{{ $dsp->no_surat }}</center></td>
                 <td>{{ $dsp->asal_surat }}</td>
                 <td>{{ $dsp->created_at }}</td>
-                <td><label class="label label-success">{{ ($dsp->status == '1') ? 'Diterima' : 'Belum Diterima'}}</label></td>
+                <td>
+                    @if($dsp->status == '0')
+                    Belum di proses
+                    @elseif($dsp->status == 'proses')
+                        Sedang di proses
+                    @elseif($dsp->status == 'diterima')
+                        Diterima
+                    @else
+                        Ditolak
+                    @endif
+            </td>
                 {{-- <td><a href="{{url('/storage/arsip/', $arsp->file_arsip)}}" target="_blank"><center>lihat</center></a></td> --}}
                 <td><div class="row">
                     <button class="btn nav-link col-sm-4"><a href="{{ route('disposisi.edit', $dsp->id)}}"><i class="fas fa-edit"></i></a></button>
