@@ -8,6 +8,7 @@ use App\Http\Controllers\Kategori\KategoriController;
 use App\Http\Controllers\Users\UserController;
 use App\Http\Controllers\Disposisi\DisposisiController;
 use App\Http\Controllers\galeryController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,3 +47,8 @@ Route::get('/check', [DashboardController::class, 'arsipChart']);
 //search galeri
 // Route::get('/galeri', [galeryController::class, 'search'])->name('search');
 Route::get('/search', [galeryController::class, 'search'])->name('search');
+Route::get('/cekusers', function ()
+{
+    $users = Auth::user();
+    echo "<pre>"; print_r($users);
+});
