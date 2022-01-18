@@ -7,13 +7,13 @@
     <table id="viewTable" class="table table-bordered" style="width:100%">
         <thead>
             <tr>
-                <td><center>No</center></td>
-                <td><center>Nama Arsip Surat</center></td>
-                <td><center>Nomor Surat</center></td>
-                <td><center>Asal Surat</center></td>
-                <td><center>Diteruskan</center></td>
-                <td><center>Status</center></td>
-                <td><center>Action</center></td>
+                <th><center>No</center></th>
+                <th><center>Nama Arsip Surat</center></th>
+                <th><center>Nomor Surat</center></th>
+                <th><center>Asal Surat</center></th>
+                <th><center>Diteruskan</center></th>
+                <th><center>Status</center></th>
+                <th><center>Action</center></th>
             </tr>
         </thead>
         <tbody>
@@ -40,7 +40,7 @@
                     <form action="{{ route('disposisi.destroy', $dsp->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt"></i></button>
+                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt" style="color:rgb(223, 64, 64)"></i></button>
                     </form>
                     </div>
                 </td>

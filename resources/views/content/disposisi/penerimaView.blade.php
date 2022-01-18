@@ -1,8 +1,8 @@
 @extends('layouts.base')
 @section('konten')
+
 <div class="card-body table-responsive">
     <table id="viewTable" class="table table-bordered" style="width:100%">
-
         <thead>
             <tr>
                 <td><center>No</center></td>
@@ -18,12 +18,22 @@
         <tbody>
             <!-- Table data disposisi -->
             <tr>
-                <td><center>1</center></td>
-                <td>Contoh surat</td>
-                <td><center>123</center></td>
-                <td>Pak bani</td>
-                <td>07-06-2001</td>
-                <td><label class="label label-success">Diterima</label></td>
+                <td><center>{{ $loop->iteration }}</center></td>
+                <td>{{ $dsp->nama_surat }}</td>
+                <td><center>{{ $dsp->no_surat }}</center></td>
+                <td>{{ $dsp->asal_surat }}</td>
+                <td>{{ $dsp->created_at }}</td>
+                <td>
+                    @if($dsp->status == '0')
+                    Belum di proses
+                    @elseif($dsp->status == 'proses')
+                        Sedang di proses
+                    @elseif($dsp->status == 'diterima')
+                        Diterima
+                    @else
+                        Ditolak
+                    @endif
+            </td>
                 {{-- <td><a href="{{url('/storage/arsip/', $arsp->file_arsip)}}" target="_blank"><center>lihat</center></a></td> --}}
                 <td>
                     <div class="row">

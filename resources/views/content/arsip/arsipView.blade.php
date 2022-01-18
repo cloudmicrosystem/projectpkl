@@ -8,13 +8,13 @@
     <table id="viewTable" class="table table-bordered" style="width:100%">
         <thead>
             <tr>
-                <td><center>No</center></td>
-                <td><center>Nama Arsip</center></td>
-                <td><center>Nomor Arsip</center></td>
-                <td><center>Kategori</center></td>
-                <td><center>Deskripsi</center></td>
-                <td><center>Lihat</center></td>
-                <td><center>Action</center></td>
+                <th><center>No</center></th>
+                <th><center>Nama Arsip</center></th>
+                <th><center>Nomor Arsip</center></th>
+                <th><center>Kategori</center></th>
+                <th><center>Deskripsi</center></th>
+                <th><center>Lihat</center></th>
+                <th><center>Action</center></th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
                     <form action="{{ route('arsip.destroy', $arsp->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt"></i></button>
+                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt"  style="color:rgb(223, 64, 64)"></i></button>
                     </form>
                     </div>
                 </td>
