@@ -15,8 +15,7 @@ class DisposisiController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $disposisi = DB::select('
-        SELECT id,no_surat,asal_surat,status,
+        $disposisi = DB::select('SELECT id,no_surat,asal_surat,status,
         (SELECT nama_arsip FROM arsip WHERE id = disposisi.id_arsip)AS nama_surat ,
         (SELECT nama_jabatan FROM jabatan WHERE id=disposisi.diteruskan) AS diteruskan
         FROM disposisi ORDER BY created_at DESC;');

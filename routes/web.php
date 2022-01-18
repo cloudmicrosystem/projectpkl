@@ -23,10 +23,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 require __DIR__ . '/auth.php';
-// Route::resource('user', UserController::class);
-
-Route::get('/checkdb', CheckTableController::class);
-Route::get('/checkdbarsip', CheckTableController::class, 'checkArsip');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
@@ -40,15 +36,16 @@ Route::middleware(['auth'])->group(function () {
 
     // Galeri untuk file
     Route::resource('/galeri', galeryController::class);
+    Route::get('/search', [galeryController::class, 'search'])->name('search');
+
+    Route::get('/penerimaView', function ()
+    {
+        return view('content.disposisi.penerimaView');
+    });
+
 });
 
 Route::get('/check', [DashboardController::class, 'arsipChart']);
 
 //search galeri
 // Route::get('/galeri', [galeryController::class, 'search'])->name('search');
-Route::get('/search', [galeryController::class, 'search'])->name('search');
-Route::get('/cekusers', function ()
-{
-    $users = Auth::user();
-    echo "<pre>"; print_r($users);
-});
