@@ -20,7 +20,7 @@
 
 </head>
 
-<body style="background-image: url('img/baground.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
+<body style="background-image: url('img/h1.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="container" style="z-index: 1">
@@ -61,6 +61,7 @@
                                                 <input type="password" name="password" class="form-control form-control-user"
                                                     id="exampleInputPassword" placeholder="Password" :value="__('Password')">
                                             </div>
+                                            
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
@@ -72,6 +73,10 @@
                                             <button class="btn btn-primary btn-user btn-block">
                                                 <div class="text-white">{{ __('Log in') }}</div>
                                             </button>
+                                            <hr>
+                                            <div class="text-center">
+                                                <a class="small" href="{{ route('register') }}">Create an Account!</a>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

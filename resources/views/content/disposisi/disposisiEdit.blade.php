@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('konten')
 <h3><p class="font-weight-bold">Edit Disposisi</p></h3><br>
+{{-- {{dd($disposisi)}} --}}
     <form action="{{ route('disposisi.update',[$disposisi['0']->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -44,35 +45,24 @@
         </select>
         </div>
       </div>
-      <div class="form-group row">
+      {{-- <div class="form-group row">
         <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Status</label>
         <div class="col-sm-10">
         <select name="status" id="status" class="form-control form-control-lg">
          @foreach ($disposisi as $dsp)
-            @if($dsp->status == '0')
-            <option value="0" selected>Belum di proses</option>
-            @else
-            <option value="0">Belum di proses</option>
-            @endif
-            @if($dsp->status == 'proses')
+            
+            {{-- <option value="belum" {{ $dsp->status == }} selected>Belum di proses</option>
+            
             <option value="proses" selected>Sedang di proses</option>
-            @else
-            <option value="proses">Sedang di proses</option>
-            @endif
-            @if($dsp->status == 'diterima')
+            
             <option value="diterima" selected>Diterima</option>
-            @else
-            <option value="diterima">Diterima</option>
-            @endif
-            @if($dsp->status == 'ditolak')
-            <option value="ditolak" selected>Ditolak</option>
-            @else
+
             <option value="ditolak">Ditolak</option>
-            @endif
+           
          @endforeach
         </select>
         </div>
-        </div>
+        </div> --}}
     <button class="btn btn-primary" type="submit">Simpan</button>
     </form>
 @endsection

@@ -25,8 +25,8 @@
                 <td>{{ $dsp->asal_surat }}</td>
                 <td>{{ $dsp->diteruskan }}</td>
                 <td>
-                    @if($dsp->status == '0')
-                    Belum di proses
+                    @if($dsp->status == 'belum')
+                        Belum di proses
                     @elseif($dsp->status == 'proses')
                         Sedang di proses
                     @elseif($dsp->status == 'diterima')
