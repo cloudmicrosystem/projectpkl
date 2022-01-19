@@ -35,17 +35,19 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/disposisi', DisposisiController::class);
 
     // Galeri untuk file
-    Route::resource('/galeri', galeryController::class);
+    // Route::resource('/galeri', galeryController::class);
     Route::get('/search', [galeryController::class, 'search'])->name('search');
 
     Route::get('/penerimaView', function ()
     {
         return view('content.disposisi.penerimaView');
     });
-
+    // Route::get('/penerimaDisposisi', DisposisiController::class);
 });
 
 Route::get('/check', [DashboardController::class, 'arsipChart']);
 
 //search galeri
 // Route::get('/galeri', [galeryController::class, 'search'])->name('search');
+
+

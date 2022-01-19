@@ -18,22 +18,12 @@
         <tbody>
             <!-- Table data disposisi -->
             <tr>
-                <td><center>{{ $loop->iteration }}</center></td>
-                <td>{{ $dsp->nama_surat }}</td>
-                <td><center>{{ $dsp->no_surat }}</center></td>
-                <td>{{ $dsp->asal_surat }}</td>
-                <td>{{ $dsp->created_at }}</td>
-                <td>
-                    @if($dsp->status == '0')
-                    Belum di proses
-                    @elseif($dsp->status == 'proses')
-                        Sedang di proses
-                    @elseif($dsp->status == 'diterima')
-                        Diterima
-                    @else
-                        Ditolak
-                    @endif
-            </td>
+                <td><center>1</center></td>
+                <td>surat penting</td>
+                <td><center>010</center></td>
+                <td>PT AN</td>
+                <td>10-10-2022</td>
+                <td>diterima    </td>
                 {{-- <td><a href="{{url('/storage/arsip/', $arsp->file_arsip)}}" target="_blank"><center>lihat</center></a></td> --}}
                 <td>
                     <div class="row">
