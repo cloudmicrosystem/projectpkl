@@ -47,13 +47,12 @@ class DisposisiController extends Controller
     public function store(Request $request)
     {
         $arsipId = $request->arsipId;
-        $namaSurat= $request->namaArsip;
         $noSurat = $request->noSurat;
         $asalSurat = $request->asalSurat;
         $diteruskan = $request->jabatanId;
         $status =$request->status;
 
-        DB::insert("CALL sp_disposisi('','$arsipId','$namaSurat','$noSurat','$asalSurat','$diteruskan','$status','post');");
+        DB::insert("CALL sp_disposisi('','$arsipId','$noSurat','$asalSurat','$diteruskan','$status','post');");
         // echo "<pre>"; print_r($request); die;
 
 
@@ -97,14 +96,13 @@ class DisposisiController extends Controller
     {
         // Ini function buat updatenya
         $arsipId = $request->arsipId;
-        $namaSurat = $request->namaArsip;
         $noSurat = $request->noSurat;
         $asalSurat = $request->asalSurat;
         $diteruskan = $request->jabatanId;
         $status =$request->status;
 
 
-        DB::update("CALL sp_disposisi($id,'$arsipId','$namaSurat','$noSurat','$asalSurat','$diteruskan','$status','');");
+        DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$diteruskan','$status','');");
         // echo "<pre>"; print_r($request);die;
         return redirect()->route('disposisi.index')->with('success','Disposisi Berhasil Diubah!');
     }
