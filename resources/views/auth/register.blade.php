@@ -35,7 +35,7 @@
                 <!-- Nested Row within Card Body -->
                         <div class="p-4">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Sign-in!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Register!</h1>
                             </div>
                              <!-- Session Status -->
                              <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -70,8 +70,9 @@
                                  <button class="btn btn-primary btn-user btn-block" >
                                      <div class="text-white">{{ __('Register') }}</div>
                                     </button><hr>
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('login') }}">{{ __('Already Registered?') }}</a>
+                                    <div class="text-right">
+                                        
+                                        <a class="small" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"> {{ __(' Back to Login') }}</i></a>
                                     </div>
                         </div>
                     </div>

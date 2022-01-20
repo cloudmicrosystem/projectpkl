@@ -73,7 +73,8 @@
                                             </button>
                                             <hr>
                                             <div class="text-center">
-                                                <a class="small" href="{{ route('register') }}">Create an Account!</a>
+                                                
+                                                <a class="small" href="{{ route('register') }}">Create an Account! <i class="fas fa-user-plus"></i></a>
                                             </div>
                                         </form>
                                     </div>
