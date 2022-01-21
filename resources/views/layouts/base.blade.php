@@ -21,6 +21,9 @@
 
     <!-- Data Table -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
+    <!-- Select 2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -52,9 +55,9 @@
                     </div>
 
                     <!-- Section Content -->
-                    <div class="container-fluid">
+                    {{-- <div class="container-fluid"> --}}
                     @yield('konten')
-                    </div>
+                    {{-- </div> --}}
 
                 </div>
                 <!-- /.container-fluid -->
@@ -120,6 +123,10 @@
     <!-- Canvas JS -->
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
+    <!-- Select 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
     <script type="text/javascript">
         var today = new Date();
         var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
@@ -131,6 +138,7 @@
     <script>
         $(document).ready(function(){
             $('#viewTable').DataTable();
+            $('#arsipDisposisi').select2();
         });
     </script>
 

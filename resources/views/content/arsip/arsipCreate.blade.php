@@ -1,46 +1,39 @@
 @extends('layouts.base')
 @section('konten')
-<h3><p class="font-weight-bold">Tambah Arsip</p></h3><br>
-@include('layouts.errorField')
+    <h3>
+        <p class="font-weight-bold">Tambah Arsip</p>
+    </h3><br>
+    @include('layouts.errorField')
+
     <form action="{{ route('arsip.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Kategori</label>
-            <div class="col-sm-10" name="kategoriId">
-                <select name="kategoriId" class="form-control form-control-lg">
-                    @foreach ($kategori as $kat)
-                        <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option>
-                    @endforeach
-                </select>
-            </div>
+        <div class="mb-3">
+            <label for="kategori">Kategori</label>
+            <select class="form-control form-control-solid" id="kategori" name="kategoriId">
+                @foreach ($kategori as $data)
+                    <option value="{{ $data->id }}">{{ $data->nama_kategori }}</option>
+                @endforeach
+            </select>
         </div>
-        <div class="form-group row">
-            <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">No Arsip</label>
-            <div class="col-sm-10">
-                <input type="text" name="noArsip" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="No Arsip">
-            </div>
+        <div class="mb-3">
+            <label for="noArsip">Nomor Arsip</label>
+            <input class="form-control form-control-solid" id="noArsip" type="text" placeholder="Nomor Arsip" name="noArsip" />
         </div>
-
-        <div class="form-group row">
-            <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">Nama</label>
-            <div class="col-sm-10">
-                <input type="text" name="namaArsip" class="form-control form-control-lg" id="colFromLabel1Lg" placeholder="Nama">
-            </div>
+        <div class="mb-3">
+            <label for="namaArsip">Nama Arsip</label>
+            <input class="form-control form-control-solid" id="namaArsip" type="text" placeholder="Nama Arsip" name="namaArsip" />
         </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Deskripsi</label>
-            <div class="col-sm-10">
-                <textarea name="deskripsi" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Deskripsi"></textarea>
-            </div>
+        <div class="mb-3">
+            <label for="deskripsi">Deskripsi</label>
+            <textarea class="form-control form-control-solid" id="deskripsi" rows="3" name="deskripsi"></textarea>
         </div>
-        <div class="form-group row">
-            <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">File Arsip</label>
-            <div class="col-sm-10">
-                <div class="input-group mb-3">
-                    <input type="file" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fileArsip" class="form-control form-control-lg" id="inputGroupFile02" />
-                </div>
-            </div>
+        <div class="mb-3">
+            <label for="fileArsip">File Arsip</label>
+            <input type="file" name="fileArsip" class="form-control form-control-file" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
         </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <div class="mb-0 float-right">
+            <a href="{{ route('arsip.index') }}" class="btn btn-warning">Cancel</a>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
     </form>
 @endsection

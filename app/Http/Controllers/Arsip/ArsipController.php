@@ -162,7 +162,6 @@ class ArsipController extends Controller
     public function destroy($id)
     {
         // Untuk menghapus data ~~
-        // echo "Ini id".$id;
         $deleteArsip = DB::delete('DELETE FROM arsip WHERE id = ?', [$id]);
         if ($deleteArsip) {
             return redirect()->route('arsip.index')->with('success', 'Arsip Berhasil Dihapus!');

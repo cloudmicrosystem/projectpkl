@@ -1,53 +1,69 @@
 @extends('layouts.base')
+@section('title', 'Disposisi')
 @section('konten')
-<div class="pull-right">
-    <a href="{{ route('disposisi.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button></a>
-</div>
-<div class="card-body table-responsive">
-    <table id="viewTable" class="table table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th><center>No</center></th>
-                <th><center>Nama Arsip Surat</center></th>
-                <th><center>Nomor Surat</center></th>
-                <th><center>Asal Surat</center></th>
-                <th><center>Diteruskan</center></th>
-                <th><center>Status</center></th>
-                <th><center>Action</center></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($disposisi as $dsp)
-            <tr>
-                <td><center>{{ $loop->iteration }}</center></td>
-                <td>{{ $dsp->nama_surat }}</td>
-                <td><center>{{ $dsp->no_surat }}</center></td>
-                <td>{{ $dsp->asal_surat }}</td>
-                <td>{{ $dsp->diteruskan }}</td>
-                <td>
-                    @if($dsp->status == '0')
-                    Belum di proses
-                    @elseif($dsp->status == 'proses')
-                        Sedang di proses
-                    @elseif($dsp->status == 'diterima')
-                        Diterima
-                    @else
-                        Ditolak
-                    @endif
-            </td>
-                <td><div class="row">
-                    <button class="btn nav-link col-sm-4"><a href="{{ route('disposisi.edit', $dsp->id)}}"><i class="fas fa-edit"></i></a></button>
-                    <form action="{{ route('disposisi.destroy', $dsp->id) }}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt" style="color:rgb(223, 64, 64)"></i></button>
-                    </form>
-                    </div>
-                </td>
-            </tr>
-        @endforeach
-        @include('sweetalert::alert')
-        </tbody>
-    </table>
-</div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            {{-- <h6 class="m-0 font-weight-bold text-primary float-left">Arsip</h6> --}}
+            <a href="{{ route('disposisi.create') }}" class="btn btn-success btn-icon-split btn-sm float-right">
+                <span class="icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text">
+                    Pengajuan Surat
+                </span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="viewTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nomor Surat</th>
+                            <th>Dokumen</th>
+                            <th>Yang Mengajukan</th>
+                            <th>Ditujukan</th>
+                            <th>Status</th>
+                            <th>Tanggal Pengajuan</th>
+                            <th>Opsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($disposisi as $data)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $data->no_surat }}</td>
+                                <td>{{ $data->nama_surat }}</td>
+                                <td>{{ $data->asal_surat }}</td>
+                                <td>{{ $data->diteruskan }}</td>
+                                <td>
+                                    @if ($data->status == 0)
+                                        Diproses
+                                    @elseif ($data->status == 1)
+                                        Diterima
+                                    @elseif ($data->status == 2)
+                                        Ditolak
+                                    @endif
+                                </td>
+                                <td>{{ date('d-M-Y', strtotime($data->created_at)) }}</td>
+                                <td>
+                                    <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a>
+                                    {{-- <a href="{{ route('arsip.edit', $data->id) }}" class="btn btn-warning btn-sm float-left mx-2"><i class="fas fa-edit"></i></a>
+                                    <form action="{{ route('arsip.destroy', $data->id) }}" method="POST" class="float-left">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form> --}}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    @include('sweetalert::alert')
+                </table>
+            </div>
+        </div>
+    </div>
 @endsection

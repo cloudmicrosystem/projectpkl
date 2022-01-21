@@ -1,73 +1,46 @@
+
 @extends('layouts.base')
+@section('title', 'Pengajuan Surat')
 @section('konten')
-<h3><p class="font-weight-bold">Tambah Disposisi</p></h3><br>
-<form action="{{ route('disposisi.store') }}" method="POST" enctype="multipart/form-data">
-  @csrf
-  <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama Arsip</label>
-    <div class="col-sm-10" name=arsipId>
-      <select name="arsipId" class="form-control form-control-lg">
-       @foreach($arsip as $arp)
-          <option value="{{ $arp->id }}">{{ $arp->nama_arsip}}</option>
-       @endforeach
-      </select>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">No Surat</label>
-    <div class="col-sm-10">
-      <input type="text" name="noSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="No Surat">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Asal Surat</label>
-    <div class="col-sm-10">
-      <input type="text" name="asalSurat" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Asal Surat">
-    </div>
-  </div>
-<div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Diteruskan</label>
-    <div class="col-sm-10" name="jabatanId">
-    <select name="jabatanId" class="form-control form-control-lg">
-        @foreach ($jabatan as $jbt)
-            @if($jbt->id == $jabatan['0']->nama_jabatan)
-                <option value="{{ $jbt->id }}" selected>{{$jbt->nama_jabatan}}</option>
-            @else
-                <option value="{{ $jbt->id}}">{{ $jbt->nama_jabatan}}</option>
-            @endif
-        @endforeach
-    </select>
-    </div>
-  </div>
-    <div class="form-group row">
-        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Status</label>
-        <div class="col-sm-10">
-        <select name="status" id="status" class="form-control form-control-lg">
-         @foreach ($disposisi as $dsp)
-            @if($dsp->status == '0')
-            <option value="0" selected>Belum di proses</option>
-            @else
-            <option value="0">Belum di proses</option>
-            @endif
-            @if($dsp->status == 'proses')
-            <option value="proses" selected>Sedang di proses</option>
-            @else
-            <option value="proses">Sedang di proses</option>
-            @endif
-            @if($dsp->status == 'diterima')
-            <option value="diterima" selected>Diterima</option>
-            @else
-            <option value="diterima">Diterima</option>
-            @endif
-            @if($dsp->status == 'ditolak')
-            <option value="ditolak" selected>Ditolak</option>
-            @else
-            <option value="ditolak">Ditolak</option>
-            @endif
-         @endforeach
-        </select>
+    @include('layouts.errorField')
+
+    <div class="card shadow">
+        <div class="card-body">
+            <form action="{{ route('disposisi.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                    <label for="deskripsi">Yang Mengajukan</label>
+                    <input type="text" name="pengaju" class="form-control form-control-solid" value="{{Auth::user()->nama}}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="ditujukan">Ditujukan Kepada</label>
+                    <select class="form-control form-control-solid" id="ditujukan" name="ditujukan">
+                        @foreach ($jabatan as $data)
+                            <option value="{{ $data->id }}">{{ $data->nama_jabatan }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="noSurat">Nomor Surat</label>
+                    <input class="form-control form-control-solid" id="noSurat" type="text" placeholder="Nomor Surat" name="noSurat" />
+                </div>
+                {{-- <div class="mb-3">
+                    <label for="namaSurat">Nama Surat</label>
+                    <input type="text" class="form-control form-control-solid" placeholder="Nama Surat" name="namaSurat">
+                </div> --}}
+                <div class="mb-3">
+                    <label for="kategori">Dokumen</label>
+                    <select class="form-control form-control-solid" id="arsipDisposisi" name="dokumenDisposisi">
+                        @foreach ($arsip as $data)
+                            <option value="{{ $data->id }}">{{ $data->nama_arsip }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-0 float-right">
+                    <a href="{{ route('arsip.index') }}" class="btn btn-warning">Cancel</a>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
         </div>
-        </div>
-  <button class="btn btn-primary" type="submit">Simpan</button>
-</form>
+    </div>
 @endsection

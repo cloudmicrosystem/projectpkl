@@ -17,7 +17,8 @@ class DisposisiController extends Controller
         // Untuk menampilkan index
         $disposisi = DB::select('SELECT id,no_surat,asal_surat,status,
         (SELECT nama_arsip FROM arsip WHERE id = disposisi.id_arsip)AS nama_surat ,
-        (SELECT nama_jabatan FROM jabatan WHERE id=disposisi.diteruskan) AS diteruskan
+        (SELECT nama_jabatan FROM jabatan WHERE id=disposisi.diteruskan) AS diteruskan,
+        created_at
         FROM disposisi ORDER BY created_at DESC;');
         // echo "<pre>"; print_r($disposisi); die;
         return view('content.disposisi.disposisiView')->with(compact('disposisi'));
@@ -46,14 +47,13 @@ class DisposisiController extends Controller
      */
     public function store(Request $request)
     {
-        $arsipId = $request->arsipId;
-        $namaSurat= $request->namaArsip;
+        $dokumenDisposisi = $request->dokumenDisposisi;
         $noSurat = $request->noSurat;
-        $asalSurat = $request->asalSurat;
-        $diteruskan = $request->jabatanId;
-        $status =$request->status;
+        $pengaju = $request->pengaju;
+        $ditujukan = $request->ditujukan;
+        $status = '0';
 
-        DB::insert("CALL sp_disposisi('','$arsipId','$namaSurat','$noSurat','$asalSurat','$diteruskan','$status','post');");
+        DB::insert("CALL sp_disposisi(' ','$dokumenDisposisi','$noSurat','$pengaju','$ditujukan','$status','post');");
         // echo "<pre>"; print_r($request); die;
 
 
@@ -123,11 +123,5 @@ class DisposisiController extends Controller
         } else {
             return redirect()->route('disposisi.index')->with('error', 'Disposisi Gagal Dihapus!');
         }
-
-    }
-
-    public function search(Request $req)
-    {
-        # code...
     }
 }
