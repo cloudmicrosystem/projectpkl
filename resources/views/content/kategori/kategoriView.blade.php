@@ -1,11 +1,20 @@
 @extends('layouts.base')
 @section('konten')
-    <div class="pull-right">
-        <a href="{{ route('kategori.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah
-                Data</button></a>
-    </div>
+@section('title', 'Kategori')
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <a href="{{ route('kategori.create') }}" class="btn btn-success btn-icon-split btn-sm float-right">
+            <span class="icon">
+                <i class="fas fa-plus"></i>
+            </span>
+            <span class="text">
+                Tambah
+            </span>
+        </a>
+    
     <div class="card-body table-responsive">
-        <table id="viewTable" class="table table-bordered" style="width:100%">
+        <table class="table table-bordered" id="viewTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>
@@ -23,11 +32,9 @@
                     <th>
                         <center>Action</center>
                     </th>
-
                 </tr>
             </thead>
             <tbody>
-
                 @foreach ($kategori as $ktg)
                     <tr>
                         <td>
@@ -37,20 +44,22 @@
                         <td>{{ $ktg->created_at }}</td>
                         <td>{{ $ktg->updated_at }}</td>
                         <td>
-                            <div class="row">
-                                <button class="btn nav-link col-sm-4"><a href="{{ route('kategori.edit', $ktg->id) }}"><i
-                                            class="fas fa-edit"></i></a></button>
-                                <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt"
-                                            style="color:rgb(223, 64, 64)"></i></button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                @endforeach
-                @include('sweetalert::alert')
-                </body>
-        </table>
-    @endsection
+                                {{-- <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a> --}}
+                                    <a href="{{ route('kategori.edit', $ktg->id) }}" class="btn btn-warning btn-sm float-left mx-2"><i class="fas fa-edit"></i></a>
+                                    <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST" class="float-left">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    @include('sweetalert::alert')
+                </table>
+            </div>
+        </div>
+    </div>
+@endsection

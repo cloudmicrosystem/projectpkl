@@ -19,22 +19,22 @@
                 <table class="table table-bordered" id="viewTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Nama Jabatan</th>
-                            <th>Kode Jabatan</th>
-                            <th>Tanggal Dibuat</th>
-                            <th>Opsi</th>
+                            <th><center>No</center></th>
+                            <th><center>Nama Jabatan</center></th>
+                            <th><center>Kode Jabatan</center></th>
+                            <th><center>Tanggal Dibuat</center></th>
+                            <th><center>Opsi</center></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($jabatan as $data)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td><center>{{ $loop->iteration }}</center></td>
                                 <td>{{ $data->nama_jabatan }}</td>
                                 <td></td>
-                                <td>{{ date('d-M-Y', strtotime($data->created_at)) }}</td>
+                                <td><center>{{ date('d-M-Y', strtotime($data->created_at)) }}</center></td>
                                 <td>
-                                    <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a>
+                                    {{-- <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a> --}}
                                     <a href="{{ route('jabatan.edit', $data->id) }}"
                                         class="btn btn-warning btn-sm float-left mx-2"><i
                                             class="fas fa-edit"></i></a>

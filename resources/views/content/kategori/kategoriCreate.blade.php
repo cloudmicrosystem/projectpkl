@@ -1,18 +1,21 @@
 @extends('layouts.base')
+@section('title', 'Tambah Kategori')
 @section('konten')
-    <h3>
-        <p class="font-weight-bold">Tambah Kategori</p>
-    </h3><br>
-    @include('layouts.errorField')
-    <form action="{{ route('kategori.store') }}" method="POST">
-        @csrf
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama</label>
-            <div class="col-sm-10">
-                <input type="text" name="namaKategori" class="form-control form-control-lg" id="colFormLabelLg"
-                    placeholder="Nama">
+@include('layouts.errorField')
+
+<div class="card shadow">
+    <div class="card-body">
+        <form action="{{ route('kategori.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+                <label class="font-weight-bold" for="namaKategori">Nama</label>
+                    <input type="text" name="namaKategori" class="form-control form-control-solid" id="namaKategori" placeholder="Nama" required>
             </div>
-        </div>
-        <button class="btn btn-primary" type="submit">Simpan</button>
-    </form>
+            <div class="mb-0 float-right">
+                <a href="{{ route('kategori.index') }}" class="btn btn-warning">Cancel</a>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection

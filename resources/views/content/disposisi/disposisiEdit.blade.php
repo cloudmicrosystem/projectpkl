@@ -1,15 +1,15 @@
 @extends('layouts.base')
+@section('title', 'Disposisi')
 @section('konten')
-    <h3>
-        <p class="font-weight-bold">Edit Disposisi</p>
-    </h3><br>
+@include('layouts.errorField')
+<div class="card shadow mb-3">
+    <div class="card-body">
     <form action="{{ route('disposisi.update', [$disposisi['0']->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama Arsip</label>
-            <div class="col-sm-10" name="arsipId">
-                <select name="arsipId" class="form-control form-control-lg">
+            <label for="colFormLabelLg" class="font-weight-bold">Nama Arsip</label>
+                <select name="arsipId" class="form-control form-control-solid" name="arsipId">
                     @foreach ($arsip as $asp)
                         @if ($asp->id == $disposisi['0']->id)
                             <option value="{{ $asp->id }}" selected>{{ $asp->nama_arsip }}</option>
@@ -18,28 +18,22 @@
                         @endif
                     @endforeach
                 </select>
-            </div>
         </div>
         <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">No Surat</label>
-            <div class="col-sm-10">
-                <input type="text" name="noSurat" class="form-control form-control-lg" id="colFormLabelLg"
+            <label for="colFormLabelLg" class="font-weight-bold">No Surat</label>
+                <input type="text" name="noSurat" class="form-control form-control-solid" id="colFormLabelLg"
                     placeholder="No Surat" value="{{ $disposisi['0']->no_surat }}">
-            </div>
         </div>
         <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Asal
+            <label for="colFormLabelLg" class="font-weight-bold">Asal
                 Surat</label>
-            <div class="col-sm-10">
-                <input type="text" name="asalSurat" class="form-control form-control-lg" id="colFormLabelLg"
+                <input type="text" name="asalSurat" class="form-control form-control-solid" id="colFormLabelLg"
                     placeholder="Asal Surat" value="{{ $disposisi['0']->asal_surat }}">
-            </div>
         </div>
         <div class="form-group row">
             <label for="colFormLabelLg"
-                class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Diteruskan</label>
-            <div class="col-sm-10" name="jabatanId">
-                <select name="jabatanId" class="form-control form-control-lg">
+                class="font-weight-bold">Diteruskan</label>
+                <select name="jabatanId" class="form-control form-control-solid">
                     @foreach ($jabatan as $jbt)
                         @if ($jbt->id == $jabatan['0']->nama_jabatan)
                             <option value="{{ $jbt->nama_jabatan }}" selected>{{ $jbt->nama_jabatan }}</option>
@@ -48,43 +42,9 @@
                         @endif
                     @endforeach
                 </select>
-            </div>
-        </div>
-<<<<<<< HEAD
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Status</label>
-            <div class="col-sm-10">
-                <select name="status" id="status" class="form-control form-control-lg">
-                    @foreach ($disposisi as $dsp)
-                        @if ($dsp->status == '0')
-                            <option value="0" selected>Belum di proses</option>
-                        @else
-                            <option value="0">Belum di proses</option>
-                        @endif
-                        @if ($dsp->status == 'proses')
-                            <option value="proses" selected>Sedang di proses</option>
-                        @else
-                            <option value="proses">Sedang di proses</option>
-                        @endif
-                        @if ($dsp->status == 'diterima')
-                            <option value="diterima" selected>Diterima</option>
-                        @else
-                            <option value="diterima">Diterima</option>
-                        @endif
-                        @if ($dsp->status == 'ditolak')
-                            <option value="ditolak" selected>Ditolak</option>
-                        @else
-                            <option value="ditolak">Ditolak</option>
-                        @endif
-                    @endforeach
-                </select>
-            </div>
-        </div>
-        <button class="btn btn-primary" type="submit">Simpan</button>
-=======
       </div>
       {{-- <div class="form-group row">
-        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Status</label>
+        <label for="colFormLabelLg" class="font-weight-bold">Status</label>
         <div class="col-sm-10">
         <select name="status" id="status" class="form-control form-control-lg">
          @foreach ($disposisi as $dsp)
@@ -101,7 +61,11 @@
         </select>
         </div>
         </div> --}}
-    <button class="btn btn-primary" type="submit">Simpan</button>
->>>>>>> 0ae9caf15d877c4f6945c02713fef742aa699593
+        <div class="mb-0 float-right">
+            <a href="{{ route('disposisi.index') }}" class="btn btn-warning">Cancel</a>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
     </form>
+</div>
+</div>
 @endsection

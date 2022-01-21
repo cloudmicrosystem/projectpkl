@@ -1,19 +1,21 @@
 @extends('layouts.base')
+@section('title', 'Edit Jabatan')
 @section('konten')
-    <h3>
-        <p class="font-weight-bold">Edit Jabatan</p>
-    </h3><br>
-    @include('layouts.errorField')
-    <form action="{{ route('jabatan.update', [$jabatan['0']->id]) }}" method="POST">
+@include('layouts.errorField')
+<div class="card shadow mb-3">
+    <div class="card-body">
+    <form action="{{ route('jabatan.update', [$jabatan['0']->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <div class="form-group row">
-            <label for="comFormLabellg" class="col-sm-2 col-form-label-lg font-weight-bold">Nama Jabatan</label>
-            <div class="col-sm-10">
-                <input type="text" name="namaJabatan" class="form-control form-control-lg" id="colFromLabel1Lg"
-                    placeholder="Nama" value="{{ $jabatan['0']->nama_jabatan }}">
-            </div>
+        <div class="mb-3">
+            <label class="font-weight-bold" for="namaJabatan">Nama Jabatan</label>
+                <input type="text" name="namaJabatan" class="form-control form-control-solid" id="namaJabatan" placeholder="Nama" value="{{ $jabatan['0']->nama_jabatan }}">
         </div>
-        <button class="btn btn-primary" type="submit">Simpan</button>
+        <div class="mb-0 float-right">
+            <a href="{{ route('jabatan.index') }}" class="btn btn-warning">Cancel</a>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
     </form>
+</div>
+</div>>
 @endsection

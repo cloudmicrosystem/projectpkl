@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('konten')
-
+@section('title', 'Penerima Disposisi')
+@include('layouts.errorField')
     <div class="card-body table-responsive">
         <table id="viewTable" class="table table-bordered" style="width:100%">
             <thead>
@@ -22,7 +23,7 @@
                     </td>
                     <td>
                         <center>Status</center>
-                    </td>
+              </td>
                     {{-- <td><center>Lihat</center></td> --}}
                     <td>
                         <center>Action</center>
@@ -52,7 +53,7 @@
                             Ditolak
                         @endif
                     </td>
-                    {{-- <td><a href="{{url('/storage/arsip/', $arsp->file_arsip)}}" target="_blank"><center>lihat</center></a></td> --}}
+                    {{-- <td><a href="{{url('/storage/arsip/', $dsp->file_arsip)}}" target="_blank"><center>lihat</center></a></td> --}}
                     <td>
                         <div class="row">
                             <button class="btn nav-link col-sm-4"><a href="#"><i class="fas fa-edit"></i></a></button>

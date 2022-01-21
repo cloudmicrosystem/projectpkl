@@ -1,12 +1,21 @@
 @extends('layouts.base')
+@section('title', 'User')
 @section('konten')
-    <div class="row">
-        <div class="pull-right">
-            <a href="{{ route('user.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah
-                    Data</button></a>
-        </div>
-        <div class="card-body table-responsive">
-            <table id="viewTable" class="table table-bordered" style="width:100%">
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <a href="{{ route('user.create') }}" class="btn btn-success btn-icon-split btn-sm float-right">
+            <span class="icon">
+                <i class="fas fa-plus"></i>
+            </span>
+            <span class="text">
+                Tambah
+            </span>
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="viewTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -32,7 +41,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @foreach ($user as $usr)
                         <tr>
                             <td>
@@ -44,20 +52,21 @@
                             <td>{{ $usr->alamat }}</td>
                             <td>{{ $usr->nama_jabatan }}</td>
                             <td>
-                                <div class="row">
-                                    <button class="btn nav-link col-sm-4"><a href="{{ route('user.edit', $usr->id) }}"><i
-                                                class="fas fa-edit"></i></a></button>
-                                    <form action="{{ route('user.destroy', $usr->id) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn nav-link col-sm-4"><i class="fas fa-trash-alt"
-                                                style="color:rgb(223, 64, 64)"></i></button>
-                                    </form>
-                                </div>
+                                <a href="{{ route('user.edit', $usr->id) }}" class="btn btn-warning btn-sm float-left mx-2"><i class="fas fa-edit"></i></a>
+                                <form action="{{ route('user.destroy', $usr->id) }}" method="POST" class="float-left">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
-                    @include('sweetalert::alert')
                 </tbody>
+                @include('sweetalert::alert')
             </table>
-        @endsection
+        </div>
+    </div>
+</div>
+@endsection

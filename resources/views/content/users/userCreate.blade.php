@@ -1,48 +1,41 @@
 @extends('layouts.base')
+@section('title', 'Tambah User')
 @section('konten')
-    <h3>
-        <p class="font-weight-bold">Tambah User</p>
-    </h3><br>
-    <form action="{{ route('user.store') }}" method="POST">
-        @csrf
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Nama</label>
-            <div class="col-sm-10">
-                <input type="text" name="namaUser" class="form-control form-control-lg" id="colFormLabelLg"
-                    placeholder="Nama">
+@include('layouts.errorField')
+
+<div class="card shadow">
+    <div class="card-body">
+        <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+                <label class="font-weight-bold" for="namaUser">Nama</label>
+                <input class="form-control form-control-solid" id="namaUser" type="text"  placeholder="Nama" name="namaUser" required>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Username</label>
-            <div class="col-sm-10">
-                <input type="text" name="username" class="form-control form-control-lg" id="colFormLabelLg"
-                    placeholder="Username">
+            <div class="mb-3">
+                <label class="font-weight-bold" for="username">Username</label>
+                    <input type="text" name="username" class="form-control form-control-solid" id="username" placeholder="Username" required>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Password</label>
-            <div class="col-sm-10">
-                <input type="password" name="password" class="form-control form-control-lg" id="colFormLabelLg"
-                    placeholder="Password">
+            <div class="mb-3">
+                <label class="font-weight-bold" for="password">Password</label>
+                    <input type="password" name="password" class="form-control form-control-solid" id="password" placeholder="Password" required>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Email</label>
-            <div class="col-sm-10">
-                <input type="email" name="email" class="form-control form-control-lg" id="colFormLabelLg"
-                    placeholder="Email">
+            <div class="mb-3">
+                <label class="font-weight-bold" for="email">Email</label>
+                    <input type="email" name="email" class="form-control form-control-solid" id="email" placeholder="Email" required>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Jabatan</label>
-            <div class="col-sm-10" name="idJabatan">
-                <select class="form-control form-control-lg">
-                    @foreach ($jabatan as $jbt)
-                        <option value="{{ $jbt->id }}">{{ $jbt->nama_jabatan }}</option>
-                    @endforeach
-                </select>
+            <div class="mb-3">
+                <label class="font-weight-bold" for="jabatan">Jabatan</label>
+                    <select class="form-control form-control-solid" name="idJabatan">
+                        @foreach ($jabatan as $jbt)
+                            <option value="{{ $jbt->id }}">{{ $jbt->nama_jabatan }}</option>
+                        @endforeach
+                    </select>
             </div>
-        </div>
-        <button class="btn btn-primary" type="submit">Simpan</button>
-    </form>
+            <div class="mb-0 float-right">
+                <a href="{{ route('user.index') }}" class="btn btn-warning">Cancel</a>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
