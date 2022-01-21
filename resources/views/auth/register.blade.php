@@ -1,66 +1,97 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/" class="d-flex justify-content-center mb-4">
-                <x-application-logo width=64 height=64 />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
+<html lang="en">
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+<head>
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+    <title>Register</title>
 
-                <x-input id="name" class="" type="text" name="name" :value="old('name')" required autofocus />
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body style="background-image: url('img/h1.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+
+        <div class="col-xl-5 col-lg-6 col-md-7">
+
+            <div class="card o-hidden border-0 shadow-lg my-5 ">
+                <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                        <div class="p-4">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Register!</h1>
+                            </div>
+                             <!-- Session Status -->
+                             <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                             <!-- Validation Errors -->
+                             <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+                            <form class="user">
+                                <div class="form-group" :value="__('Name')">
+                                        <input type="text" name="name" class="form-control form-control-user" id="name"
+                                            placeholder="Name" :value="old('name')">
+                                    </div>
+                                    <div class="form-group" :value="__('Username')">
+                                        <input type="text" name="username" class="form-control form-control-user" id="username"
+                                            placeholder="Username" :value="old('username')">                           
+                                </div>
+                                <div class="form-group" :value="__('Email')">
+                                    <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Email Address" :value="old('email')">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0" :value="__('Password')">
+                                        <input type="password" name="password" class="form-control form-control-user"
+                                        id="password" placeholder="Password" required autocomplete="new-password">
+                                    </div>
+                                    <div class="col-sm-6" :value="__('Confirm Password')">
+                                        <input type="password" name="password_confirmation" class="form-control form-control-user"
+                                        id="password_confirmation" placeholder="Confirm Password" required>
+                                    </div>
+                                </div>
+                                 <!-- button Register -->
+                                 <button class="btn btn-primary btn-user btn-block" >
+                                     <div class="text-white">{{ __('Register') }}</div>
+                                    </button><hr>
+                                    <div class="text-right">
+                                        
+                                        <a class="small" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"> {{ __(' Back to Login') }}</i></a>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <!-- Username -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Username')" />
+    </div>
 
-                <x-input id="username" class="" type="text" name="username" :value="old('username')" required />
-            </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                <x-input id="email" class="" type="email" name="email" :value="old('email')" required />
-            </div>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+</body>
 
-                <x-input id="password" class=""
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class=""
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="d-flex justify-content-end mt-4">
-                <a class="text-muted" href="{{ route('login') }}" style="margin-right: 15px; margin-top: 15px;">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+</html>

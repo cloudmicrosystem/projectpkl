@@ -20,7 +20,7 @@
 
 </head>
 
-<body style="background-image: url('img/baground.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
+<body style="background-image: url('img/h1.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%;">
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="container" style="z-index: 1">
@@ -28,9 +28,7 @@
             <!-- Outer Row -->
             <div class="container">
                 <div class="row justify-content-center mt-5">
-
                 <div class="col-xl-5 col-lg-6 col-md-7">
-
                     <div class="card o-hidden border-0 shadow-lg my-5 ">
                         <div class="card-body p-0">
 
@@ -61,6 +59,7 @@
                                                 <input type="password" name="password" class="form-control form-control-user"
                                                     id="exampleInputPassword" placeholder="Password" :value="__('Password')">
                                             </div>
+                                            
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
@@ -72,6 +71,11 @@
                                             <button class="btn btn-primary btn-user btn-block">
                                                 <div class="text-white">{{ __('Log in') }}</div>
                                             </button>
+                                            <hr>
+                                            <div class="text-center">
+                                                
+                                                <a class="small" href="{{ route('register') }}">Create an Account! <i class="fas fa-user-plus"></i></a>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

@@ -50,6 +50,7 @@
                 </select>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="form-group row">
             <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Status</label>
             <div class="col-sm-10">
@@ -80,5 +81,27 @@
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Simpan</button>
+=======
+      </div>
+      {{-- <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg font-weight-bold">Status</label>
+        <div class="col-sm-10">
+        <select name="status" id="status" class="form-control form-control-lg">
+         @foreach ($disposisi as $dsp)
+
+            {{-- <option value="belum" {{ $dsp->status == }} selected>Belum di proses</option>
+
+            <option value="proses" selected>Sedang di proses</option>
+
+            <option value="diterima" selected>Diterima</option>
+
+            <option value="ditolak">Ditolak</option>
+
+         @endforeach
+        </select>
+        </div>
+        </div> --}}
+    <button class="btn btn-primary" type="submit">Simpan</button>
+>>>>>>> 0ae9caf15d877c4f6945c02713fef742aa699593
     </form>
 @endsection

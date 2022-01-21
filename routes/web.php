@@ -42,10 +42,12 @@ Route::middleware(['auth'])->group(function () {
     {
         return view('content.disposisi.penerimaView');
     });
-
+    // Route::get('/penerimaDisposisi', DisposisiController::class);
 });
 
 Route::get('/check', [DashboardController::class, 'arsipChart']);
 
 //search galeri
 // Route::get('/galeri', [galeryController::class, 'search'])->name('search');
+
+

@@ -97,14 +97,13 @@ class DisposisiController extends Controller
     {
         // Ini function buat updatenya
         $arsipId = $request->arsipId;
-        $namaSurat = $request->namaArsip;
         $noSurat = $request->noSurat;
         $asalSurat = $request->asalSurat;
         $diteruskan = $request->jabatanId;
         $status =$request->status;
 
 
-        DB::update("CALL sp_disposisi($id,'$arsipId','$namaSurat','$noSurat','$asalSurat','$diteruskan','$status','');");
+        DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$diteruskan','$status','');");
         // echo "<pre>"; print_r($request);die;
         return redirect()->route('disposisi.index')->with('success','Disposisi Berhasil Diubah!');
     }
@@ -123,5 +122,9 @@ class DisposisiController extends Controller
         } else {
             return redirect()->route('disposisi.index')->with('error', 'Disposisi Gagal Dihapus!');
         }
+    }
+    public function penerima()
+    {
+
     }
 }
