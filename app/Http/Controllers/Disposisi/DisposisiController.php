@@ -127,17 +127,8 @@ class DisposisiController extends Controller
     {
         # code...
     }
-    // public function penerima()
-    // {
-    //     $arsipId = $request->arsipId;
-    //     $noSurat = $request->noSurat;
-    //     $asalSurat = $request->asalSurat;
-    //     $diteruskan = $request->jabatanId;
-
-    //     DB::insert("CALL sp_disposisi('','$arsipId','$noSurat','$asalSurat','$diteruskan','belum','post');");
-    //     // echo "<pre>"; print_r($request); die;
-
-
-    //     return redirect()->route('disposisi.index')->with('success', 'Disposisi Berhasil Ditambah!');
-    // }
+    public function penerima()
+    {
+        
+    }
 }
