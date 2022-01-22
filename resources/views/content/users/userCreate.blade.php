@@ -2,6 +2,7 @@
 @section('title', 'Tambah User')
 @section('konten')
     @include('layouts.errorField')
+
     <div class="card shadow">
         <div class="card-body">
             <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
@@ -29,8 +30,8 @@
                 <div class="mb-3">
                     <label class="font-weight-bold" for="jabatan">Jabatan</label>
                     <select class="form-control form-control-solid" name="idJabatan">
-                        @foreach ($jabatan as $jbt)
-                            <option value="{{ $jbt->id }}">{{ $jbt->nama_jabatan }}</option>
+                        @foreach ($jabatan as $data)
+                            <option value="{{ $data->id }}">{{ $data->nama_jabatan }}</option>
                         @endforeach
                     </select>
                 </div>

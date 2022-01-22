@@ -22,7 +22,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.   
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -47,14 +47,14 @@ class UserController extends Controller
         $username = $request->username;
         $password = md5($request->password);
         $email = $request->email;
-        $jabatanId = $request->jabatanId;
+        $idJabatan = $request->idJabatan;
 
-        DB::insert("CALL sp_users ('','$namaUser','$username','$email','$password','','$jabatanId','post');");
+        DB::insert("CALL sp_users ('','$namaUser','$username','$email','$password','','$idJabatan','post');");
 
         // echo "<pre>"; print_r($request); die;
 
 
-        return redirect()->back()->with('success', 'User Berhasil Ditambah!');
+        return redirect()->route('user.index')->with('success', 'User Berhasil Ditambah!');
     }
 
     /**
@@ -96,14 +96,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
+        // dd($data); die;
         // Ini function buat updatenya
         $namaUser = $request->nama;
-        $username = $request->username;
-        $password = md5($request->password);
-        $email = $request->email;
-        $jabatanId = $request->jabatanId;
+        $username = $data['0']->username;
+        $password = $data['0']->password;
+        $email = $data['0']->email;
+        $idJabatan = $request->idJabatan;
 
-        DB::update("CALL sp_users ('$id','$namaUser','$username','$email','','$password','','','','','','','$jabatanId','');");
+        DB::update("CALL sp_users ('$id','$namaUser','$username','$email','$password','','$idJabatan','');");
 
         return redirect()->route('user.index')->with('success', 'User Berhasil Diubah!');
     }
@@ -117,7 +119,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         // Untuk menghapus data ~~
-        DB::delete('DELETE FROM user WHERE id = ?', [$id]);
+        DB::delete('DELETE FROM users WHERE id = ?', [$id]);
         return redirect()->route('user.index')->with('success', 'User Berhasil Dihapus!');
     }
 }

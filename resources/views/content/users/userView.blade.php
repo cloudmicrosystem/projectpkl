@@ -21,7 +21,6 @@
                             <th>Nama</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th>Alamat</th>
                             <th>Jabatan</th>
                             <th>Action</th>
 
@@ -34,7 +33,6 @@
                                 <td>{{ $usr->nama }}</td>
                                 <td>{{ $usr->username }}</td>
                                 <td>{{ $usr->email }}</td>
-                                <td>{{ $usr->alamat }}</td>
                                 <td>{{ $usr->nama_jabatan }}</td>
                                 <td>
                                     <a href="{{ route('user.edit', $usr->id) }}"
