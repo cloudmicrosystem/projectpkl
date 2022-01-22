@@ -36,8 +36,7 @@
                                 <td>
                                     {{-- <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a> --}}
                                     <a href="{{ route('jabatan.edit', $data->id) }}"
-                                        class="btn btn-warning btn-sm float-left mx-2"><i
-                                            class="fas fa-edit"></i></a>
+                                        class="btn btn-warning btn-sm float-left mx-2"><i class="fas fa-edit"></i></a>
                                     <form action="{{ route('jabatan.destroy', $data->id) }}" method="POST"
                                         class="float-left">
                                         @method('DELETE')

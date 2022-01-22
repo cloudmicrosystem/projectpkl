@@ -1,22 +1,20 @@
 @extends('layouts.base')
-@section('title', 'Edit Jabatan')
+@section('title', 'Tambah Jabatan')
 @section('konten')
-
     @include('layouts.errorField')
-    <div class="card shadow mb-3">
+    <div class="card shadow">
         <div class="card-body">
-            <form action="{{ route('jabatan.update', [$jabatan['0']->id]) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('jabatan.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
                 <div class="mb-3">
                     <label class="font-weight-bold" for="namaJabatan">Nama Jabatan</label>
-                    <input type="text" name="namaJabatan" class="form-control form-control-solid" id="namaJabatan"
-                        placeholder="Nama" value="{{ $jabatan['0']->nama_jabatan }}">
+                    <input class="form-control form-control-solid" id="namaJabatan" type="text" placeholder="Nama Jabatan"
+                        name="namaJabatan" required />
                 </div>
                 <div class="mb-3">
                     <label class="font-weight-bold" for="kodeJabatan">Kode Jabatan</label>
-                    <input class="form-control form-control-solid" id="kodeJabatan" type="text" placeholder="Kode Jabatan"
-                        name="kodeJabatan" value="" required />
+                    <input class="form-control form-control-solid" id="kodeJabatan" type="text" placeholder="Nama Jabatan"
+                        name="kodeJabatan" required />
                 </div>
                 <div class="mb-0 float-right">
                     <a href="{{ route('jabatan.index') }}" class="btn btn-warning">Cancel</a>
@@ -24,5 +22,5 @@
                 </div>
             </form>
         </div>
-    </div>>
+    </div>
 @endsection
