@@ -19,40 +19,26 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>
-                            <center>Nama</center>
-                        </th>
-                        <th>
-                            <center>Username</center>
-                        </th>
-                        <th>
-                            <center>Email</center>
-                        </th>
-                        <th>
-                            <center>Alamat</center>
-                        </th>
-                        <th>
-                            <center>Jabatan</center>
-                        </th>
-                        <th>
-                            <center>Action</center>
-                        </th>
+                        <th>Nama</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Alamat</th>
+                        <th>Jabatan</th>
+                        <th>Action</th>
 
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($user as $usr)
                         <tr>
-                            <td>
-                                <center>{{ $loop->iteration }}</center>
-                            </td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $usr->nama }}</td>
                             <td>{{ $usr->username }}</td>
                             <td>{{ $usr->email }}</td>
                             <td>{{ $usr->alamat }}</td>
                             <td>{{ $usr->nama_jabatan }}</td>
                             <td>
-                                <a href="{{ route('user.edit', $usr->id) }}" class="btn btn-warning btn-sm float-left mx-2"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('user.edit', $usr->id) }}" class="btn btn-warning btn-sm float-left mr-2"><i class="fas fa-edit"></i></a>
                                 <form action="{{ route('user.destroy', $usr->id) }}" method="POST" class="float-left">
                                     @method('DELETE')
                                     @csrf

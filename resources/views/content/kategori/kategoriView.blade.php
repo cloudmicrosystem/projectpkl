@@ -12,41 +12,31 @@
                 Tambah
             </span>
         </a>
-    
+
     <div class="card-body table-responsive">
         <table class="table table-bordered" id="viewTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>
-                        <center>No</center>
-                    </th>
-                    <th>
-                        <center>Nama</center>
-                    </th>
-                    <th>
-                        <center>Tanggal Buat</center>
-                    </th>
-                    <th>
-                        <center>Tanggal Update</center>
-                    </th>
-                    <th>
-                        <center>Action</center>
-                    </th>
+                    <th> No</th>
+                    <th>Nama</th>
+                    <th>Tanggal Buat</th>
+                    <th>Tanggal Update</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($kategori as $ktg)
+                @foreach ($kategori as $data)
                     <tr>
                         <td>
-                            <center>{{ $loop->iteration }}</center>
+                            {{ $loop->iteration }}
                         </td>
-                        <td>{{ $ktg->nama_kategori }}</td>
-                        <td>{{ $ktg->created_at }}</td>
-                        <td>{{ $ktg->updated_at }}</td>
+                        <td>{{ $data->nama_kategori }}</td>
+                        <td>{{ $data->created_at }}</td>
+                        <td>{{ $data->updated_at }}</td>
                         <td>
                                 {{-- <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a> --}}
-                                    <a href="{{ route('kategori.edit', $ktg->id) }}" class="btn btn-warning btn-sm float-left mx-2"><i class="fas fa-edit"></i></a>
-                                    <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST" class="float-left">
+                                    <a href="{{ route('kategori.edit', $data->id) }}" class="btn btn-warning btn-sm float-left mr-2"><i class="fas fa-edit"></i></a>
+                                    <form action="{{ route('kategori.destroy', $data->id) }}" method="POST" class="float-left">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-danger btn-sm">

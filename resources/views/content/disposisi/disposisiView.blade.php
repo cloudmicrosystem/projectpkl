@@ -19,20 +19,20 @@
                 <table class="table table-bordered" id="viewTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th><center>No</center></th>
-                            <th><center>Nomor Surat</center></th>
-                            <th><center>Dokumen</center></th>
-                            <th><center>Yang Mengajukan</center></th>
-                            <th><center>Ditujukan</center></th>
-                            <th><center>Status</center></th>
-                            <th><center>Tanggal Pengajuan</center></th>
-                            <th><center>Opsi</center></th>
+                            <th>No</th>
+                            <th>Nomor Surat</th>
+                            <th>Dokumen</th>
+                            <th>Yang Mengajukan</th>
+                            <th>Ditujukan</th>
+                            <th>Status</th>
+                            <th>Tanggal Pengajuan</th>
+                            <th>Opsi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($disposisi as $data)
                             <tr>
-                                <td><center>{{ $loop->iteration }}</center></td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $data->no_surat }}</td>
                                 <td>{{ $data->nama_surat }}</td>
                                 <td>{{ $data->asal_surat }}</td>
@@ -46,7 +46,7 @@
                                         Ditolak
                                     @endif
                                 </td>
-                                <td><center>{{ date('d-M-Y', strtotime($data->created_at)) }}</center></td>
+                                <td>{{ date('d-M-Y', strtotime($data->created_at)) }}</td>
                                 <td>
                                     <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a>
                                     {{-- <a href="{{ route('disposisi.edit', $data->id) }}" class="btn btn-warning btn-sm float-left mx-2"><i class="fas fa-edit"></i></a>

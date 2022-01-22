@@ -19,18 +19,18 @@
                 <table class="table table-bordered" id="viewTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th><center>No</center></th>
-                            <th><center>Kategori<center></th>
-                            <th><center>Nomor Arsip<center></th>
-                            <th><center>Nama Arsip<center></th>
-                            <th><center>Deskripsi<center></th>
-                            <th><center>Opsi</center></th>
+                            <th>No</th>
+                            <th>Kategori</th>
+                            <th>Nomor Arsip</th>
+                            <th>Nama Arsip</th>
+                            <th>Deskripsi</th>
+                            <th>Opsi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($arsip as $data)
                             <tr>
-                                <td><center>{{ $loop->iteration }}</center></td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $data->nama_kategori }}</td>
                                 <td>{{ $data->no_arsip }}</td>
                                 <td>{{ $data->nama_arsip }}</td>
