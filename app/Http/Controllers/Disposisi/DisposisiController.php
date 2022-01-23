@@ -43,7 +43,7 @@ class DisposisiController extends Controller
                 // echo "<pre>";print_r($disposisi);die;
                 return view('content.disposisi.disposisiCreate')->with(compact('jabatan', 'arsip'));
             }
-            return redirect()->route('disposisi.index')->with('failed', 'Mohon Isi Arsip Terlebih Dahulu!');
+            return redirect()->route('disposisi.index')->with('error', 'Mohon Isi Arsip Terlebih Dahulu!');
         }
         return redirect()->route('disposisi.index');
     }
@@ -126,7 +126,6 @@ class DisposisiController extends Controller
             $asalSurat = $data['0']->asal_surat;
             $diteruskan = $data['0']->diteruskan;
             $status = 0;
-
 
             DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$diteruskan','$status','');");
             // echo "<pre>"; print_r($request);die;
