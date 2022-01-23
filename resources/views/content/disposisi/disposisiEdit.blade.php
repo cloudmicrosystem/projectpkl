@@ -8,37 +8,32 @@
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="form-group row">
-                    <label for="colFormLabelLg" class="font-weight-bold">Nama Arsip</label>
-                    <select name="arsipId" class="form-control form-control-solid" name="arsipId">
-                        @foreach ($arsip as $asp)
-                            @if ($asp->id == $disposisi['0']->id)
-                                <option value="{{ $asp->id }}" selected>{{ $asp->nama_arsip }}</option>
-                            @else
-                                <option value="{{ $asp->id }}">{{ $asp->nama_arsip }}</option>
-                            @endif
+                <div class="mb-3">
+                    <label class="font-weight-bold" for="deskripsi">Yang Mengajukan</label>
+                    <input type="text" name="pengaju" class="form-control form-control-solid"
+                        value="{{ Auth::user()->nama }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label class="font-weight-bold" for="ditujukan">Ditujukan Kepada</label>
+                    <select class="form-control form-control-solid" id="ditujukan" name="ditujukan">
+                        @foreach ($jabatan as $data)
+                            <option value="{{ $data->id }}">{{ $data->nama_jabatan }}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group row">
+                <div class="form-group">
                     <label for="colFormLabelLg" class="font-weight-bold">No Surat</label>
                     <input type="text" name="noSurat" class="form-control form-control-solid" id="colFormLabelLg"
                         placeholder="No Surat" value="{{ $disposisi['0']->no_surat }}">
                 </div>
-                <div class="form-group row">
-                    <label for="colFormLabelLg" class="font-weight-bold">Asal
-                        Surat</label>
-                    <input type="text" name="asalSurat" class="form-control form-control-solid" id="colFormLabelLg"
-                        placeholder="Asal Surat" value="{{ $disposisi['0']->asal_surat }}">
-                </div>
-                <div class="form-group row">
-                    <label for="colFormLabelLg" class="font-weight-bold">Diteruskan</label>
-                    <select name="jabatanId" class="form-control form-control-solid">
-                        @foreach ($jabatan as $jbt)
-                            @if ($jbt->id == $jabatan['0']->nama_jabatan)
-                                <option value="{{ $jbt->nama_jabatan }}" selected>{{ $jbt->nama_jabatan }}</option>
+                <div class="form-group">
+                    <label for="colFormLabelLg" class="font-weight-bold">Nama Arsip</label>
+                    <select name="arsipId" class="form-control form-control-solid" name="arsipId">
+                        @foreach ($arsip as $data)
+                            @if ($data->id == $disposisi['0']->id)
+                                <option value="{{ $data->id }}" selected>{{ $data->nama_arsip }}</option>
                             @else
-                                <option value="{{ $jbt->id }}">{{ $jbt->nama_jabatan }}</option>
+                                <option value="{{ $data->id }}">{{ $data->nama_arsip }}</option>
                             @endif
                         @endforeach
                     </select>

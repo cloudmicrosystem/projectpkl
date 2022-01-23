@@ -15,7 +15,9 @@
                     <label class="font-weight-bold" for="ditujukan">Ditujukan Kepada</label>
                     <select class="form-control form-control-solid" id="ditujukan" name="ditujukan">
                         @foreach ($jabatan as $data)
+                            @if (Auth::user()->id_jabatan != $data->id)
                             <option value="{{ $data->id }}">{{ $data->nama_jabatan }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -24,10 +26,6 @@
                     <input class="form-control form-control-solid" id="noSurat" type="text" placeholder="Nomor Surat"
                         name="noSurat" required />
                 </div>
-                {{-- <div class="mb-3">
-                    <label for="namaSurat">Nama Surat</label>
-                    <input type="text" class="form-control form-control-solid" placeholder="Nama Surat" name="namaSurat">
-                </div> --}}
                 <div class="mb-3">
                     <label class="font-weight-bold" for="kategori">Dokumen</label>
                     <select class="form-control form-control-solid" id="kategori" name="dokumenDisposisi">
@@ -37,7 +35,7 @@
                     </select>
                 </div>
                 <div class="mb-0 float-right">
-                    <a href="{{ route('arsip.index') }}" class="btn btn-warning">Cancel</a>
+                    <a href="{{ route('disposisi.index') }}" class="btn btn-warning">Cancel</a>
                     <button type="submit" class="btn btn-success">Submit</button>
                 </div>
             </form>

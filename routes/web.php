@@ -38,10 +38,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/galeri', galeryController::class);
     Route::get('/search', [galeryController::class, 'search'])->name('search');
 
-    Route::get('/penerimaView', function ()
-    {
-        return view('content.disposisi.penerimaView');
-    });
+    Route::get('/penerima', [DisposisiController::class, 'penerima'])->name('disposisiPenerima');
+    Route::get('/penerima/{id}/{status}', [DisposisiController::class, 'updateStatus'])->name('disposisiUpdateStatus');
     // Route::get('/penerimaDisposisi', DisposisiController::class);
 });
 

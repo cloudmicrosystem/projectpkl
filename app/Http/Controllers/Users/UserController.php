@@ -99,10 +99,10 @@ class UserController extends Controller
         $data = DB::select('SELECT * FROM users WHERE id = ?', [$id]);
         // dd($data); die;
         // Ini function buat updatenya
-        $namaUser = $request->nama;
-        $username = $data['0']->username;
-        $password = $data['0']->password;
-        $email = $data['0']->email;
+        $namaUser = $data[0]->nama;
+        $username = $data[0]->username;
+        $password = $data[0]->password;
+        $email = $data[0]->email;
         $idJabatan = $request->idJabatan;
 
         DB::update("CALL sp_users ('$id','$namaUser','$username','$email','$password','','$idJabatan','');");

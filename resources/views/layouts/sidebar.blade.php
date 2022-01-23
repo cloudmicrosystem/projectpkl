@@ -37,17 +37,26 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/disposisi">
-            <i class="fas fa-fw fa-envelope"></i>
-            <span>Disposisi Surat</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#disposisiPages"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Disposisi</span>
+        </a>
+        <div id="disposisiPages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('disposisi.index') }}">Pengajuan Surat</a>
+                <a class="collapse-item" href="{{ route('disposisiPenerima') }}">Surat Diterima</a>
+            </div>
+        </div>
     </li>
 
-
+    @if (Auth::user()->level == 'admin')
     <li class="nav-item">
         <a class="nav-link" href="/kategori">
             <i class="fas fa-fw fa-mail-bulk"></i>
             <span>Kategori</span></a>
     </li>
+    @endif
 
 
     <!-- Divider -->
@@ -58,19 +67,21 @@
         User
     </div>
 
-
+    @if (Auth::user()->level == 'admin')
     <li class="nav-item">
         <a class="nav-link" href="/user">
             <i class="fas fa-fw fa-user"></i>
             <span>List user</span></a>
     </li>
+    @endif
 
-
+    @if (Auth::user()->level == 'admin')
     <li class="nav-item">
         <a class="nav-link" href="/jabatan">
             <i class="fas fa-fw fa-user-tie"></i>
             <span>Jabatan</span></a>
     </li>
+    @endif
 
     <li class="nav-item">
         <a class="nav-link" href="/galeri">

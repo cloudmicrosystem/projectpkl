@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Disposisi;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
 class DisposisiController extends Controller
 {
     /**
@@ -15,9 +17,9 @@ class DisposisiController extends Controller
     public function index()
     {
         // Untuk menampilkan index
-        $disposisi = DB::select('SELECT id,no_surat,asal_surat,status,
+        $disposisi = DB::select('SELECT id, no_surat, asal_surat, diteruskan,(SELECT nama FROM users WHERE id = disposisi.asal_surat) AS pengaju,status,
         (SELECT nama_arsip FROM arsip WHERE id = disposisi.id_arsip)AS nama_surat ,
-        (SELECT nama_jabatan FROM jabatan WHERE id=disposisi.diteruskan) AS diteruskan,
+        (SELECT nama_jabatan FROM jabatan WHERE id=disposisi.diteruskan) AS ditujukan,
         created_at
         FROM disposisi ORDER BY created_at DESC;');
         // echo "<pre>"; print_r($disposisi); die;
@@ -32,11 +34,10 @@ class DisposisiController extends Controller
     public function create()
     {
         // Untuk redirect ke halaman create
-        $disposisi=DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.no_surat,a.asal_surat,a.diteruskan,a.status FROM disposisi AS a ');
         $arsip= DB::select('SELECT * from arsip ORDER BY nama_arsip ASC');
         $jabatan=DB::select('SELECT id,nama_jabatan FROM jabatan');
         // echo "<pre>";print_r($disposisi);die;
-        return view('content.disposisi.disposisiCreate')->with(compact('jabatan','arsip','disposisi'));
+        return view('content.disposisi.disposisiCreate')->with(compact('jabatan','arsip'));
     }
 
     /**
@@ -49,10 +50,14 @@ class DisposisiController extends Controller
     {
         $dokumenDisposisi = $request->dokumenDisposisi;
         $noSurat = $request->noSurat;
-        $pengaju = $request->pengaju;
+        $pengaju = Auth::user()->id;
         $ditujukan = $request->ditujukan;
         $status = '0';
-
+        /*  Status 0 = Diajukan
+            Status 1 = Diterima
+            Status 2 = Ditolak
+        */
+        // echo "<pre>"; print_r($pengaju); die;
         DB::insert("CALL sp_disposisi(' ','$dokumenDisposisi','$noSurat','$pengaju','$ditujukan','$status','post');");
         // echo "<pre>"; print_r($request); die;
 
@@ -68,7 +73,12 @@ class DisposisiController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::select("SELECT (SELECT file_arsip FROM arsip WHERE id = a.id_arsip) AS arsip FROM disposisi AS a WHERE id = ?", [$id]);
+        // $path = 'storage/arsip/'.$data[0]->arsip;
+        // dd($data); die;
+        // echo "<pre>"; print_r($path); die;
+        // return response()->file($path);
+        return view('content.disposisi.penerimaView')->with(compact('data'));
     }
 
     /**
@@ -125,6 +135,25 @@ class DisposisiController extends Controller
     }
     public function penerima()
     {
+        // Untuk menampilkan index
+        $disposisi = DB::select('SELECT id, no_surat, asal_surat, diteruskan,(SELECT nama FROM users WHERE id = disposisi.asal_surat) AS pengaju,status,
+        (SELECT nama_arsip FROM arsip WHERE id = disposisi.id_arsip)AS nama_surat ,
+        (SELECT nama_jabatan FROM jabatan WHERE id=disposisi.diteruskan) AS ditujukan,
+        created_at
+        FROM disposisi ORDER BY created_at DESC;');
+        // echo "<pre>"; print_r($disposisi); die;
+        // dd($disposisi); die;
+        return view('content.disposisi.penerimaView')->with(compact('disposisi'));
+    }
 
+    public function updateStatus($id, $status)
+    {
+        $data = DB::select("SELECT * FROM disposisi WHERE id = ?", [$id]);
+        $arsipId = $data['0']->id_arsip;
+        $noSurat = $data['0']->no_surat;
+        $asalSurat = $data['0']->asal_surat;
+        $diteruskan = $data['0']->diteruskan;
+        DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$diteruskan','$status','');");
+        return redirect()->route('disposisi.index');
     }
 }

@@ -20,7 +20,7 @@ class ArsipController extends Controller
     {
         // Untuk menampilkan index
         // $arsip = DB::select('SELECT * from arsip');
-        $arsip = DB::select('SELECT a.id, (
+        $arsip = DB::select('SELECT a.id, a.id_user, (
             SELECT nama_kategori FROM kategori WHERE id=a.id_kategori) AS nama_kategori,
             a.no_arsip, a.nama_arsip, a.deskripsi, a.file_arsip,
             (SELECT nama FROM users WHERE id=a.id_user) AS nama_user
@@ -38,11 +38,10 @@ class ArsipController extends Controller
     public function create()
     {
         // Untuk redirect ke halaman create
-        $arsip = DB::select('SELECT * FROM arsip');
         $kategori = DB::select('SELECT id, nama_kategori FROM kategori');
         // echo "<pre>"; print_r($kategori); die;
         // return view('formTest')->with(compact('arsip'));
-        return view('content.arsip.arsipCreate')->with(compact('arsip', 'kategori'));
+        return view('content.arsip.arsipCreate')->with(compact('kategori'));
     }
 
     /**
@@ -126,25 +125,28 @@ class ArsipController extends Controller
     public function update(ArsipRequest $request, $id)
     {
         // Ini function buat updatenya
+        $data = DB::select("SELECT file_arsip FROM arsip WHERE id = ?", [$id]);
         $kategoriId = $request->kategoriId;
         $userId = Auth::user()->id;
         $noArsip = $request->noArsip;
         $namaArsip = $request->namaArsip;
         $deskripsi = $request->deskripsi;
-        $fileArsip = null;
+        $fileArsip = $data['0']->file_arsip;
 
-        if($request->file('fileArsip')) {
-            $file = $request->file('fileArsip');
-            $fileArsip = time().'_'.$file->getClientOriginalName();
+        if($request->file('fileArsip') != $data['0']->file_arsip){
+            Storage::delete($data['0']->file_arsip);
+            // unlink(storage_path('storage/arsip/'.$data['0']->file_arsip));
+            if($request->file('fileArsip')) {
+                $file = $request->file('fileArsip');
+                $fileArsip = time().'_'.$file->getClientOriginalName();
 
-            // File upload location
-            $location = 'storage/arsip';
+                // File upload location
+                $location = 'storage/arsip';
 
-            // Upload file
-            $file->move($location,$fileArsip);
-            // die;
-        }else{
-            $fileArsip = null;
+                // Upload file
+                $file->move($location,$fileArsip);
+                // die;
+            }
         }
 
         DB::update("CALL sp_arsip($id,'$kategoriId','$noArsip','$namaArsip','$deskripsi','$fileArsip','$userId', '');");
