@@ -59,7 +59,7 @@
                                                     class="fa fa-check"></i></a>
                                         @endif --}}
 
-                                        @if ($data->status == 0)
+                                        @if ($data->status == 0 && Auth::user()->level != 'admin')
                                             <a href="{{ route('disposisi.edit', $data->id) }}"
                                                 class="btn btn-warning btn-sm float-left mx-2"><i
                                                     class="fas fa-edit"></i></a>

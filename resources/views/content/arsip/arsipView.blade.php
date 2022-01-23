@@ -28,7 +28,7 @@
                     </thead>
                     <tbody>
                         @foreach ($arsip as $data)
-                            @if ($data->id_user == Auth::user()->id)
+                            @if ($data->id_user == Auth::user()->id || Auth::user()->level == 'admin')
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->nama_kategori }}</td>
@@ -37,17 +37,19 @@
                                     <td>{{ $data->deskripsi }}</td>
                                     <td>
                                         <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a>
-                                        <a href="{{ route('arsip.edit', $data->id) }}"
-                                            class="btn btn-warning btn-sm float-left mx-2"><i
-                                                class="fas fa-edit"></i></a>
-                                        <form action="{{ route('arsip.destroy', $data->id) }}" method="POST"
-                                            class="float-left">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
+                                        @if (Auth::user()->level != 'admin')
+                                            <a href="{{ route('arsip.edit', $data->id) }}"
+                                                class="btn btn-warning btn-sm float-left mx-2"><i
+                                                    class="fas fa-edit"></i></a>
+                                            <form action="{{ route('arsip.destroy', $data->id) }}" method="POST"
+                                                class="float-left">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                             @endif
