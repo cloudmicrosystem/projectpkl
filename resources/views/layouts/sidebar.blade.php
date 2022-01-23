@@ -14,17 +14,17 @@
         <div class="sidebar-brand-text mx-3">E-Arsip</div>
     </a>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="/">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Dashboard</span></a>
+    </li>
+
     @if (Auth::user()->id_jabatan != null || Auth::user()->level == 'admin')
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="/">
-                <i class="fas fa-fw fa-home"></i>
-                <span>Dashboard</span></a>
-        </li>
-
         <!-- Divider -->
         <hr class="sidebar-divider">
 
