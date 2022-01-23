@@ -33,11 +33,19 @@ class DisposisiController extends Controller
      */
     public function create()
     {
-        // Untuk redirect ke halaman create
-        $arsip= DB::select('SELECT * from arsip ORDER BY nama_arsip ASC');
-        $jabatan=DB::select('SELECT id,nama_jabatan FROM jabatan');
-        // echo "<pre>";print_r($disposisi);die;
-        return view('content.disposisi.disposisiCreate')->with(compact('jabatan','arsip'));
+        if (Auth::user()->level != 'admin') {
+            $arsip = DB::select("SELECT Count(id) AS jumlah FROM arsip WHERE id_user = ?", [Auth::user()->id]);
+            // dd($arsip);
+            if ($arsip['0']->jumlah != 0) {
+                // Untuk redirect ke halaman create
+                $arsip = DB::select('SELECT * from arsip ORDER BY nama_arsip ASC');
+                $jabatan = DB::select('SELECT id,nama_jabatan FROM jabatan');
+                // echo "<pre>";print_r($disposisi);die;
+                return view('content.disposisi.disposisiCreate')->with(compact('jabatan', 'arsip'));
+            }
+            return redirect()->route('disposisi.index')->with('failed', 'Mohon Isi Arsip Terlebih Dahulu!');
+        }
+        return redirect()->route('disposisi.index');
     }
 
     /**
@@ -48,21 +56,23 @@ class DisposisiController extends Controller
      */
     public function store(Request $request)
     {
-        $dokumenDisposisi = $request->dokumenDisposisi;
-        $noSurat = $request->noSurat;
-        $pengaju = Auth::user()->id;
-        $ditujukan = $request->ditujukan;
-        $status = '0';
-        /*  Status 0 = Diajukan
+        if (Auth::user()->level != 'admin') {
+            $dokumenDisposisi = $request->dokumenDisposisi;
+            $noSurat = $request->noSurat;
+            $pengaju = Auth::user()->id;
+            $ditujukan = $request->ditujukan;
+            $status = '0';
+            /*  Status 0 = Diajukan
             Status 1 = Diterima
             Status 2 = Ditolak
         */
-        // echo "<pre>"; print_r($pengaju); die;
-        DB::insert("CALL sp_disposisi(' ','$dokumenDisposisi','$noSurat','$pengaju','$ditujukan','$status','post');");
-        // echo "<pre>"; print_r($request); die;
+            // echo "<pre>"; print_r($pengaju); die;
+            DB::insert("CALL sp_disposisi(' ','$dokumenDisposisi','$noSurat','$pengaju','$ditujukan','$status','post');");
+            // echo "<pre>"; print_r($request); die;
 
-
-        return redirect()->route('disposisi.index')->with('success', 'Disposisi Berhasil Ditambah!');
+            return redirect()->route('disposisi.index')->with('success', 'Disposisi Berhasil Ditambah!');
+        }
+        return redirect()->route('disposisi.index');
     }
 
     /**
@@ -89,11 +99,14 @@ class DisposisiController extends Controller
      */
     public function edit($id)
     {
-        $disposisi = DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.id,a.no_surat,a.asal_surat,a.diteruskan,a.status FROM disposisi AS a WHERE id = ?', [$id]);
-        $arsip= DB::select('SELECT * FROM arsip');
-        $jabatan =DB::select('SELECT * FROM jabatan');
-        //echo "<pre>"; print_r($disposisi);die;
-        return view('content.disposisi.disposisiEdit')->with(compact('disposisi','arsip','jabatan'));
+        if (Auth::user()->level != 'admin') {
+            $disposisi = DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.id,a.no_surat,a.asal_surat,a.diteruskan,a.status FROM disposisi AS a WHERE id = ?', [$id]);
+            $arsip = DB::select('SELECT * FROM arsip');
+            $jabatan = DB::select('SELECT * FROM jabatan');
+            //echo "<pre>"; print_r($disposisi);die;
+            return view('content.disposisi.disposisiEdit')->with(compact('disposisi', 'arsip', 'jabatan'));
+        }
+        return redirect()->route('disposisi.index');
     }
 
     /**
@@ -105,17 +118,21 @@ class DisposisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Ini function buat updatenya
-        $arsipId = $request->arsipId;
-        $noSurat = $request->noSurat;
-        $asalSurat = $request->asalSurat;
-        $diteruskan = $request->jabatanId;
-        $status =$request->status;
+        if (Auth::user()->level != 'admin') {
+            // Ini function buat updatenya
+            $data = DB::select("SELECT * FROM disposisi WHERE id = ?", [$id]);
+            $arsipId = $data['0']->id_arsip;
+            $noSurat = $data['0']->no_surat;
+            $asalSurat = $data['0']->asal_surat;
+            $diteruskan = $data['0']->diteruskan;
+            $status = 0;
 
 
-        DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$diteruskan','$status','');");
-        // echo "<pre>"; print_r($request);die;
-        return redirect()->route('disposisi.index')->with('success','Disposisi Berhasil Diubah!');
+            DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$diteruskan','$status','');");
+            // echo "<pre>"; print_r($request);die;
+            return redirect()->route('disposisi.index')->with('success', 'Disposisi Berhasil Diubah!');
+        }
+        return redirect()->route('disposisi.index');
     }
 
     /**
@@ -148,12 +165,15 @@ class DisposisiController extends Controller
 
     public function updateStatus($id, $status)
     {
-        $data = DB::select("SELECT * FROM disposisi WHERE id = ?", [$id]);
-        $arsipId = $data['0']->id_arsip;
-        $noSurat = $data['0']->no_surat;
-        $asalSurat = $data['0']->asal_surat;
-        $diteruskan = $data['0']->diteruskan;
-        DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$diteruskan','$status','');");
+        if (Auth::user()->level != 'admin') {
+            $data = DB::select("SELECT * FROM disposisi WHERE id = ?", [$id]);
+            $arsipId = $data['0']->id_arsip;
+            $noSurat = $data['0']->no_surat;
+            $asalSurat = $data['0']->asal_surat;
+            $diteruskan = $data['0']->diteruskan;
+            DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$diteruskan','$status','');");
+            return redirect()->route('disposisi.index');
+        }
         return redirect()->route('disposisi.index');
     }
 }
