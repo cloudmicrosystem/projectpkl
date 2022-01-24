@@ -43,9 +43,8 @@ class DisposisiController extends Controller
                 // echo "<pre>";print_r($disposisi);die;
                 return view('content.disposisi.disposisiCreate')->with(compact('jabatan', 'arsip'));
             }
-            return redirect()->route('disposisi.index')->with('error', 'Mohon Isi Arsip Terlebih Dahulu!');
+            return redirect()->route('disposisi.index')->with('warning', 'Mohon Isi Arsip Terlebih Dahulu!');
         }
-        return redirect()->route('disposisi.index');
     }
 
     /**
@@ -146,7 +145,7 @@ class DisposisiController extends Controller
         if ($deleteDisposisi) {
             return redirect()->route('disposisi.index')->with('success', 'Disposisi Berhasil Dihapus!');
         } else {
-            return redirect()->route('disposisi.index')->with('error', 'Disposisi Gagal Dihapus!');
+            return redirect()->route('disposisi.index')->with('warning', 'Disposisi Gagal Dihapus!');
         }
     }
     public function penerima()

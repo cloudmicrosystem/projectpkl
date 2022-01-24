@@ -168,7 +168,7 @@ class ArsipController extends Controller
         if ($deleteArsip) {
             return redirect()->route('arsip.index')->with('success', 'Arsip Berhasil Dihapus!');
         } else {
-            return redirect()->route('arsip.index')->with('error', 'Arsip Gagal Dihapus!');
+            return redirect()->route('arsip.index')->with('warning', 'Arsip Gagal Dihapus!');
         }
 
     }

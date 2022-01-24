@@ -22,7 +22,7 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="noSurat">Nomor Surat</label>
+                    <label class="font-weight-bold" for="noSurat">Nomor Surat *</label>
                     <input class="form-control form-control-solid" id="noSurat" type="text" placeholder="Nomor Surat"
                         name="noSurat" required />
                 </div>
