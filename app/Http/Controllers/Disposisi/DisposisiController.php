@@ -38,7 +38,7 @@ class DisposisiController extends Controller
             // dd($arsip);
             if ($arsip['0']->jumlah != 0) {
                 // Untuk redirect ke halaman create
-                $arsip = DB::select('SELECT * from arsip ORDER BY nama_arsip ASC');
+                $arsip = DB::select('SELECT * from arsip WHERE id_user = ? ORDER BY nama_arsip ASC ', [Auth::user()->id]);
                 $jabatan = DB::select('SELECT id,nama_jabatan FROM jabatan');
                 // echo "<pre>";print_r($disposisi);die;
                 return view('content.disposisi.disposisiCreate')->with(compact('jabatan', 'arsip'));
