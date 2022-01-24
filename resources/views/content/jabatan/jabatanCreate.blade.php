@@ -7,12 +7,12 @@
             <form action="{{ route('jabatan.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="namaJabatan">Nama Jabatan</label>
+                    <label class="font-weight-bold" for="namaJabatan">Nama Jabatan *</label>
                     <input class="form-control form-control-solid" id="namaJabatan" type="text" placeholder="Nama Jabatan"
                         name="namaJabatan" required />
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="kodeJabatan">Kode Jabatan</label>
+                    <label class="font-weight-bold" for="kodeJabatan">Kode Jabatan *</label>
                     <input class="form-control form-control-solid" id="kodeJabatan" type="text" placeholder="Nama Jabatan"
                         name="kodeJabatan" required />
                 </div>

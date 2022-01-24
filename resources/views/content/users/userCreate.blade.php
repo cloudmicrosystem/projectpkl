@@ -8,22 +8,22 @@
             <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="namaUser">Nama</label>
+                    <label class="font-weight-bold" for="namaUser">Nama *</label>
                     <input class="form-control form-control-solid" id="namaUser" type="text" placeholder="Nama"
                         name="namaUser" required>
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="username">Username</label>
+                    <label class="font-weight-bold" for="username">Username *</label>
                     <input type="text" name="username" class="form-control form-control-solid" id="username"
                         placeholder="Username" required>
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="password">Password</label>
+                    <label class="font-weight-bold" for="password">Password *</label>
                     <input type="password" name="password" class="form-control form-control-solid" id="password"
                         placeholder="Password" required>
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="email">Email</label>
+                    <label class="font-weight-bold" for="email">Email *</label>
                     <input type="email" name="email" class="form-control form-control-solid" id="email" placeholder="Email"
                         required>
                 </div>

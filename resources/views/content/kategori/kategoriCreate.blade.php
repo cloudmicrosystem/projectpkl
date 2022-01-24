@@ -7,7 +7,7 @@
             <form action="{{ route('kategori.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="namaKategori">Nama</label>
+                    <label class="font-weight-bold" for="namaKategori">Nama *</label>
                     <input type="text" name="namaKategori" class="form-control form-control-solid" id="namaKategori"
                         placeholder="Nama" required>
                 </div>

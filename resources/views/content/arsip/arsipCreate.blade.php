@@ -15,12 +15,12 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="noArsip">Nomor Arsip</label>
+                    <label class="font-weight-bold" for="noArsip">Nomor Arsip *</label>
                     <input class="form-control form-control-solid" id="noArsip" type="text" placeholder="Nomor Arsip"
                         name="noArsip" required />
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="namaArsip">Nama Arsip</label>
+                    <label class="font-weight-bold" for="namaArsip">Nama Arsip *</label>
                     <input class="form-control form-control-solid" id="namaArsip" type="text" placeholder="Nama Arsip"
                         name="namaArsip" required />
                 </div>
@@ -29,9 +29,9 @@
                     <textarea class="form-control form-control-solid" id="deskripsi" rows="3" name="deskripsi"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="fileArsip">File Arsip</label>
+                    <label class="font-weight-bold" for="fileArsip">File Arsip *</label>
                     <input type="file" name="fileArsip" class="form-control form-control-file"
-                        accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+                        accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" required />
                 </div>
                 <div class="mb-0 float-right">
                     <a href="{{ route('arsip.index') }}" class="btn btn-warning">Cancel</a>

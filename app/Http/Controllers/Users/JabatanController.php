@@ -32,7 +32,7 @@ class JabatanController extends Controller
     {
         // Untuk redirect ke halaman create
 
-        return view('content.jabatan.jabatanCretae');
+        return view('content.jabatan.jabatanCreate');
     }
 
     /**
