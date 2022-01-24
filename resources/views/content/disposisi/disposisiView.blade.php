@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Disposisi')
 @section('konten')
+@include('layouts.errorField')
     <div class="card shadow mb-4">
         @if (Auth::user()->level != 'admin')
             <div class="card-header py-3">

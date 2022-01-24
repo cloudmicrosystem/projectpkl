@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Galeri untuk file
     Route::resource('/galeri', galeryController::class);
-    Route::get('/search', [galeryController::class, 'search'])->name('search');
+    // Route::get('/search', [galeryController::class, 'search'])->name('search');
 
     Route::get('/penerima', [DisposisiController::class, 'penerima'])->name('disposisiPenerima');
     Route::get('/penerima/{id}/{status}', [DisposisiController::class, 'updateStatus'])->name('disposisiUpdateStatus');

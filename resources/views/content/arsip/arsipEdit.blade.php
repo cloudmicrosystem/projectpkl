@@ -20,14 +20,14 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="noArsip">Nomor Arsip</label>
+                    <label class="font-weight-bold" for="noArsip">Nomor Arsip *</label>
                     <input class="form-control form-control-solid" id="noArsip" type="text" placeholder="Nomor Arsip"
-                        name="noArsip" value="{{ $arsip['0']->no_arsip }}""/>
+                        name="noArsip" value="{{ $arsip['0']->no_arsip }}" required/>
                 </div>
                 <div class=" mb-3">
-                    <label class="font-weight-bold" for="namaArsip">Nama Arsip</label>
+                    <label class="font-weight-bold" for="namaArsip">Nama Arsip *</label>
                     <input class="form-control form-control-solid" id="namaArsip" type="text" placeholder="Nama Arsip"
-                        name="namaArsip" value="{{ $arsip['0']->nama_arsip }}" />
+                        name="namaArsip" value="{{ $arsip['0']->nama_arsip }}" required />
                 </div>
                 <div class="mb-3">
                     <label class="font-weight-bold" for="deskripsi">Deskripsi</label>
@@ -35,9 +35,9 @@
                         name="deskripsi">{{ $arsip['0']->deskripsi }}</textarea>
                 </div>
                 <div class="mb-3">
-                    <label class="font-weight-bold" for="fileArsip">File Arsip</label>
+                    <label class="font-weight-bold" for="fileArsip">File Arsip *</label>
                     <input type="file" name="fileArsip" class="form-control form-control-file"
-                        accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+                        accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" required />
                 </div>
                 <div class="mb-0 float-right">
                     <a href="{{ route('arsip.index') }}" class="btn btn-warning">Cancel</a>

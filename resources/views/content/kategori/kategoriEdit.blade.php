@@ -12,11 +12,11 @@
                     <input type="text" name="namaKategori" class="form-control form-control-solid" id="namaKategori"
                         placeholder="Nama" value="{{ $kategori['0']->nama_kategori }}">
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="kodeKategori" class="font-weight-bold">Kode Kategori</label>
                     <input type="text" class="form-control form-control-solid" name="kodeKategori"
                         placeholder="Kode Kategori" value="">
-                </div>
+                </div> --}}
                 <div class="mb-0 float-right">
                     <a href="{{ route('kategori.index') }}" class="btn btn-warning">Cancel</a>
                     <button type="submit" class="btn btn-success">Submit</button>

@@ -20,7 +20,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Kode Kategori</th>
+                            {{-- <th>Kode Kategori</th> --}}
                             <th>Tanggal Buat</th>
                             <th>Action</th>
                         </tr>
@@ -28,11 +28,9 @@
                     <tbody>
                         @foreach ($kategori as $data)
                             <tr>
-                                <td>
-                                    {{ $loop->iteration }}
-                                </td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $data->nama_kategori }}</td>
-                                <td></td>
+                                {{-- <td></td> --}}
                                 <td>{{ $data->created_at }}</td>
                                 <td>
                                     {{-- <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a> --}}

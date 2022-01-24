@@ -36,7 +36,7 @@
                                     <td>{{ $data->nama_arsip }}</td>
                                     <td>{{ $data->deskripsi }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a>
+                                        <a href="{{url('/storage/arsip/', $data->file_arsip)}}" target="_blank" class="btn btn-info btn-sm float-left"><i class="fa fa-eye"></i></a>
                                         @if (Auth::user()->level != 'admin')
                                             <a href="{{ route('arsip.edit', $data->id) }}"
                                                 class="btn btn-warning btn-sm float-left mx-2"><i

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Disposisi')
 @section('konten')
-    @include('layouts.errorField')
+@include('layouts.errorField')
     <div class="card shadow mb-3">
         <div class="card-body">
             <form action="{{ route('disposisi.update', [$disposisi['0']->id]) }}" method="POST"

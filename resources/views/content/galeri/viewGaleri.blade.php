@@ -3,7 +3,8 @@
 @section('konten')
     <nav class="navbar navbar-light bg-light justify-content-between">
         <a class="navbar-brand"></a>
-        <form class="form-inline" method="get" action="{{ route('search') }}">
+        <form class="form-inline" method="GET" action="{{ route('galeri.store') }}">
+            @csrf
             <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
             </a>

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Pengajuan Surat')
 @section('konten')
-    @include('layouts.errorField')
+@include('layouts.errorField')
     <div class="card shadow">
         <div class="card-body">
             <form action="{{ route('disposisi.store') }}" method="POST" enctype="multipart/form-data">
