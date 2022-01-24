@@ -100,7 +100,7 @@ class DisposisiController extends Controller
     {
         if (Auth::user()->level != 'admin') {
             $disposisi = DB::select('SELECT (SELECT nama_arsip FROM arsip WHERE id=a.id_arsip)AS nama_surat,a.id,a.no_surat,a.asal_surat,a.diteruskan,a.status FROM disposisi AS a WHERE id = ?', [$id]);
-            $arsip = DB::select('SELECT * FROM arsip');
+            $arsip = DB::select('SELECT * FROM arsip WHERE id_user = ?', [Auth::user()->id]);
             $jabatan = DB::select('SELECT * FROM jabatan');
             //echo "<pre>"; print_r($disposisi);die;
             return view('content.disposisi.disposisiEdit')->with(compact('disposisi', 'arsip', 'jabatan'));
@@ -120,10 +120,10 @@ class DisposisiController extends Controller
         if (Auth::user()->level != 'admin') {
             // Ini function buat updatenya
             $data = DB::select("SELECT * FROM disposisi WHERE id = ?", [$id]);
-            $arsipId = $data['0']->id_arsip;
-            $noSurat = $data['0']->no_surat;
+            $arsipId = $request->arsipId;
+            $noSurat = $request->noSurat;
             $asalSurat = $data['0']->asal_surat;
-            $diteruskan = $data['0']->diteruskan;
+            $diteruskan = $request->ditujukan;
             $status = 0;
 
             DB::update("CALL sp_disposisi($id,'$arsipId','$noSurat','$asalSurat','$diteruskan','$status','');");
