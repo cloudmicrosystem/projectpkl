@@ -87,7 +87,7 @@ class DisposisiController extends Controller
         // dd($data); die;
         // echo "<pre>"; print_r($path); die;
         // return response()->file($path);
-        return view('content.disposisi.penerimaView')->with(compact('data'));
+        return view('content.disposisi.disposisiDetail')->with(compact('data'));
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Disposisi')
 @section('konten')
-@include('layouts.errorField')
+    @include('layouts.errorField')
     <div class="card shadow mb-3">
         <div class="card-body">
             <form action="{{ route('disposisi.update', [$disposisi['0']->id]) }}" method="POST"
@@ -17,6 +17,9 @@
                     <label class="font-weight-bold" for="ditujukan">Ditujukan Kepada</label>
                     <select class="form-control form-control-solid" id="ditujukan" name="ditujukan">
                         @foreach ($jabatan as $data)
+                            @if ($disposisi['0']->diteruskan == $data->id)
+                                <option value="{{ $data->id }}" selected>{{ $data->nama_jabatan }}</option>
+                            @endif
                             <option value="{{ $data->id }}">{{ $data->nama_jabatan }}</option>
                         @endforeach
                     </select>
