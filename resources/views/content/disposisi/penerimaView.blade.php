@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('title', 'Disposisi')
-@section('konten')
+@section('konten')  
 @include('layouts.errorField')
     <div class="card shadow mb-4">
         <div class="card-body">

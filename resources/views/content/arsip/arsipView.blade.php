@@ -27,10 +27,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $no = 1;
+                        @endphp
                         @foreach ($arsip as $data)
                             @if ($data->id_user == Auth::user()->id || Auth::user()->level == 'admin')
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $no++ }}</td>
                                     <td>{{ $data->nama_kategori }}</td>
                                     <td>{{ $data->no_arsip }}</td>
                                     <td>{{ $data->nama_arsip }}</td>
